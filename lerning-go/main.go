@@ -17,7 +17,7 @@ func main() {
 	fmt.Println("i is set to", i)
 
 	whatWasSaid, theOtherThingWasSaid := saySomething()
-	fmt.Println(whatWasSaid, theOtherThingWasSaid)
+	fmt.Println("The function retruned:", whatWasSaid, theOtherThingWasSaid)
 }
 
 func saySomething() (string, string) {
