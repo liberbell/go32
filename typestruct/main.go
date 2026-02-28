@@ -13,7 +13,7 @@ func main() {
 	saySomething("xxx")
 }
 
-func saySomething(s string) (string, string) {
+func saySomething(s3 string) (string, string) {
 	log.Println("s from saySomething func is:", s)
-	return s, "world"
+	return s3, "world"
 }
