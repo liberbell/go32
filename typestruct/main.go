@@ -21,17 +21,22 @@ type User struct {
 }
 
 func main() {
-	var s2 = "six"
+	// var s2 = "six"
 
-	s := "eight"
+	// s := "eight"
 
-	log.Println("s is:", s)
-	log.Println("s2 is:", s2)
+	// log.Println("s is:", s)
+	// log.Println("s2 is:", s2)
 
-	saySomething("xxx")
+	// saySomething("xxx")
+	user := User{
+		FirstName: "Eric",
+		LastName:  "Clapton",
+	}
+	log.Println(user.FirstName)
 }
 
-func saySomething(s3 string) (string, string) {
-	log.Println("s from saySomething func is:", s)
-	return s3, "world"
-}
+// func saySomething(s3 string) (string, string) {
+// 	log.Println("s from saySomething func is:", s)
+// 	return s3, "world"
+// }
