@@ -11,11 +11,13 @@ func main() {
 
 	// log.Println(myString, mySecondString, myInt)
 
-	myMap := make(map[string]string)
+	myMap := make(map[string]int)
 	// myMap["dog"] = "Samuel"
 	// myMap["other-dog"] = "Cassie"
 	// myMap["dog"] = "fido"
 
 	// log.Println(myMap["dog"])
 	// log.Println(myMap["other-dog"])
+	myMap["First"] = 1
+	myMap["Second"] = 2
 }
