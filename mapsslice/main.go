@@ -1,7 +1,5 @@
 package main
 
-import "log"
-
 func main() {
 	// var myString string
 	// var myInt int
@@ -14,9 +12,10 @@ func main() {
 	// log.Println(myString, mySecondString, myInt)
 
 	myMap := make(map[string]string)
-	myMap["dog"] = "Samuel"
-	myMap["other-dog"] = "Cassie"
+	// myMap["dog"] = "Samuel"
+	// myMap["other-dog"] = "Cassie"
+	// myMap["dog"] = "fido"
 
-	log.Println(myMap["dog"])
-	log.Println(myMap["other-dog"])
+	// log.Println(myMap["dog"])
+	// log.Println(myMap["other-dog"])
 }
