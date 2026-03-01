@@ -32,5 +32,6 @@ func main() {
 		FirstName: "Elton",
 		LastName:  "John",
 	}
-	log.Println(me)
+	myMap["me"] = me
+	log.Println(myMap["me"])
 }
