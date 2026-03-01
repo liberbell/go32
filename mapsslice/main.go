@@ -1,5 +1,7 @@
 package main
 
+import "log"
+
 func main() {
 	// var myString string
 	// var myInt int
@@ -20,4 +22,5 @@ func main() {
 	// log.Println(myMap["other-dog"])
 	myMap["First"] = 1
 	myMap["Second"] = 2
+	log.Println(myMap["First"], myMap["Second"])
 }
