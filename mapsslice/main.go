@@ -2,6 +2,11 @@ package main
 
 import "log"
 
+type User struct {
+	FirstName string
+	LastName  string
+}
+
 func main() {
 	// var myString string
 	// var myInt int
@@ -13,14 +18,19 @@ func main() {
 
 	// log.Println(myString, mySecondString, myInt)
 
-	myMap := make(map[string]int)
+	myMap := make(map[string]User)
 	// myMap["dog"] = "Samuel"
 	// myMap["other-dog"] = "Cassie"
 	// myMap["dog"] = "fido"
 
 	// log.Println(myMap["dog"])
 	// log.Println(myMap["other-dog"])
-	myMap["First"] = 1
-	myMap["Second"] = 2
-	log.Println(myMap["First"], myMap["Second"])
+	// myMap["First"] = 1
+	// myMap["Second"] = 2
+	// log.Println(myMap["First"], myMap["Second"])
+	me := User{
+		FirstName: "Elton",
+		LastName:  "John",
+	}
+	log.Println(me)
 }
