@@ -38,9 +38,9 @@ func main() {
 	// var myNewVar float32
 	// myNewVar = 11.1
 
-	var myString string
+	var mySlice []string
 
-	myString = "fish"
+	mySlice = append(mySlice, "")
 
-	log.Println(myString)
+	log.Println(mySlice)
 }
