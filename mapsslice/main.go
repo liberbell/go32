@@ -40,7 +40,9 @@ func main() {
 
 	var mySlice []string
 
-	mySlice = append(mySlice, "")
+	mySlice = append(mySlice, "Ed")
+	mySlice = append(mySlice, "George")
+	mySlice = append(mySlice, "Aletha")
 
 	log.Println(mySlice)
 }
