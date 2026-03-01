@@ -7,6 +7,8 @@ var s = "seven"
 func main() {
 	var s2 = "six"
 
+	s := "eight"
+
 	log.Println("s is:", s)
 	log.Println("s2 is:", s2)
 
