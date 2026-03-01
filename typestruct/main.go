@@ -30,8 +30,9 @@ func main() {
 
 	// saySomething("xxx")
 	user := User{
-		FirstName: "Eric",
-		LastName:  "Clapton",
+		FirstName:   "Eric",
+		LastName:    "Clapton",
+		PhoneNumber: "1 11 555 7777",
 	}
 	log.Println(user.FirstName, user.LastName, "BirthDate:", user.BirthDate)
 }
