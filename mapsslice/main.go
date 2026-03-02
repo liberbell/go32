@@ -1,5 +1,7 @@
 package main
 
+import "log"
+
 // type User struct {
 // 	FirstName string
 // 	LastName  string
@@ -52,4 +54,5 @@ func main() {
 	// log.Println(numbers[6:9])
 
 	names := []string{"one", "seven", "fish", "cat"}
+	log.Println(names)
 }
