@@ -3,13 +3,20 @@ package main
 import "log"
 
 func main() {
-	var isTrue bool
-	isTrue = true
+	// var isTrue bool
+	// isTrue = false
 
-	if isTrue {
-		log.Println("isTrue is: ", isTrue)
+	// if isTrue == true {
+	// 	log.Println("isTrue is: ", isTrue)
+	// } else {
+	// 	log.Println("isTrue is: ", isTrue)
+	// }
+
+	cat := "dog"
+	if cat == "cat" {
+		log.Println("cat is cat")
 	} else {
-		log.Println("isTrue is: ", isTrue)
+		log.Println("cat is not cat")
 	}
 
 }
