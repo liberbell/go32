@@ -24,11 +24,11 @@ func main() {
 	if myNum > 99 && !isTrue {
 		log.Println("My num is greater than 99 and isTrue is set to false")
 	} else if myNum < 100 && isTrue {
-		log.Println(("My num is less than 100 and isTrue is set to true"))
+		log.Println("My num is less than 100 and isTrue is set to true")
 	} else if myNum == 101 || isTrue {
 		log.Println("Mynum is set to 101 or isTrue is set to true")
 	} else if myNum > 1000 && isTrue == false {
-		log.Println()
+		log.Println("Mynum is greater than 1000 and isTrue is set to false")
 	}
 
 }
