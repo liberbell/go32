@@ -19,7 +19,7 @@ func main() {
 	// 	log.Println("cat is not cat")
 	// }
 	myNum := 100
-	isTrue := false
+	isTrue := true
 
 	if myNum > 99 && !isTrue {
 		log.Println("My num is greater than 99 and isTrue is set to false")
@@ -27,6 +27,8 @@ func main() {
 		log.Println(("My num is less than 100 and isTrue is set to true"))
 	} else if myNum == 101 || isTrue {
 		log.Println("Mynum is set to 101 or isTrue is set to true")
+	} else if myNum > 1000 && isTrue == false {
+		log.Println()
 	}
 
 }
