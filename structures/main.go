@@ -12,11 +12,17 @@ func main() {
 	// 	log.Println("isTrue is: ", isTrue)
 	// }
 
-	cat := "dog"
-	if cat == "cat" {
-		log.Println("cat is cat")
-	} else {
-		log.Println("cat is not cat")
+	// cat := "dog"
+	// if cat == "cat" {
+	// 	log.Println("cat is cat")
+	// } else {
+	// 	log.Println("cat is not cat")
+	// }
+	myNum := 100
+	isTrue := false
+
+	if myNum > 99 && isTrue == false {
+		log.Println("My num is greater than 99 and isTrue is set to True")
 	}
 
 }
