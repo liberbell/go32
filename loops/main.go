@@ -1,5 +1,9 @@
 package main
 
-func main() {
+import "log"
 
+func main() {
+	for i := 0; i <= 10; i++ {
+		log.Println("Loop count is: ", i)
+	}
 }
