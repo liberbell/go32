@@ -31,7 +31,7 @@ func main() {
 	// 	log.Println("Mynum is greater than 1000 and isTrue is set to false")
 	// }
 
-	myVar := "cat"
+	myVar := "elephant"
 
 	switch myVar {
 	case "cat":
@@ -40,6 +40,8 @@ func main() {
 		log.Println("myVar is set to dog")
 	case "fish":
 		log.Println("myVar is set to fish")
+	default:
+		log.Println("myVar is set to undefine")
 	}
 
 }
