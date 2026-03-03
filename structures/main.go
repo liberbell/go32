@@ -22,7 +22,7 @@ func main() {
 	isTrue := false
 
 	if myNum > 99 && !isTrue {
-		log.Println("My num is greater than 99 and isTrue is set to True")
+		log.Println("My num is greater than 99 and isTrue is set to false")
 	} else if myNum < 100 && isTrue {
 		log.Println(("My num is less than 100 and isTrue is set to true"))
 	}
