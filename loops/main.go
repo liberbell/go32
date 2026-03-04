@@ -12,6 +12,7 @@ func main() {
 	// animals["dog"] = "fido"
 	// animals["cat"] = "fluffy"
 	var firstLine = "Once upon a midnight breary"
+	firstLine = "x"
 
 	for i, l := range firstLine {
 		log.Println(i, l)
