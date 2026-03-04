@@ -13,7 +13,7 @@ func main() {
 	// animals["cat"] = "fluffy"
 	var firstLine = "Once upon a midnight breary"
 
-	for anymalType, animal := range firstLine {
-		log.Println(anymalType, animal)
+	for i, l := range firstLine {
+		log.Println(i, l)
 	}
 }
