@@ -10,6 +10,7 @@ func main() {
 	// animals := []string{"dog", "fish", "horse", "cow", "cat"}
 	animals := make(map[string]string)
 	animals["dog"] = "fido"
+	animals["cat"] = "fluffy"
 
 	for _, animal := range animals {
 		log.Println(animal)
