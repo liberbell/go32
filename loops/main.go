@@ -8,11 +8,12 @@ func main() {
 	// }
 
 	// animals := []string{"dog", "fish", "horse", "cow", "cat"}
-	animals := make(map[string]string)
-	animals["dog"] = "fido"
-	animals["cat"] = "fluffy"
+	// animals := make(map[string]string)
+	// animals["dog"] = "fido"
+	// animals["cat"] = "fluffy"
+	var firstLine = "Once upon a midnight breary"
 
-	for anymalType, animal := range animals {
+	for anymalType, animal := range firstLine {
 		log.Println(anymalType, animal)
 	}
 }
