@@ -25,6 +25,9 @@ func main() {
 
 	var users []User
 	users = append(users, User{"Elton", "John", "elton@example.com", 78})
+	users = append(users, User{"Bob", "Maryn", "bob@example.com", 78})
+	users = append(users, User{"Eric", "Clapton", "eric@example.com", 78})
+	users = append(users, User{"Elton", "John", "elton@example.com", 78})
 
 	for i, l := range ; i, l < count; i, l++ {
 		
