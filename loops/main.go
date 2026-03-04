@@ -7,7 +7,8 @@ func main() {
 	// 	log.Println("Loop count is: ", i)
 	// }
 
-	animals := []string{"dog", "fish", "horse", "cow", "cat"}
+	// animals := []string{"dog", "fish", "horse", "cow", "cat"}
+	animals := make(map[string]string)
 	for _, animal := range animals {
 		log.Println(animal)
 	}
