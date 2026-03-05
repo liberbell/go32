@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	// for i := 0; i <= 10; i++ {
 	// 	log.Println("Loop count is: ", i)
@@ -25,11 +27,11 @@ func main() {
 
 	var users []User
 	users = append(users, User{"Elton", "John", "elton@example.com", 78})
-	users = append(users, User{"Bob", "Maryn", "bob@example.com", 78})
-	users = append(users, User{"Eric", "Clapton", "eric@example.com", 78})
-	users = append(users, User{"Aretha", "Franclin", "arethaexample.com", 78})
+	users = append(users, User{"Bob", "Maryn", "bob@example.com", 54})
+	users = append(users, User{"Eric", "Clapton", "eric@example.com", 74})
+	users = append(users, User{"Aretha", "Franclin", "arethaexample.com", 81})
 
-	for i, l := range ; i, l < count; i, l++ {
-		
+	for _, l := range users {
+		fmt.Println(l.FirstLName, l.LastName, l.Email, l.Age)
 	}
 }
