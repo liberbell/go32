@@ -46,9 +46,9 @@ func (d *Dog) NumberOfLegs() int {
 }
 
 func (d *Gorilla) Says() string {
-	return "woof"
+	return "ugf"
 }
 
 func (d *Gorilla) NumberOfLegs() int {
-	return 4
+	return 2
 }
