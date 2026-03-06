@@ -24,6 +24,12 @@ func main() {
 		Breed: "Coagie",
 	}
 	PrintInfo(&dog)
+
+	gorilla := Gorilla{
+		Name:          "Bob",
+		Color:         "Brown",
+		NumberOfTeeth: 28,
+	}
 }
 
 func PrintInfo(a Animal) {
