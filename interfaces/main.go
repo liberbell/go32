@@ -30,6 +30,8 @@ func main() {
 		Color:         "Brown",
 		NumberOfTeeth: 28,
 	}
+
+	PrintInfo(&gorilla)
 }
 
 func PrintInfo(a Animal) {
@@ -40,5 +42,13 @@ func (d *Dog) Says() string {
 }
 
 func (d *Dog) NumberOfLegs() int {
+	return 4
+}
+
+func (d *Gorilla) Says() string {
+	return "woof"
+}
+
+func (d *Gorilla) NumberOfLegs() int {
 	return 4
 }
