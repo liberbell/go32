@@ -1,8 +1,8 @@
 package main
 
-import (
-	"log"
-)
+func calculateValue(intChan chan int) {
+
+}
 
 func main() {
 	// log.Println("Hello world")
@@ -12,9 +12,10 @@ func main() {
 	// myVar.TypeNumber = 100
 
 	// fmt.Println(myVar.TypeName, myVar.TypeNumber)
-	PrintText("Hi")
+	// PrintText("Hi")
+	intChan := make(chan int)
 }
 
-func PrintText(s string) {
-	log.Println(s)
-}
+// func PrintText(s string) {
+// 	log.Println(s)
+// }
