@@ -1,7 +1,12 @@
 package main
 
-func calculateValue(intChan chan int) {
+import "github.com/liber/myniceprogram/helpers"
 
+const numPool = 10
+
+func calculateValue(intChan chan int) {
+	randomNumber := helpers.RandomNumber(numPool)
+	intChan <- randomNumber
 }
 
 func main() {
