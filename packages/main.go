@@ -6,7 +6,7 @@ import (
 	"github.com/liber/myniceprogram/helpers"
 )
 
-const numPool = 10
+const numPool = 1000
 
 func calculateValue(intChan chan int) {
 	randomNumber := helpers.RandomNumber(numPool)
