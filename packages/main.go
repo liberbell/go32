@@ -1,9 +1,18 @@
 package main
 
-import "log"
+import (
+	"fmt"
+	"log"
+
+	"github.com/liber/myniceprogram/helpers"
+)
 
 func main() {
 	log.Println("Hello world")
 
-	var myVar SomeType
+	var myVar helpers.SomeType
+	myVar.TypeName = "somename"
+	myVar.TypeNumber = 100
+
+	fmt.Println(myVar.TypeName, myVar.TypeNumber)
 }
