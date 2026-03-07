@@ -1,6 +1,10 @@
 package main
 
-import "github.com/liber/myniceprogram/helpers"
+import (
+	"log"
+
+	"github.com/liber/myniceprogram/helpers"
+)
 
 const numPool = 10
 
@@ -19,6 +23,12 @@ func main() {
 	// fmt.Println(myVar.TypeName, myVar.TypeNumber)
 	// PrintText("Hi")
 	intChan := make(chan int)
+	defer close(intChan)
+
+	go calculateValue(intChan)
+
+	num := <-intChan
+	log.Println(num)
 }
 
 // func PrintText(s string) {
