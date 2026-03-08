@@ -2,6 +2,13 @@ package main
 
 import "testing"
 
+var tests = []struct {
+	name     string
+	divident float32
+	divisor  float32
+	expected float32
+}
+
 func TestDivide(t *testing.T) {
 	_, err := divide(10.0, 1.0)
 	if err != nil {
