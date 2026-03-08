@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 )
 
@@ -59,4 +60,6 @@ func main() {
 	if err != nil {
 		log.Println("Error marshalling: ", err)
 	}
+
+	fmt.Println(string(newJson))
 }
