@@ -36,4 +36,14 @@ func main() {
 	}
 
 	log.Printf("Unmarshalled: %v", unmarshalled)
+
+	var mySlice []Person
+	var m1 Person
+
+	m1.FirstName = "Elton"
+	m1.LastName = "John"
+	m1.HairColor = "Gold"
+	m1.HasDog = true
+
+	mySlice = append(mySlice, m1)
 }
