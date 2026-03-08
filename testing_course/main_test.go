@@ -9,11 +9,11 @@ var tests = []struct {
 	expected float32
 	isErr    bool
 }{
-	{"valid_data": 100.0, 10.0, 10.0, false},
-	{"invalid_data": 100.0, 0, 0, true},
+	{"valid_data", 100.0, 10.0, 10.0, false},
+	{"invalid_data", 100.0, 0, 0, true},
 }
 
-func TestDivision(t *testing.B) {
+func TestDivision(t *testing.T) {
 	for _, tt := range tests {
 		got, err := divide(tt.divident, tt.divisor)
 		if tt.isErr {
