@@ -7,6 +7,10 @@ var tests = []struct {
 	divident float32
 	divisor  float32
 	expected float32
+	isErr    bool
+}{
+	{"valid_data": 100.0, 10.0, 10.0, false}
+	{"invalid_data": 100.0, 0, 0, true}
 }
 
 func TestDivide(t *testing.T) {
