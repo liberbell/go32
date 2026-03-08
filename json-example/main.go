@@ -54,4 +54,9 @@ func main() {
 	m2.HasDog = true
 
 	mySlice = append(mySlice, m2)
+
+	newJson, err := json.MarshalIndent(mySlice, "", "   ")
+	if err != nil {
+		log.Println("Error marshalling: ", err)
+	}
 }
