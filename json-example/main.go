@@ -5,35 +5,66 @@ import (
 	"log"
 )
 
+// type Person struct {
+// 	FirstName string `json: "first_name"`
+// 	LastName  string `json: "last_name"`
+// 	HairColor string `json: "hair_color"`
+// 	HasDog    bool   `json: "has_dog"`
+// }
+
 type Person struct {
-	FirstName string `json: "first_name"`
-	LastName  string `json: "last_name"`
-	HairColor string `json: "hair_color"`
-	HasDog    bool   `json: "has_dog"`
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+	HairColor string `json:"hair_color"`
+	HasDog    bool   `json:"has_dog"`
 }
 
 func main() {
 
+	// myJson := `
+	// [
+	// 	{
+	// 		"first_name": "Eric",
+	// 		"last_name": "Clapton",
+	// 		"hair_color": "Gray",
+	// 		"has_dog": false
+	// 	},
+	// 	{
+	// 		"first_name": "Bob",
+	// 		"last_name": "Bary",
+	// 		"hair_color": "Black",
+	// 		"has_dog": true
+	// 	}
+	// ]`
+	// var unmarshalled []Person
+	// err := json.Unmarshal([]byte(myJson), &unmarshalled)
+	// if err != nil {
+	// 	log.Println("Error unmarshalling json", err)
+	// }
+
+	// log.Printf("Unmarshalled: %v", unmarshalled)
 	myJson := `
-	[
-		{
-			"first_name": "Eric",
-			"last_name": "Clapton",
-			"hair_color": "Gray",
-			"has_dog": false
-		},
-		{
-			"first_name": "Bob",
-			"last_name": "Bary",
-			"hair_color": "Black",
-			"has_dog": true
-		}
-	]`
+[
+    {
+        "first_name": "Clark",
+        "last_name": "Kent",
+        "hair_color": "black",
+        "has_dog": true
+    },
+    {
+        "first_name": "Bruce",
+        "last_name": "Wayne",
+        "hair_color": "black",
+        "has_dog": false
+    }
+]`
+
 	var unmarshalled []Person
+
 	err := json.Unmarshal([]byte(myJson), &unmarshalled)
 	if err != nil {
 		log.Println("Error unmarshalling json", err)
 	}
 
-	log.Printf("Unmarshalled: %v", unmarshalled)
+	log.Printf("unmarshalled: %v", unmarshalled)
 }
