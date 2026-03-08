@@ -8,3 +8,10 @@ func TestDivide(t *testing.T) {
 		t.Error("Got an error when we shoud not have")
 	}
 }
+
+func TestBadDivide(t *testing.T) {
+	_, err := divide(10.0, 0)
+	if err == nil {
+		t.Error("Did not got an error when we shoud not have")
+	}
+}
