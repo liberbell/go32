@@ -22,6 +22,12 @@ func About(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "This is the about page.")
 }
 
+func AddValuse(x, y int) int {
+	var sum var
+	sum = x + y
+	return sum
+}
+
 func main() {
 	// fmt.Println("Hello-world")
 	http.HandleFunc("/", Home)
