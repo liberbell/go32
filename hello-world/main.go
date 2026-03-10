@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func home(w http.ResponseWriter, r *http.Request) {
+func Home(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprintf(w, "This is the home page.")
 	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -18,14 +18,14 @@ func home(w http.ResponseWriter, r *http.Request) {
 	// })
 }
 
-func about(w http.ResponseWriter, r *http.Request) {
+func About(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "This is the about page.")
 }
 
 func main() {
 	// fmt.Println("Hello-world")
-	http.HandleFunc("/", home)
-	http.HandleFunc("/about", about)
+	http.HandleFunc("/", Home)
+	http.HandleFunc("/about", About)
 
 	_ = http.ListenAndServe(":8080", nil)
 }
