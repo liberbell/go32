@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"net/http"
 )
@@ -38,11 +39,12 @@ func AddValuse(x, y int) int {
 
 func DivideValuse(x, y float32) (float32, error) {
 	var result float32
-	if y == 0 {
-		return nil, 
+	if y <= 0 {
+		err := errors.New("cannot divide by zero")
+		return 0, err
 	}
-	result = x + y
-	return result
+	result = x / y
+	return result, nil
 }
 
 func main() {
