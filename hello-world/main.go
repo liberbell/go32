@@ -36,10 +36,13 @@ func AddValuse(x, y int) int {
 	return sum
 }
 
-func DivideValuse(x, y float32) float32 {
-	var sum float32
-	sum = x + y
-	return sum
+func DivideValuse(x, y float32) (float32, error) {
+	var result float32
+	if y == 0 {
+		return nil, 
+	}
+	result = x + y
+	return result
 }
 
 func main() {
