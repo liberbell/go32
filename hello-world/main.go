@@ -25,8 +25,19 @@ func About(w http.ResponseWriter, r *http.Request) {
 	_, _ = fmt.Fprintf(w, fmt.Sprintf("This is the about page and 2 + 2 is %d", sum))
 }
 
+func Divide(w http.ResponseWriter, r *http.Request) {
+	sum := AddValuse(2, 2)
+	_, _ = fmt.Fprintf(w, fmt.Sprintf("This is the about page and 2 + 2 is %d", sum))
+}
+
 func AddValuse(x, y int) int {
 	var sum int
+	sum = x + y
+	return sum
+}
+
+func DivideValuse(x, y float32) float32 {
+	var sum float32
 	sum = x + y
 	return sum
 }
@@ -35,8 +46,9 @@ func main() {
 	// fmt.Println("Hello-world")
 	http.HandleFunc("/", Home)
 	http.HandleFunc("/about", About)
+	http.HandleFunc("/divide", Divide)
 
-	fmt.Println(fmt.Sprintf("Starting Web server on port:%s", portNumber))
+	fmt.Println(fmt.Sprintf("Starting Web server on port %s", portNumber))
 
 	_ = http.ListenAndServe(portNumber, nil)
 }
