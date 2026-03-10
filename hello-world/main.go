@@ -18,9 +18,14 @@ func home(w http.ResponseWriter, r *http.Request) {
 	// })
 }
 
+func about(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "This is the about page.")
+}
+
 func main() {
 	// fmt.Println("Hello-world")
 	http.HandleFunc("/", home)
+	http.HandleFunc("/about", about)
 
 	_ = http.ListenAndServe(":8080", nil)
 }
