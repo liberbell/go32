@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"text/template"
 )
 
 const portNumber = ":8080"
@@ -53,4 +54,8 @@ func main() {
 	fmt.Println(fmt.Sprintf("Starting Web server on port %s", portNumber))
 
 	_ = http.ListenAndServe(portNumber, nil)
+}
+
+func renderTemplate(w http.ResponseWriter, tmpl string) {
+	parseTemplate, _ := template.ParseFiles("./templates/" + tmpl)
 }
