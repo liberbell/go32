@@ -9,11 +9,11 @@ import (
 const portNumber = ":8080"
 
 func Home(w http.ResponseWriter, r *http.Request) {
-
+	renderTemplate(w, "home.page.tmpl")
 }
 
 func About(w http.ResponseWriter, r *http.Request) {
-
+	renderTemplate(w, "about.page.tmpl")
 }
 
 // func Divide(w http.ResponseWriter, r *http.Request) {
@@ -45,6 +45,15 @@ func About(w http.ResponseWriter, r *http.Request) {
 // 	return result, nil
 // }
 
+func renderTemplate(w http.ResponseWriter, tmpl string) {
+	parseTemplate, _ := template.ParseFiles("./templates/" + tmpl)
+	err := parseTemplate.Execute(w, nil)
+	if err != nil {
+		fmt.Println("Error parsing template: ", err)
+		return
+	}
+}
+
 func main() {
 	// fmt.Println("Hello-world")
 	http.HandleFunc("/", Home)
@@ -54,12 +63,4 @@ func main() {
 	fmt.Println(fmt.Sprintf("Starting Web server on port %s", portNumber))
 
 	_ = http.ListenAndServe(portNumber, nil)
-}
-
-func renderTemplate(w http.ResponseWriter, tmpl string) {
-	parseTemplate, _ := template.ParseFiles("./templates/" + tmpl)
-	err := parseTemplate.Execute(w, nil)
-	if err != nil {
-		fmt.Println("Error parsing template: ", err)
-	}
 }
