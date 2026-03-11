@@ -27,8 +27,15 @@ func About(w http.ResponseWriter, r *http.Request) {
 }
 
 func Divide(w http.ResponseWriter, r *http.Request) {
-	sum := AddValuse(2, 2)
-	_, _ = fmt.Fprintf(w, fmt.Sprintf("This is the about page and 2 + 2 is %d", sum))
+	var x float32
+	var y float32
+	x = 100.0
+	y = 10.0
+	f, err := DivideValuse(x, y)
+	if err != nil {
+		fmt.Fprintf(w, "Cannot divide by zero")
+	}
+	_, _ = fmt.Fprintf(w, fmt.Sprintf("%f divided by %f is %f ", x, y, f))
 }
 
 func AddValuse(x, y int) int {
