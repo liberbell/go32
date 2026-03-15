@@ -44,8 +44,9 @@ func createTemplateCache() (map[string]*template.Template, error) {
 				return myCache, err
 			}
 		}
+		myCache[name] = ts
 	}
-
+	return myCache, nil
 }
 
 // var tc = make(map[string]*template.Template)
