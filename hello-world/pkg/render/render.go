@@ -2,18 +2,36 @@ package render
 
 import (
 	"fmt"
-	"log"
 	"net/http"
+	"path/filepath"
 	"text/template"
 )
 
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
+
+
 	parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
 	// parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
 	err := parsedTemplate.Execute(w, nil)
 	if err != nil {
 		fmt.Println("Error parsing template: ", err)
 	}
+}
+
+func createTemplateCache() (map[string]*template.Template, error) {
+	// myCache := make(map[string]*template.Template)
+	myCache := map[string]*template.Template()
+
+	pages, err := filepath.Glob("./templates/*.page.tmpl")
+	if err != nil {
+		return myCache, err
+	}
+	
+	for _, page := range pages {
+		name := filepath.Base(page)
+		ts, err := template.New(name)
+	}
+
 }
 
 // var tc = make(map[string]*template.Template)
