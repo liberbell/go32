@@ -37,6 +37,13 @@ func createTemplateCache() (map[string]*template.Template, error) {
 		if err != nil {
 			return myCache, err
 		}
+
+		if len(matches) > 0 {
+			ts, err = ts.ParseGlob("./templates/*.layout.tmpl")
+			if err != nil {
+				return myCache, err
+			}
+		}
 	}
 
 }
