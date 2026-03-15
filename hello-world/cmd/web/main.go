@@ -13,6 +13,8 @@ const portNumber = ":8080"
 func main() {
 	var app config.AppConfig
 
+	tc, err := render.createTemplateCache()
+
 	http.HandleFunc("/", handlers.Home)
 	http.HandleFunc("/about", handlers.About)
 	// http.HandleFunc("/divide", Divide)
