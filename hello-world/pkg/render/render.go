@@ -9,7 +9,6 @@ import (
 
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
 
-
 	parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
 	// parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
 	err := parsedTemplate.Execute(w, nil)
@@ -26,7 +25,7 @@ func createTemplateCache() (map[string]*template.Template, error) {
 	if err != nil {
 		return myCache, err
 	}
-	
+
 	for _, page := range pages {
 		name := filepath.Base(page)
 		ts, err := template.New(name).ParseFiles(page)
@@ -80,4 +79,3 @@ func createTemplateCache() (map[string]*template.Template, error) {
 
 // 	tc[t] = tmpl
 // 	return nil
-}
