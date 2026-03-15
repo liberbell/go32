@@ -42,4 +42,10 @@ func createTemplateCache(t string) error {
 	}
 
 	tmpl, err := template.ParseFiles(templates...)
+	if err != nil {
+		return err
+	}
+
+	tc[t] = tmpl
+	return nil
 }
