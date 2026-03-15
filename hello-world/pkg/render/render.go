@@ -2,12 +2,23 @@ package render
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"path/filepath"
 	"text/template"
 )
 
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
+
+	tc, err := createTemplateCache()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	t, ok := tc[tmpl]
+	if !ok {
+		log.Fatal(err)
+	}
 
 	parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
 	// parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
