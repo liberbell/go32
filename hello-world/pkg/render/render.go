@@ -13,7 +13,6 @@ func RenderTemplateTest(w http.ResponseWriter, tmpl string) {
 	err := parsedTemplate.Execute(w, nil)
 	if err != nil {
 		fmt.Println("Error parsing template: ", err)
-		return
 	}
 }
 
@@ -28,7 +27,7 @@ func RenderTemplate(w http.ResponseWriter, t string) {
 		log.Println("creating template and adding to cache")
 		err = createTemplateCache(t)
 		if err != nil {
-			log.Println(err)
+			log.Println(err, "no1")
 		}
 	} else {
 		log.Println("using cached template")
@@ -44,7 +43,7 @@ func RenderTemplate(w http.ResponseWriter, t string) {
 
 func createTemplateCache(t string) error {
 	templates := []string{
-		fmt.Sprintf("./%s", t),
+		fmt.Sprintf("./templates/%s", t),
 		"./templates/base.layout.tmpl",
 	}
 
