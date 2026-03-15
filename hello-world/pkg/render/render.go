@@ -2,6 +2,7 @@ package render
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"text/template"
 )
@@ -21,4 +22,11 @@ var tc = make(map[string]*template.Template)
 func RenderTemplateTest(w http.ResponseWriter, t string) {
 	var tmpl *template.Template
 	var err error
+
+	_, inMap := tc[t]
+	if !inMap {
+
+	} else {
+		log.Println("using cached template")
+	}
 }
