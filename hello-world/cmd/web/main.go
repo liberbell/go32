@@ -4,13 +4,15 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/liber/myniceprogram/pkg/config"
 	"github.com/liber/myniceprogram/pkg/handlers"
 )
 
 const portNumber = ":8080"
 
 func main() {
-	// fmt.Println("Hello-world")
+	var app config.AppConfig
+
 	http.HandleFunc("/", handlers.Home)
 	http.HandleFunc("/about", handlers.About)
 	// http.HandleFunc("/divide", Divide)
