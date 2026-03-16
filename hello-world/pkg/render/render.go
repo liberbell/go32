@@ -20,14 +20,11 @@ func NewTemplates(a *config.AppConfig) {
 
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
 
-	tc, err := CreateTemplateCache()
-	if err != nil {
-		log.Fatal(err)
-	}
+	tc := app.TemplateCache
 
 	t, ok := tc[tmpl]
 	if !ok {
-		log.Fatal(err)
+		log.Fatal("Could not create template cache")
 	}
 
 	buf := new(bytes.Buffer)
