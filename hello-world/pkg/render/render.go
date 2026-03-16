@@ -24,12 +24,12 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 
 	t, ok := tc[tmpl]
 	if !ok {
-		log.Fatal("Could not create template cache")
+		log.Fatal("Could not get template from template cache")
 	}
 
 	buf := new(bytes.Buffer)
 
-	err = t.Execute(buf, nil)
+	err := t.Execute(buf, nil)
 	if err != nil {
 		log.Println(err)
 	}
