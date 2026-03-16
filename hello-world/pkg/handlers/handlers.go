@@ -3,8 +3,15 @@ package handlers
 import (
 	"net/http"
 
+	"github.com/liber/myniceprogram/pkg/config"
 	"github.com/liber/myniceprogram/pkg/render"
 )
+
+var Repo *Repository
+
+type Repository struct {
+	App *config.AppConfig
+}
 
 func Home(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, "home.page.tmpl")
