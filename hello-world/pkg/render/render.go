@@ -6,7 +6,17 @@ import (
 	"net/http"
 	"path/filepath"
 	"text/template"
+
+	"github.com/liber/myniceprogram/pkg/config"
 )
+
+var functions = template.FuncMap{}
+
+var app *config.AppConfig
+
+func NewTemplate(a *config.AppConfig) {
+	app = a
+}
 
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
 
