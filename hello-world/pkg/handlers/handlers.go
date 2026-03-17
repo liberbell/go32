@@ -39,5 +39,8 @@ func (m Repository) Home(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m Repository) About(w http.ResponseWriter, r *http.Request) {
+	stringMap := make(map[string]string)
+	stringMap["test"] = "Hello again."
+
 	render.RenderTemplate(w, "about.page.tmpl", &TemplateData{})
 }
