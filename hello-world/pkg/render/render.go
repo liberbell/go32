@@ -8,6 +8,7 @@ import (
 	"text/template"
 
 	"github.com/liber/myniceprogram/pkg/config"
+	"github.com/liber/myniceprogram/pkg/handlers"
 )
 
 var functions = template.FuncMap{}
@@ -18,7 +19,7 @@ func NewTemplates(a *config.AppConfig) {
 	app = a
 }
 
-func RenderTemplate(w http.ResponseWriter, tmpl string) {
+func RenderTemplate(w http.ResponseWriter, tmpl string, td handlers.TemplateData) {
 	var tc map[string]*template.Template
 	if app.UseCache {
 		tc = app.TemplateCache
