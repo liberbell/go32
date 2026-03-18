@@ -8,7 +8,7 @@ import (
 	"text/template"
 
 	"github.com/liber/myniceprogram/pkg/config"
-	"github.com/liber/myniceprogram/pkg/handlers"
+	"github.com/liber/myniceprogram/pkg/models"
 )
 
 var functions = template.FuncMap{}
@@ -19,7 +19,7 @@ func NewTemplates(a *config.AppConfig) {
 	app = a
 }
 
-func RenderTemplate(w http.ResponseWriter, tmpl string, td *handlers.TemplateData) {
+func RenderTemplate(w http.ResponseWriter, tmpl string, td models.TemplateData) {
 	var tc map[string]*template.Template
 	if app.UseCache {
 		tc = app.TemplateCache
@@ -73,42 +73,3 @@ func CreateTemplateCache() (map[string]*template.Template, error) {
 	}
 	return myCache, nil
 }
-
-// var tc = make(map[string]*template.Template)
-
-// func RenderTemplate(w http.ResponseWriter, t string) {
-// 	var tmpl *template.Template
-// 	var err error
-
-// 	_, inMap := tc[t]
-// 	if !inMap {
-// 		log.Println("creating template and adding to cache")
-// 		err = createTemplateCache(t)
-// 		if err != nil {
-// 			log.Println(err, "no1")
-// 		}
-// 	} else {
-// 		log.Println("using cached template")
-// 	}
-
-// 	tmpl = tc[t]
-
-// 	err = tmpl.Execute(w, nil)
-// 	if err != nil {
-// 		log.Println(err)
-// 	}
-// }
-
-// func createTemplateCache(t string) error {
-// 	templates := []string{
-// 		fmt.Sprintf("./templates/%s", t),
-// 		"./templates/base.layout.tmpl",
-// 	}
-
-// 	tmpl, err := template.ParseFiles(templates...)
-// 	if err != nil {
-// 		return err
-// 	}
-
-// 	tc[t] = tmpl
-// 	return nil
