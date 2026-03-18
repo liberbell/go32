@@ -4,19 +4,9 @@ import (
 	"net/http"
 
 	"github.com/liber/myniceprogram/pkg/config"
+	"github.com/liber/myniceprogram/pkg/models"
 	"github.com/liber/myniceprogram/pkg/render"
 )
-
-type TemplateData struct {
-	StringMap map[string]string
-	IntMap    map[string]int
-	FloatMap  map[string]float32
-	Data      map[string]interface{}
-	CSRFToken string
-	Flash     string
-	Warning   string
-	Error     string
-}
 
 var Repo *Repository
 
@@ -35,14 +25,14 @@ func NewHandlers(r *Repository) {
 }
 
 func (m Repository) Home(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "home.page.tmpl", &TemplateData{})
+	render.RenderTemplate(w, "home.page.tmpl", &models.TemplateData{})
 }
 
 func (m Repository) About(w http.ResponseWriter, r *http.Request) {
 	stringMap := make(map[string]string)
 	stringMap["test"] = "Hello again."
 
-	render.RenderTemplate(w, "about.page.tmpl", &TemplateData{
+	render.RenderTemplate(w, "about.page.tmpl", &models.TemplateData{
 		StringMap: stringMap,
 	})
 }
