@@ -31,5 +31,9 @@ func main() {
 	// fmt.Println(fmt.Sprintf("Starting Web server on port %s", portNumber))
 	fmt.Printf("Starting Web server on port %s", portNumber)
 
-	_ = http.ListenAndServe(portNumber, nil)
+	// _ = http.ListenAndServe(portNumber, nil)
+	srv := &http.Server{
+		Addr:    portNumber,
+		Handler: routes(&app),
+	}
 }
