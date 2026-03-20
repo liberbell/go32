@@ -25,10 +25,8 @@ func main() {
 
 	repo := handlers.NewRepo(&app)
 	handlers.NewHandlers(repo)
-
 	render.NewTemplates(&app)
 
-	// fmt.Println(fmt.Sprintf("Starting Web server on port %s", portNumber))
 	fmt.Printf("Starting Web server on port %s", portNumber)
 
 	// _ = http.ListenAndServe(portNumber, nil)
