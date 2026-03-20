@@ -36,4 +36,7 @@ func main() {
 		Addr:    portNumber,
 		Handler: routes(&app),
 	}
+
+	err = srv.ListenAndServe()
+	log.Fatal(err)
 }
