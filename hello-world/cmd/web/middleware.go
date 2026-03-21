@@ -14,6 +14,6 @@ func WriteToConsole(next http.Handler) http.Handler {
 	})
 }
 
-func NoSurf(next http.Handler) {
+func NoSurf(next http.Handler) http.Handler {
 	csrfHandler := nosurf.New(next)
 }
