@@ -17,6 +17,7 @@ const portNumber = ":8080"
 func main() {
 	var app config.AppConfig
 
+<<<<<<< HEAD
 	app.InProduction = false
 
 	session := scs.New()
