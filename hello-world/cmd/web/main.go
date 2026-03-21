@@ -14,10 +14,9 @@ import (
 
 const portNumber = ":8080"
 
-func main() {
-	var app config.AppConfig
+var app config.AppConfig
 
-<<<<<<< HEAD
+func main() {
 	app.InProduction = false
 
 	session := scs.New()
