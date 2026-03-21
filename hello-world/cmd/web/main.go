@@ -15,7 +15,7 @@ import (
 const portNumber = ":8080"
 
 var app config.AppConfig
-var sesson *scs.SessionManager
+var session *scs.SessionManager
 
 func main() {
 	app.InProduction = false
@@ -26,7 +26,7 @@ func main() {
 	session.Cookie.SameSite = http.SameSiteLaxMode
 	session.Cookie.Secure = app.InProduction
 
-	app.Session = sesson
+	app.Session = session
 
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
