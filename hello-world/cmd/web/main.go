@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/alexedwards/scs/v2"
 	"github.com/liber/myniceprogram/pkg/config"
@@ -17,6 +18,8 @@ func main() {
 	var app config.AppConfig
 
 	session := scs.New()
+	session.Lifetime = 24 * time.Hour
+	session.Cookie.Persist = true
 
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
