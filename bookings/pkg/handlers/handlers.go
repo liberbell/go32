@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/liber/myniceprogram/pkg/config"
-	"github.com/liber/myniceprogram/pkg/models"
-	"github.com/liber/myniceprogram/pkg/render"
+	"github.com/liber/bookings/pkg/config"
+	"github.com/liber/bookings/pkg/models"
+	"github.com/liber/bookings/pkg/render"
 )
 
 var Repo *Repository
