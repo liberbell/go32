@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"text/template"
 
-	"github.com/liber/myniceprogram/pkg/config"
-	"github.com/liber/myniceprogram/pkg/models"
+	"github.com/liber/bookings/pkg/config"
+	"github.com/liber/bookings/pkg/models"
 )
 
 var functions = template.FuncMap{}
