@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/liber/myniceprogram/pkg/config"
-	"github.com/liber/myniceprogram/pkg/handlers"
-	"github.com/liber/myniceprogram/pkg/render"
+	"github.com/liber/bookings/pkg/config"
+	"github.com/liber/bookings/pkg/handlers"
+	"github.com/liber/bookings/pkg/render"
 )
 
 const portNumber = ":8080"
