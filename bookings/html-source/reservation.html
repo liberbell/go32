@@ -62,13 +62,13 @@
             </div>
         </nav>
 
-        <div class="container">
-            
+
+        <div class="container">       
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <h1 class="mt-5">Serch for Availability</h1>
-                    <form action="reservation.html" method="get">
+                    <form action="reservation.html" method="get" novalidate class="needs-validation">
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
@@ -117,6 +117,25 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 
         <script>
+            (() => {
+                'use strict'
+
+                const forms = document.querySelectorAll('.needs-validation')
+                Array.from(forms).forEach(form => {
+                    form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                    }, false)
+                })
+            })()
+
+
+
+
             console.log("I'm printing from javascript");
 
             // let myEl = document.getElementById("myParagraph");
