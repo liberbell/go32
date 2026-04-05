@@ -149,15 +149,25 @@
                     text: 'Do you want to continue',
                     icon: 'error',
                     confirmButtonText: 'Cool'
-                })
-            })
+                });
+            });
 
             function notify(msg, msgType) {
                 notie.alert({
                     type: msgType,
                     text: msg,
-                })
-            }
+                });
+            };
+
+            function notifyModal(title, text, icon, confirmButton) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Do you want to continue',
+                    icon: 'error',
+                    confirmButtonText: 'Cool'
+                });
+            };
+
         </script>
     </body>
 </html>
