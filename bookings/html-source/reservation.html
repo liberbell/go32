@@ -149,23 +149,9 @@
                 }
             })
 
-            function alertSuccess() {
+            function notify(msg, msgType) {
                 notie.alert({
-                    type: "success",
-                    text: msg,
-                })
-            }
-
-            function alertError() {
-                notie.alert({
-                    type: "error",
-                    text: msg,
-                })
-            }
-
-            function alertWarning() {
-                notie.alert({
-                    type: "warning",
+                    type: msgType,
                     text: msg,
                 })
             }
