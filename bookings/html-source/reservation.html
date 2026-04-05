@@ -21,9 +21,10 @@
                 max-width: 50%;
             }
 
-            .redText {
-                color: red;
+            .notie-container {
+                box-shadow: none;
             }
+            
         </style>
     </head>
     <body>
@@ -141,7 +142,7 @@
             // let myEl = document.getElementById("myParagraph");
             // myEl.classList.add("redText");
             document.getElementById("colorButton").addEventListener("click", function() {
-                notify("This is my message", "success")
+                notify("This is my message", "warning")
             })
 
             function notify(msg, msgType) {
