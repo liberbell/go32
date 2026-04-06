@@ -149,7 +149,7 @@
                 // notifyModal("Title", "This is text", "error", "Close")
 
                 // attention.success()
-                attention.toast({msg: "Hello world", })
+                attention.toast({msg: "Hello world", icon: "error"})
             });
 
             function notify(msg, msgType) {
@@ -176,13 +176,13 @@
                         position = "top-end",
                     } = c;
 
-                    const Total = Swal.mixin({
+                    Swal.mixin({
                         toast: true,
                         title: msg,
                         position: position,
                         icon: icon,
                         showConfirmButton: false,
-                        timer: 3000,
+                        timer: 2000,
                         timerProgressBar: true,
                         didOpen: (toast) => {
                             toast.onmouseenter = Swal.stopTimer;
