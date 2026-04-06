@@ -144,12 +144,7 @@
             // myEl.classList.add("redText");
             document.getElementById("colorButton").addEventListener("click", function() {
                 // notify("This is my message", "warning")
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Do you want to continue',
-                    icon: 'error',
-                    confirmButtonText: 'Cool'
-                });
+                notifyModal("Title", "This is text", "error", "Close")
             });
 
             function notify(msg, msgType) {
