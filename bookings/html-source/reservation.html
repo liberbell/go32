@@ -119,6 +119,8 @@
         <script src="https://unpkg.com/notie"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
+            let attention = Prompt();
+
             (() => {
                 'use strict';
 
@@ -144,7 +146,9 @@
             // myEl.classList.add("redText");
             document.getElementById("colorButton").addEventListener("click", function() {
                 // notify("This is my message", "warning")
-                notifyModal("Title", "This is text", "error", "Close")
+                // notifyModal("Title", "This is text", "error", "Close")
+
+                attention.success()
             });
 
             function notify(msg, msgType) {
@@ -163,9 +167,26 @@
                 });
             };
 
-            function Prompt(params) {
-                let toast = function() {
-                    console.log("clicked button and got toast");
+            function Prompt() {
+                let toast = function(c) {
+                    const {
+
+                    } = c;
+                    
+                    const Total = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
+                    }).fire({
+                        icon: "success",
+                        title: "Signed in successfully"
+                    });
                 }
 
                 let success = function() {
@@ -174,6 +195,7 @@
 
                 return {
                     toast: toast,
+                    success: success,
                 }
             }
 
