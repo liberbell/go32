@@ -208,9 +208,26 @@
                     });
                 }
 
+                let error = function(c) {
+                    const {
+                        msg = "",
+                        title = "",
+                        text = "",
+                        footer = "",
+                    } = c;
+
+                    Swal.fire({
+                        icon: "error",
+                        title: title,
+                        text: msg,
+                        footer: footer,
+                    });
+                }
+
                 return {
                     toast: toast,
                     success: success,
+                    error: error,
                 }
             }
 
