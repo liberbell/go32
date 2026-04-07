@@ -149,8 +149,8 @@
                 // notifyModal("Title", "This is text", "error", "Close")
 
                 // attention.success()
-                // attention.toast({msg: "Hello world", icon: "error"})
-                attention.success({msg: "Hello world"})
+                // attention.toast({msg: "Hello world", icon: "error"});
+                attention.success({msg: "Hello world"});
             });
 
             function notify(msg, msgType) {
@@ -203,7 +203,7 @@
                     Swal.fire({
                         icon: "success",
                         title: title,
-                        text: text,
+                        text: msg,
                         footer: footer,
                     });
                 }
