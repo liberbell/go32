@@ -192,11 +192,18 @@
                 }
 
                 let success = function(c) {
+                    const {
+                        msg = "",
+                        title = "",
+                        text = "",
+                        footer = "",
+                    } = c;
+
                     Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: "Something went wrong!",
-                        footer: "<a href=\"#\">Why do I have this issue?</a>"
+                        icon: "success",
+                        title: title,
+                        text: text,
+                        footer: footer,
                     });
                 }
 
