@@ -151,6 +151,7 @@
                                 <div class="col">
                                     <input required class="form-control" type="text" name="start" id="start" placeholder="Arrival">
                                 </div>
+                                <br>
                                 <div class="col">
                                     <input required class="form-control" type="text" name="end" id="end" placeholder="Departure">
                                 </div>
@@ -245,6 +246,9 @@
                         backdrop: false,
                         focusConfirm: false,
                         showCancelButton: true,
+                        willOpen: () => {
+                            const elem = document.getElementById("researvation-dates-modal")
+                        },
                         preConfirm: () => {
                             return [document.getElementById("start").value, document.getElementById("end").value];
                         }
