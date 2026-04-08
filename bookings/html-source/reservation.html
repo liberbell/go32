@@ -248,6 +248,10 @@
                         showCancelButton: true,
                         willOpen: () => {
                             const elem = document.getElementById("researvation-dates-modal")
+                            const rp = new DateRangePicker(elem, {
+                                format: "yyyy-mm-dd",
+                                showOnFocus: true,
+                            })
                         },
                         preConfirm: () => {
                             return [document.getElementById("start").value, document.getElementById("end").value];
