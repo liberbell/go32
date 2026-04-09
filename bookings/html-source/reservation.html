@@ -262,7 +262,8 @@
                             return [document.getElementById("start").value, document.getElementById("end").value]
                         },
                         didOpen: () => {
-                            document.getElementById("start").removeAttribute("disabled")
+                            document.getElementById("start").removeAttribute("disabled");
+                            document.getElementById("end").removeAttribute("disabled");
                         }
                     });
                     if (formValues) Swal.fire(JSON.stringify(formValues)); 
