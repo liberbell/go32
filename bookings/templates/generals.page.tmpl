@@ -20,7 +20,7 @@
             </div>
             <div class="row">
                 <div class="col text-center">
-                    <a href="/search-availability" class="btn btn-success">Check Availability</a>
+                    <a id="check-availability-button" href="#!" class="btn btn-success">Check Availability</a>
                 </div>
             </div>
         </div>
@@ -32,6 +32,25 @@
 
 {{define "js"}}
     <script>
-        console.log("Hello general")
+        document.getElementById("colorButton").addEventListener("click", function() {
+            let html = `
+            <form id="check-availability-form" action="" method="post" novalidate class="needs-validation">
+                <div class="form-row">
+                    <div class="col">
+                        <div class="form-row" id="reservation-dates-modal">
+                            <div class="col">
+                                <input disabled required class="form-control" type="text" name="start" id="start" placeholder="Arrival">
+                            </div>
+                            <br>
+                            <div class="col">
+                                <input disabled required class="form-control" type="text" name="end" id="end" placeholder="Departure">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            `;
+            attention.custom({msg: html, title: "Choose your dates"});
+        });
     </script>
 {{end}}
