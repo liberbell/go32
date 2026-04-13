@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"text/template"
 
+	"github.com/justinas/nosurf"
 	"github.com/liber/bookings/pkg/config"
 	"github.com/liber/bookings/pkg/models"
 )
@@ -20,6 +21,7 @@ func NewTemplates(a *config.AppConfig) {
 }
 
 func AddDefaultData(td *models.TemplateData) *models.TemplateData {
+	td.CSRFToken = nosurf.Token()
 	return td
 }
 
