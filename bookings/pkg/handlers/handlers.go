@@ -73,6 +73,11 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", start, end)))
 }
 
+type jsonResponse struct {
+	OK      bool   `json: "ok"`
+	Message string `json: "message"`
+}
+
 func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 	start := r.Form.Get("start")
 	end := r.Form.Get("end")
