@@ -55,6 +55,12 @@
                 title: "Choose your dates",
                 callback: function(result) {
                     console.log("called");
+
+                    fetch("/search-availability")
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                        })
                 }
             });
         });
