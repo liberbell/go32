@@ -56,7 +56,7 @@
                 callback: function(result) {
                     console.log("called");
 
-                    fetch("/search-availability")
+                    fetch("/search-availability-json")
                         .then(response => response.json())
                         .then(data => {
                             console.log(data);
