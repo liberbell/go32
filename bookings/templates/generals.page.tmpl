@@ -50,7 +50,13 @@
                 </div>
             </form>
             `;
-            attention.custom({msg: html, title: "Choose your dates"});
+            attention.custom({
+                msg: html,
+                title: "Choose your dates",
+                callback: function(result) {
+                    console.log("called");
+                }
+            });
         });
     </script>
 {{end}}
