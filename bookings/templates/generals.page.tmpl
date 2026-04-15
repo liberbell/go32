@@ -58,6 +58,7 @@
 
                     let form = document.getElementById("check-availability-form");
                     let formData = new FormData(from);
+                    formData.append("csrf_token", "{{.CSRFToken}}");
 
                     fetch("/search-availability-json")
                         .then(response => response.json())
