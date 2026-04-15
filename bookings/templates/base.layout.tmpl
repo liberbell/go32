@@ -171,7 +171,7 @@
                             title = "",
                         } = c;
 
-                        const { value: formValues } = await Swal.fire({
+                        const { value: result } = await Swal.fire({
                             title: title,
                             html: msg,
                             backdrop: false,
@@ -192,7 +192,11 @@
                                 document.getElementById("end").removeAttribute("disabled");
                             }
                         });
-                        if (formValues) Swal.fire(JSON.stringify(formValues)); 
+                        if (result) {
+                            if (result.dismiss !== Swal.DismissReason.cancel) {
+                                
+                            }
+                        }
                     }
 
                     return {
