@@ -53,6 +53,15 @@
             attention.custom({
                 msg: html,
                 title: "Choose your dates",
+                
+                willOpen: () => {
+                                const elem = document.getElementById("reservation-dates-modal")
+                                const rp = new DateRangePicker(elem, {
+                                    format: "yyyy-mm-dd",
+                                    showOnFocus: true,
+                                });
+                },
+
                 callback: function(result) {
                     console.log("called");
 
