@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/liber/bookings/internal/config"
+	"github.com/liber/bookings/internal/forms"
 	"github.com/liber/bookings/internal/models"
 	"github.com/liber/bookings/internal/render"
 )
@@ -53,6 +54,12 @@ func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, r, "make-reservation.page.tmpl", &models.TemplateData{
+		Form: forms.New(nil)
+	})
+}
+
+func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, r, "make-reservation.page.tmpl", &models.TemplateData{})
 }
 
