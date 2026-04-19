@@ -72,6 +72,9 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		Email:     r.Form.Get("email"),
 		Phone:     r.Form.Get("phone"),
 	}
+
+	form := forms.New(r.PostForm)
+	form.Has("first_name")
 }
 
 func (m *Repository) Generals(w http.ResponseWriter, r *http.Request) {
