@@ -1,6 +1,7 @@
 {{template "base" .}}
 
 {{define "content"}}
+    {{$res := index .Data "reservation"}}
     <div class="container">
         <div class="row">
             <div class="col">
@@ -11,23 +12,23 @@
                     <tbody>
                         <tr>
                             <td>Name:</td>
-                            <td></td>
+                            <td>{{$res.firstName}}</td>
                         </tr>
                         <tr>
                             <td>Arrival:</td>
-                            <td></td>
+                            <td>{{$res.lastName}}</td>
                         </tr>
                         <tr>
                             <td>Departure:</td>
-                            <td></td>
+                            <td>{{$res.departure}}</td>
                         </tr>
                         <tr>
                             <td>Email:</td>
-                            <td></td>
+                            <td>{{$res.email}}</td>
                         </tr>
                         <tr>
                             <td>Phone:</td>
-                            <td></td>
+                            <td>{{$res.phone}}</td>
                         </tr>
                     </tbody>
                 </table>
