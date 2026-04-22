@@ -137,5 +137,14 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, r, "reservation-summary.page.tmpl", &models.TemplateData{})
+	reservation, ok := m.App.Session.Get(r.Context(), "reservation").(models.Reservation)
+	if !ok {
+		log.Println("Cannot get item from session")
+		return
+	}
+	data := make(map[string]interface{})
+	
+	render.RenderTemplate(w, r, "reservation-summary.page.tmpl", &models.TemplateData{
+		Data: ,
+	})
 }
