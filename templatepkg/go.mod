@@ -2,4 +2,8 @@ module github.com/liber
 
 go 1.25.6
 
-require github.com/bmizerany/pat v0.0.0-20210406213842-e4b6760bdd6f // indirect
+require (
+	github.com/CloudyKit/fastprinter v0.0.0-20200109182630-33d98a066a53 // indirect
+	github.com/CloudyKit/jet/v6 v6.3.2 // indirect
+	github.com/bmizerany/pat v0.0.0-20210406213842-e4b6760bdd6f // indirect
+)
