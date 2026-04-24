@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/CloudyKit/jet/v6"
@@ -44,4 +45,7 @@ func SendData(w http.ResponseWriter, r *http.Request) {
 
 func renderPage(w http.ResponseWriter, tmpl string, data jet.VarMap) error {
 	view, err := views.GetTemplate(tmpl)
+	if err != nil {
+		log.Println("Unexpected template error:", err.Error())
+	}
 }
