@@ -37,4 +37,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 
 func SendData(w http.ResponseWriter, r *http.Request) {
 	err := renderPage(w, "send.jet", nil)
+	if err != nil {
+		_, _ = fmt.Fprint(w, "Error executing template:", err)
+	}
 }
