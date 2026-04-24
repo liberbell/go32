@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/CloudyKit/jet/v6"
@@ -18,5 +19,16 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	dow := []string{
 		"Sunday",
 		"Monday",
+		"Thuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday",
+		"Sarturday",
+	}
+
+	data.Set("dow", dow)
+	err := renderPage(w, "home.jet", data)
+	if err != nil {
+		_, _ = fmt.Fprint(w, "Error executing template:", err)
 	}
 }
