@@ -14,6 +14,7 @@ var views = jet.NewSet{
 
 func Home(w http.ResponseWriter, r *http.Request) {
 	data := make(jet.VarMap)
+
 	data.Set("user_id", 1)
 	data.Set("first", "bob")
 	dow := []string{
@@ -27,8 +28,13 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data.Set("dow", dow)
+
 	err := renderPage(w, "home.jet", data)
 	if err != nil {
 		_, _ = fmt.Fprint(w, "Error executing template:", err)
 	}
+}
+
+func SendData(w http.ResponseWriter, r *http.Request) {
+	err := renderPage(w, "send.jet", nil)
 }
