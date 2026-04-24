@@ -41,3 +41,7 @@ func SendData(w http.ResponseWriter, r *http.Request) {
 		_, _ = fmt.Fprint(w, "Error executing template:", err)
 	}
 }
+
+func renderPage(w http.ResponseWriter, tmpl string, data jet.VarMap) error {
+	view, err := views.GetTemplate(tmpl)
+}
