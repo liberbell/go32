@@ -1,4 +1,4 @@
-module github.com/liber
+module github.com/liber/templatepkg
 
 go 1.25.6
 

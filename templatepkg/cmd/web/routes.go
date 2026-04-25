@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/bmizerany/pat"
-	"github.com/liber/internal/handlers"
+	"github.com/liber/templatepkg/internal/handlers"
 )
 
 func routes() http.Handler {
