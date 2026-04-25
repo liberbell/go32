@@ -8,10 +8,10 @@ import (
 	"github.com/CloudyKit/jet/v6"
 )
 
-var views = jet.NewSet{
+var views = jet.NewSet(
 	jet.NewOSFileSystemLoader("./html"),
 	jet.InDevelopmentMode(),
-}
+)
 
 func Home(w http.ResponseWriter, r *http.Request) {
 	data := make(jet.VarMap)
@@ -50,7 +50,7 @@ func renderPage(w http.ResponseWriter, tmpl string, data jet.VarMap) error {
 		return err
 	}
 
-	err = view.Println("Error executing template:", err)
+	err = view.Execute(w, data, nil)
 	if err != nil {
 		log.Println("Error executing template:", err)
 		return err
