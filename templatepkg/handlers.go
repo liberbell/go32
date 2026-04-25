@@ -47,5 +47,13 @@ func renderPage(w http.ResponseWriter, tmpl string, data jet.VarMap) error {
 	view, err := views.GetTemplate(tmpl)
 	if err != nil {
 		log.Println("Unexpected template error:", err.Error())
+		return err
 	}
+
+	err = view.Println("Error executing template:", err)
+	if err != nil {
+		log.Println("Error executing template:", err)
+		return err
+	}
+	return nil
 }
