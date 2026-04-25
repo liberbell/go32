@@ -21,11 +21,11 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	dow := []string{
 		"Sunday",
 		"Monday",
-		"Thuesday",
+		"Tuesday",
 		"Wednesday",
 		"Thursday",
 		"Friday",
-		"Sarturday",
+		"Saturday",
 	}
 
 	data.Set("dow", dow)
