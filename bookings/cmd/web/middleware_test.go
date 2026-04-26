@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"testing"
 )
@@ -13,6 +14,6 @@ func TestNoSurf(t *testing.T) {
 	switch v := h.(type) {
 	case http.Handler:
 	default:
-		t.Error("type is not http.handler")
+		t.Error(fmt.Sprintf("type is not http.handler, but is %T", v))
 	}
 }
