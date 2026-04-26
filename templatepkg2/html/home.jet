@@ -29,7 +29,7 @@
             <p>Ranging over days of week:</p>
             <ul>
                 {{range k, v := dow}}
-                <li>{{k}} {{v}}</li>
+                    <li>{{k}} {{v}}</li>
                 {{end}}
             </ul>
         </div>
