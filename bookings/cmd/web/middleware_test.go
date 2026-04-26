@@ -1,7 +1,18 @@
 package main
 
-import "testing"
+import (
+	"net/http"
+	"testing"
+)
 
 func TestNoSurf(t *testing.T) {
-	h := NoSurf()
+	var myH myHandler
+
+	h := NoSurf(&myH)
+
+	switch v := h.(type) {
+	case http.Handler:
+	default:
+		t.Error("type is not http.handler")
+	}
 }
