@@ -25,7 +25,6 @@
                 <li>First Name: {{ first }}</li>
             </ul>
 
-            <!-- {{abc}} -->
             <p>Ranging over days of week:</p>
             <ul>
                 {{range k, v := dow}}
