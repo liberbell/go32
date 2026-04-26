@@ -21,6 +21,9 @@ var session *scs.SessionManager
 
 func main() {
 	err := run()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	fmt.Printf("Starting Web server on port %s", portNumber)
 
