@@ -1,0 +1,10 @@
+mode: set
+github.com/liber/bookings/cmd/web/main.go:22.13,24.16 2 0
+github.com/liber/bookings/cmd/web/main.go:24.16,26.3 1 0
+github.com/liber/bookings/cmd/web/main.go:28.2,37.16 4 0
+github.com/liber/bookings/cmd/web/main.go:40.18,54.16 10 1
+github.com/liber/bookings/cmd/web/main.go:54.16,57.3 2 0
+github.com/liber/bookings/cmd/web/main.go:59.2,66.12 6 1
+github.com/liber/bookings/cmd/web/middleware.go:16.45,26.2 3 1
+github.com/liber/bookings/cmd/web/middleware.go:28.50,30.2 1 1
+github.com/liber/bookings/cmd/web/routes.go:12.49,37.2 18 1
