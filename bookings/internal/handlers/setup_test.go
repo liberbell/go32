@@ -9,7 +9,6 @@ import (
 
 	"github.com/alexedwards/scs/v2"
 	"github.com/liber/bookings/internal/config"
-	"github.com/liber/bookings/internal/handlers"
 	"github.com/liber/bookings/internal/models"
 	"github.com/liber/bookings/internal/render"
 )
@@ -33,13 +32,12 @@ func getRoutes(t *testing.T) http.Handler {
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("Cannot create template cache")
-		return err
 	}
 
 	app.TemplateCache = tc
 	app.UseCache = false
 
-	repo := handlers.NewRepo(&app)
-	handlers.NewHandlers(repo)
+	repo := NewRepo(&app)
+	NewHandlers(repo)
 	render.NewTemplates(&app)
 }
