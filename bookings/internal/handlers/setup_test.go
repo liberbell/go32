@@ -8,6 +8,8 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 	"github.com/liber/bookings/internal/config"
 	"github.com/liber/bookings/internal/models"
 	"github.com/liber/bookings/internal/render"
@@ -40,4 +42,28 @@ func getRoutes(t *testing.T) http.Handler {
 	repo := NewRepo(&app)
 	NewHandlers(repo)
 	render.NewTemplates(&app)
+
+	mux := chi.NewRouter()
+	mux.Use(middleware.Recoverer)
+	mux.Use(NoSurf)
+	mux.Use(SessionLoad)
+
+	mux.Get("/", Repo.Home)
+	mux.Get("/about", Repo.About)
+	mux.Get("/contact", Repo.Contact)
+	mux.Get("/generals-quarters", Repo.Generals)
+	mux.Get("/majors-suite", Repo.Majors)
+
+	mux.Get("/search-availability", Repo.Availability)
+	mux.Post("/search-availability", Repo.PostAvailability)
+	mux.Post("/search-availability-json", Repo.AvailabilityJSON)
+
+	mux.Get("/make-reservation", Repo.Reservation)
+	mux.Post("/make-reservation", Repo.PostReservation)
+	mux.Get("/reservation-summary", Repo.ReservationSummary)
+
+	fileserver := http.FileServer(http.Dir("./static/"))
+	mux.Handle("/static/*", http.StripPrefix("/static", fileserver))
+
+	return mux
 }
