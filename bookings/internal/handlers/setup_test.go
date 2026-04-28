@@ -10,6 +10,7 @@ import (
 	"github.com/alexedwards/scs/v2"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/justinas/nosurf"
 	"github.com/liber/bookings/internal/config"
 	"github.com/liber/bookings/internal/models"
 	"github.com/liber/bookings/internal/render"
@@ -66,4 +67,20 @@ func getRoutes(t *testing.T) http.Handler {
 	mux.Handle("/static/*", http.StripPrefix("/static", fileserver))
 
 	return mux
+}
+
+func NoSurf(next http.Handler) http.Handler {
+	csrfHandler := nosurf.New(next)
+
+	csrfHandler.SetBaseCookie(http.Cookie{
+		HttpOnly: true,
+		Path:     "/",
+		Secure:   app.InProduction,
+		SameSite: http.SameSiteLaxMode,
+	})
+	return csrfHandler
+}
+
+func SessionLoad(next http.Handler) http.Handler {
+	return session.LoadAndSave(next)
 }
