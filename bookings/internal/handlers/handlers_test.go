@@ -6,5 +6,8 @@ type postData struct {
 }
 
 var theTests []struct {
-	name string
+	name   string
+	url    string
+	method string
+	params []postData
 }
