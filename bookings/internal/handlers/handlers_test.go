@@ -3,6 +3,7 @@ package handlers
 import (
 	"net/http"
 	"net/http/httptest"
+	"net/url"
 	"testing"
 )
 
@@ -34,8 +35,10 @@ var theTests = []struct {
 		{key: "end", value: "2026-04-20"},
 	}, http.StatusOK},
 	{"make-reservation", "/make-reservation", "POST", []postData{
-		{key: "start", value: "2026-04-01"},
-		{key: "end", value: "2026-04-20"},
+		{key: "first_name", value: "bob"},
+		{key: "last_name", value: "mary"},
+		{key: "email", value: "abc@abc.com"},
+		{key: "phone", value: "111-222-3333"},
 	}, http.StatusOK},
 }
 
@@ -54,7 +57,11 @@ func TestHandlers(t *testing.T) {
 			if resp.StatusCode != e.expectedStatusCode {
 				t.Errorf("for %s expected %d but got %d", e.name, e.expectedStatusCode, resp.StatusCode)
 			} else {
-
+				values := url.Values{}
+				for _, x := range e.params {
+					values.Add(x.key, x.value)
+				}
+				resp, err := ts.Client().PostForm(ts.URL+e.url, values)
 			}
 		}
 	}
