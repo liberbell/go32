@@ -21,7 +21,7 @@ import (
 
 var app config.AppConfig
 var session *scs.SessionManager
-var pathToTemplate = "./../templates"
+var pathToTemplate = "./../../templates"
 var functions = template.FuncMap{}
 
 func getRoutes(t *testing.T) http.Handler {
@@ -43,7 +43,7 @@ func getRoutes(t *testing.T) http.Handler {
 	}
 
 	app.TemplateCache = tc
-	app.UseCache = false
+	app.UseCache = true
 
 	repo := NewRepo(&app)
 	NewHandlers(repo)
