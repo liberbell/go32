@@ -21,6 +21,7 @@ import (
 
 var app config.AppConfig
 var session *scs.SessionManager
+var pathToTemplate = "./../templates"
 
 func getRoutes(t *testing.T) http.Handler {
 	gob.Register(models.Reservation{})
