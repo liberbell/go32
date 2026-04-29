@@ -28,7 +28,14 @@ func TestHandlers(t *testing.T) {
 
 	for _, e := range theTests {
 		if e.method == "GET" {
-			ts.Client().Get(e.url)
+			resp, err := ts.Client().Get(ts.URL + e.url)
+			if err != nil {
+				t.Log(err)
+				t.Fatal(err)
+			}
+			if resp.StatusCode != e.expectedStatusCode {
+				t.Errorf()
+			}
 		}
 	}
 }
