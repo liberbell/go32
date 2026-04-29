@@ -6,8 +6,15 @@ type postData struct {
 }
 
 var theTests []struct {
-	name   string
-	url    string
-	method string
-	params []postData
+	name               string
+	url                string
+	method             string
+	params             []postData
+	expectedStatusCode int
+}{
+	{"home", "/", "GET", []postData{}, http.StatusOk},
+}
+
+func TestHandlers(t *testing.T)  {
+	routes := getRoutes()
 }
