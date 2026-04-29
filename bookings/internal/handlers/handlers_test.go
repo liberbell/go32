@@ -29,6 +29,14 @@ var theTests = []struct {
 		{key: "start", value: "2026-04-01"},
 		{key: "end", value: "2026-04-20"},
 	}, http.StatusOK},
+	{"post-search-abailability-json", "/search-availability-json", "POST", []postData{
+		{key: "start", value: "2026-04-01"},
+		{key: "end", value: "2026-04-20"},
+	}, http.StatusOK},
+	{"make-reservation", "/make-reservation", "POST", []postData{
+		{key: "start", value: "2026-04-01"},
+		{key: "end", value: "2026-04-20"},
+	}, http.StatusOK},
 }
 
 func TestHandlers(t *testing.T) {
