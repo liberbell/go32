@@ -34,7 +34,9 @@ func TestHandlers(t *testing.T) {
 				t.Fatal(err)
 			}
 			if resp.StatusCode != e.expectedStatusCode {
-				t.Errorf()
+				t.Errorf("for %s expected %d but got %d", e.name, e.expectedStatusCode, resp.StatusCode)
+			} else {
+
 			}
 		}
 	}
