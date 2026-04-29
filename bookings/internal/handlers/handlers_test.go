@@ -1,20 +1,34 @@
 package handlers
 
+import (
+	"net/http"
+	"net/http/httptest"
+	"testing"
+)
+
 type postData struct {
 	key   string
 	value string
 }
 
-var theTests []struct {
+var theTests = []struct {
 	name               string
 	url                string
 	method             string
 	params             []postData
 	expectedStatusCode int
 }{
-	{"home", "/", "GET", []postData{}, http.StatusOk},
+	{"home", "/", "GET", []postData{}, http.StatusOK},
 }
 
-func TestHandlers(t *testing.T)  {
+func TestHandlers(t *testing.T) {
 	routes := getRoutes()
+	ts := httptest.NewTLSServer(routes)
+	defer ts.Close()
+
+	for _, e := range theTests {
+		if e.method == "GET" {
+			ts.Client().Get(e.url)
+		}
+	}
 }
