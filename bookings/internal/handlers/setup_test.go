@@ -3,11 +3,11 @@ package handlers
 import (
 	"encoding/gob"
 	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 	"path/filepath"
 	"testing"
-	"text/template"
 	"time"
 
 	"github.com/alexedwards/scs/v2"
