@@ -14,4 +14,9 @@ func TestAddDefaultData(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+	resutl := AddDefaultData(td, r)
+
+	if resutl == nil {
+		t.Error("failed")
+	}
 }
