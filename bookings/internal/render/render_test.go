@@ -11,14 +11,14 @@ func TestAddDefaultData(t *testing.T) {
 	var td models.TemplateData
 	r, err := getSession()
 	if err != nil {
-		t.Error(err)
+		t.Fatal(err)
 	}
 
 	session.Put(r.Context(), "flash", "123")
 
-	resutl := AddDefaultData(&td, r)
+	result := AddDefaultData(&td, r)
 
-	if resutl.Flash == "123" {
+	if result.Flash == "123" {
 		t.Error("flash value of 123 not found in session")
 	}
 }
