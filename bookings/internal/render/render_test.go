@@ -29,6 +29,14 @@ func TestRenderTemplate(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
+
+	app.TemplateCache = tc
+	r, err := getSession()
+	if err != nil {
+		t.Error(err)
+	}
+
+	err = RenderTemplate(ww, r, "home.page.tmpl", &models.TemplateData{})
 }
 
 func getSession() (*http.Request, error) {
