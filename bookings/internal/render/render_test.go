@@ -18,8 +18,8 @@ func TestAddDefaultData(t *testing.T) {
 
 	resutl := AddDefaultData(&td, r)
 
-	if resutl == nil {
-		t.Error("failed")
+	if resutl.Flash == "123" {
+		t.Error("flash value of 123 not found in session")
 	}
 }
 
@@ -30,7 +30,7 @@ func getSession() (*http.Request, error) {
 	}
 
 	ctx := r.Context()
-	ctx, _ := session.Load(ctx, r.Header.Get("X-session"))
+	ctx, _ := session.Load(ctx, r.Header.Get("X-Session"))
 
 	r = r.WithContext(ctx)
 
