@@ -9,6 +9,12 @@ import (
 
 func TestAddDefaultData(t *testing.T) {
 	var td models.TemplateData
+	r, err := getSession()
+	if err != nil {
+		t.Error(err)
+	}
+
+	session.Put(r.Context(), "flash", "123")
 
 	resutl := AddDefaultData(&td, r)
 
