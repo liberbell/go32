@@ -36,7 +36,9 @@ func TestRenderTemplate(t *testing.T) {
 		t.Error(err)
 	}
 
-	err = RenderTemplate(ww, r, "home.page.tmpl", &models.TemplateData{})
+	var ww myWriter
+
+	err = RenderTemplate(&ww, r, "home.page.tmpl", &models.TemplateData{})
 }
 
 func getSession() (*http.Request, error) {
