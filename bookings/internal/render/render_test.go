@@ -39,6 +39,14 @@ func TestRenderTemplate(t *testing.T) {
 	var ww myWriter
 
 	err = RenderTemplate(&ww, r, "home.page.tmpl", &models.TemplateData{})
+	if err != nil {
+		t.Error("error writing template to browse", err)
+	}
+
+	err = RenderTemplate(&ww, r, "non-existent.page.tmpl", &models.TemplateData{})
+	if err == nil {
+		t.Error("render template that does not existent")
+	}
 }
 
 func getSession() (*http.Request, error) {
