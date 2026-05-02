@@ -45,5 +45,6 @@ func (tw *myWriter) WriteHeader(i int) {
 }
 
 func (tw *myWriter) Writer(b []byte) (int, error) {
-
+	length := len(b)
+	return length, nil
 }
