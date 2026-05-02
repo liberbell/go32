@@ -41,7 +41,7 @@ func (tw *myWriter) Header() http.Header {
 }
 
 func (tw *myWriter) WriteHeader(i int) {
-	pass
+
 }
 
 func (tw *myWriter) Write(b []byte) (int, error) {
