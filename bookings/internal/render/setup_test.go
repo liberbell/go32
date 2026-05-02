@@ -39,3 +39,11 @@ func (tw *myWriter) Header() http.Header {
 	var h http.Header
 	return h
 }
+
+func (tw *myWriter) WriteHeader(i int) {
+	pass
+}
+
+func (tw *myWriter) Writer(b []byte) (int, error) {
+
+}
