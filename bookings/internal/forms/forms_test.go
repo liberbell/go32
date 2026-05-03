@@ -58,3 +58,8 @@ func TestForm_Has(t *testing.T) {
 		t.Error("shows form does not have field when it should")
 	}
 }
+
+func TestForm_MinLength(t *testing.T) {
+	r := httptest.NewRequest("POST", "/whatever", nil)
+	form := New(r.PostForm)
+}
