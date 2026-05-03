@@ -1,0 +1,22 @@
+mode: set
+github.com/liber/bookings/internal/handlers/handlers.go:21.47,25.2 1 1
+github.com/liber/bookings/internal/handlers/handlers.go:27.33,29.2 1 1
+github.com/liber/bookings/internal/handlers/handlers.go:31.67,36.2 3 1
+github.com/liber/bookings/internal/handlers/handlers.go:38.68,50.2 5 1
+github.com/liber/bookings/internal/handlers/handlers.go:52.70,54.2 1 1
+github.com/liber/bookings/internal/handlers/handlers.go:56.74,65.2 4 1
+github.com/liber/bookings/internal/handlers/handlers.go:67.78,69.16 2 1
+github.com/liber/bookings/internal/handlers/handlers.go:69.16,72.3 2 0
+github.com/liber/bookings/internal/handlers/handlers.go:74.2,87.19 6 1
+github.com/liber/bookings/internal/handlers/handlers.go:87.19,96.3 4 0
+github.com/liber/bookings/internal/handlers/handlers.go:97.2,98.66 2 1
+github.com/liber/bookings/internal/handlers/handlers.go:101.71,103.2 1 1
+github.com/liber/bookings/internal/handlers/handlers.go:105.69,107.2 1 1
+github.com/liber/bookings/internal/handlers/handlers.go:109.75,111.2 1 1
+github.com/liber/bookings/internal/handlers/handlers.go:113.79,118.2 3 1
+github.com/liber/bookings/internal/handlers/handlers.go:125.79,131.16 3 1
+github.com/liber/bookings/internal/handlers/handlers.go:131.16,133.3 1 0
+github.com/liber/bookings/internal/handlers/handlers.go:135.2,136.14 2 1
+github.com/liber/bookings/internal/handlers/handlers.go:139.81,141.9 2 1
+github.com/liber/bookings/internal/handlers/handlers.go:141.9,146.3 4 1
+github.com/liber/bookings/internal/handlers/handlers.go:148.2,155.4 4 0
