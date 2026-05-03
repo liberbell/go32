@@ -35,4 +35,7 @@ func TestForm_Required(t *testing.T) {
 	r.PostForm = postData
 	form = New(r.PostForm)
 	form.Required("a", "b", "c")
+	if !form.Valid() {
+		t.Error("shows does not have required fields when it does")
+	}
 }
