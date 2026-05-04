@@ -67,4 +67,9 @@ func TestForm_MinLength(t *testing.T) {
 	if form.Valid() {
 		t.Error("form shows min length for non-existent field")
 	}
+
+	postedValues := url.Values{}
+	postedValues.Add("some_field", "some values")
+
+	form = New(postedValues)
 }
