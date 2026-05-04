@@ -90,4 +90,9 @@ func TestForm_MinLength(t *testing.T) {
 func TestForm_Email(t *testing.T) {
 	r := httptest.NewRequest("POST", "/whatever", nil)
 	form := New(r.PostForm)
+
+	form.IsEmail("x")
+	if form.Valid() {
+		t.Error("form shows valid email for non-existent field")
+	}
 }
