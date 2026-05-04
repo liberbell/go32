@@ -101,5 +101,7 @@ func TestForm_Email(t *testing.T) {
 	form = New(postedValues)
 
 	form.IsEmail("email")
-	if form.Valid()
+	if !form.Valid() {
+		t.Error("got an invalid email when we should not have")
+	}
 }
