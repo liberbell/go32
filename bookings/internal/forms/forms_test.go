@@ -86,3 +86,8 @@ func TestForm_MinLength(t *testing.T) {
 		t.Error("shows min length of 1 is not when it is")
 	}
 }
+
+func TestForm_Email(t *testing.T) {
+	r := httptest.NewRequest("POST", "/whatever", nil)
+	form := New(r.PostForm)
+}
