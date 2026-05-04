@@ -72,4 +72,8 @@ func TestForm_MinLength(t *testing.T) {
 	postedValues.Add("some_field", "some values")
 
 	form = New(postedValues)
+	form.MinLength("some_field", 100, r)
+	if form.Valid() {
+		t.Error("shows minlength of 100 met when data is shorter")
+	}
 }
