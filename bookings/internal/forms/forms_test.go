@@ -104,4 +104,13 @@ func TestForm_Email(t *testing.T) {
 	if !form.Valid() {
 		t.Error("got an invalid email when we should not have")
 	}
+
+	postedValues = url.Values{}
+	postedValues.Add("email", "x")
+	form = New(postedValues)
+
+	form.IsEmail("email")
+	if form.Valid() {
+		t.Error("got an invalid email when we should not have")
+	}
 }
