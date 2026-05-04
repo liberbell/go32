@@ -44,7 +44,7 @@ func TestForm_Has(t *testing.T) {
 	r := httptest.NewRequest("POST", "/whatever", nil)
 	form := New(r.PostForm)
 
-	has := form.Has("whatever", r)
+	has := form.Has("whatever")
 	if has {
 		t.Error("form shows has field when it does not")
 	}
@@ -53,7 +53,7 @@ func TestForm_Has(t *testing.T) {
 	postedData.Add("a", "a")
 	form = New(postedData)
 
-	has = form.Has("a", r)
+	has = form.Has("a")
 	if !has {
 		t.Error("shows form does not have field when it should")
 	}
@@ -88,15 +88,15 @@ func TestForm_MinLength(t *testing.T) {
 }
 
 func TestForm_Email(t *testing.T) {
-	r := httptest.NewRequest("POST", "/whatever", nil)
-	form := New(r.PostForm)
+	postedValues := url.Values{}
+	form := New(postedValues)
 
 	form.IsEmail("x")
 	if form.Valid() {
 		t.Error("form shows valid email for non-existent field")
 	}
 
-	postedValues := url.Values{}
+	postedValues = url.Values{}
 	postedValues.Add("email", "abc@abc.com")
 	form = New(postedValues)
 
@@ -111,6 +111,6 @@ func TestForm_Email(t *testing.T) {
 
 	form.IsEmail("email")
 	if form.Valid() {
-		t.Error("got an invalid email when we should not have")
+		t.Error("got valid for invalid email address")
 	}
 }
