@@ -11,6 +11,7 @@ import (
 	"github.com/alexedwards/scs/v2"
 	"github.com/liber/bookings/internal/config"
 	"github.com/liber/bookings/internal/handlers"
+	"github.com/liber/bookings/internal/helpers"
 	"github.com/liber/bookings/internal/models"
 	"github.com/liber/bookings/internal/render"
 )
@@ -71,6 +72,7 @@ func run() error {
 	repo := handlers.NewRepo(&app)
 	handlers.NewHandlers(repo)
 	render.NewTemplates(&app)
+	helpers.NewHelpers(&app)
 
 	return nil
 }
