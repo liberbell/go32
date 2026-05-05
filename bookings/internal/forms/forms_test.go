@@ -90,6 +90,11 @@ func TestForm_MinLength(t *testing.T) {
 	if !form.Valid() {
 		t.Error("shows min length of 1 is not when it is")
 	}
+
+	isError = form.Errors.Get("another_field")
+	if isError == "" {
+		t.Error("should not have an error, but got one")
+	}
 }
 
 func TestForm_Email(t *testing.T) {
