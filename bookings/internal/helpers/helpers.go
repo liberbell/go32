@@ -1,7 +1,9 @@
 package helpers
 
 import (
+	"fmt"
 	"net/http"
+	"runtime/debug"
 
 	"github.com/liber/bookings/internal/config"
 )
@@ -18,5 +20,5 @@ func ClientError(w http.ResponseWriter, status int) {
 }
 
 func ServerError(w http.ResponseWriter, err error) {
-
+	trace := fmt.Sprintf("%s\n%s", err.Error(), debug.Stack())
 }
