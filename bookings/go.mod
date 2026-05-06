@@ -17,15 +17,19 @@ require (
 	github.com/fatih/color v1.19.0 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/go-sql-driver/mysql v1.10.0 // indirect
+	github.com/gobuffalo/attrs v1.0.3 // indirect
 	github.com/gobuffalo/envy v1.10.2 // indirect
 	github.com/gobuffalo/fizz v1.14.4 // indirect
 	github.com/gobuffalo/flect v1.0.3 // indirect
 	github.com/gobuffalo/genny v0.6.0 // indirect
 	github.com/gobuffalo/github_flavored_markdown v1.1.3 // indirect
 	github.com/gobuffalo/helpers v0.6.7 // indirect
+	github.com/gobuffalo/here v0.6.0 // indirect
 	github.com/gobuffalo/logger v1.0.3 // indirect
 	github.com/gobuffalo/nulls v0.4.2 // indirect
 	github.com/gobuffalo/packd v1.0.2 // indirect
+	github.com/gobuffalo/packr/v2 v2.7.1 // indirect
+	github.com/gobuffalo/plush v3.8.3+incompatible // indirect
 	github.com/gobuffalo/plush/v4 v4.1.16 // indirect
 	github.com/gobuffalo/pop v4.13.1+incompatible // indirect
 	github.com/gobuffalo/tags/v3 v3.1.4 // indirect
@@ -33,6 +37,7 @@ require (
 	github.com/gobuffalo/validate/v3 v3.3.3 // indirect
 	github.com/gofrs/uuid v4.4.0+incompatible // indirect
 	github.com/gorilla/css v1.0.0 // indirect
+	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jmoiron/sqlx v1.4.0 // indirect
 	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
@@ -48,9 +53,12 @@ require (
 	github.com/sirupsen/logrus v1.4.2 // indirect
 	github.com/sourcegraph/annotate v0.0.0-20160123013949-f4cad6c6324d // indirect
 	github.com/sourcegraph/syntaxhighlight v0.0.0-20170531221838-bd320f5d308e // indirect
+	github.com/spf13/cobra v0.0.5 // indirect
+	github.com/spf13/pflag v1.0.3 // indirect
 	golang.org/x/crypto v0.0.0-20191122220453-ac88ee75c92c // indirect
 	golang.org/x/net v0.0.0-20221002022538-bcab6841153b // indirect
 	golang.org/x/sync v0.20.0 // indirect
 	golang.org/x/sys v0.42.0 // indirect
+	golang.org/x/tools v0.0.0-20191224055732-dd894d0a8a40 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
