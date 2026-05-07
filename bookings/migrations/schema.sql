@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict fRkAnQx6I06VMkP9uImppQNR1ee0W2aBbWw6pl4a94xqlfslBHVza5kSB1csFLe
+\restrict gBLDsQokauaw6MqbTKn3EOYxmDWe3i4vl4Y3LRmEjMIu1FX3Z4Wc1IIPyee9xCD
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.3
@@ -99,6 +99,46 @@ ALTER SEQUENCE public.restrictions_id_seq OWNER TO bookings_ope;
 --
 
 ALTER SEQUENCE public.restrictions_id_seq OWNED BY public.restrictions.id;
+
+
+--
+-- Name: room_restrictions; Type: TABLE; Schema: public; Owner: bookings_ope
+--
+
+CREATE TABLE public.room_restrictions (
+    id integer NOT NULL,
+    start_date date NOT NULL,
+    end_date date NOT NULL,
+    room_id integer NOT NULL,
+    reservation_id integer NOT NULL,
+    restriction_id integer NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE public.room_restrictions OWNER TO bookings_ope;
+
+--
+-- Name: room_restrictions_id_seq; Type: SEQUENCE; Schema: public; Owner: bookings_ope
+--
+
+CREATE SEQUENCE public.room_restrictions_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.room_restrictions_id_seq OWNER TO bookings_ope;
+
+--
+-- Name: room_restrictions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bookings_ope
+--
+
+ALTER SEQUENCE public.room_restrictions_id_seq OWNED BY public.room_restrictions.id;
 
 
 --
@@ -203,6 +243,13 @@ ALTER TABLE ONLY public.restrictions ALTER COLUMN id SET DEFAULT nextval('public
 
 
 --
+-- Name: room_restrictions id; Type: DEFAULT; Schema: public; Owner: bookings_ope
+--
+
+ALTER TABLE ONLY public.room_restrictions ALTER COLUMN id SET DEFAULT nextval('public.room_restrictions_id_seq'::regclass);
+
+
+--
 -- Name: rooms id; Type: DEFAULT; Schema: public; Owner: bookings_ope
 --
 
@@ -230,6 +277,14 @@ ALTER TABLE ONLY public.reservations
 
 ALTER TABLE ONLY public.restrictions
     ADD CONSTRAINT restrictions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: room_restrictions room_restrictions_pkey; Type: CONSTRAINT; Schema: public; Owner: bookings_ope
+--
+
+ALTER TABLE ONLY public.room_restrictions
+    ADD CONSTRAINT room_restrictions_pkey PRIMARY KEY (id);
 
 
 --
@@ -267,5 +322,5 @@ CREATE UNIQUE INDEX schema_migration_version_idx ON public.schema_migration USIN
 -- PostgreSQL database dump complete
 --
 
-\unrestrict fRkAnQx6I06VMkP9uImppQNR1ee0W2aBbWw6pl4a94xqlfslBHVza5kSB1csFLe
+\unrestrict gBLDsQokauaw6MqbTKn3EOYxmDWe3i4vl4Y3LRmEjMIu1FX3Z4Wc1IIPyee9xCD
 
