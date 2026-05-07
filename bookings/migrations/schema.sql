@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict jelZvdsita5OMtuYykL8Z0au8piZMevcSNUA3Ablm6FOcKOVv3UhGlWjHmzrIIX
+\restrict 4TI0QVnwF51xcl6HfmNVUjcIwdwkClJIcL6Y5ansCJXpvFfCkrp7ViCKkyXrCCG
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.3
@@ -35,66 +35,11 @@ CREATE TABLE public.schema_migration (
 ALTER TABLE public.schema_migration OWNER TO bookings_ope;
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: bookings_ope
---
-
-CREATE TABLE public.users (
-    id integer NOT NULL,
-    first_name character varying(255) DEFAULT ''::character varying NOT NULL,
-    last_name character varying(255) DEFAULT ''::character varying NOT NULL,
-    email character varying(255) NOT NULL,
-    password character varying(60) NOT NULL,
-    access_level integer DEFAULT 1 NOT NULL,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
-
-
-ALTER TABLE public.users OWNER TO bookings_ope;
-
---
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: bookings_ope
---
-
-CREATE SEQUENCE public.users_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER SEQUENCE public.users_id_seq OWNER TO bookings_ope;
-
---
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bookings_ope
---
-
-ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
-
-
---
--- Name: users id; Type: DEFAULT; Schema: public; Owner: bookings_ope
---
-
-ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
-
-
---
 -- Name: schema_migration schema_migration_pkey; Type: CONSTRAINT; Schema: public; Owner: bookings_ope
 --
 
 ALTER TABLE ONLY public.schema_migration
     ADD CONSTRAINT schema_migration_pkey PRIMARY KEY (version);
-
-
---
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: bookings_ope
---
-
-ALTER TABLE ONLY public.users
-    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
 
 
 --
@@ -108,5 +53,5 @@ CREATE UNIQUE INDEX schema_migration_version_idx ON public.schema_migration USIN
 -- PostgreSQL database dump complete
 --
 
-\unrestrict jelZvdsita5OMtuYykL8Z0au8piZMevcSNUA3Ablm6FOcKOVv3UhGlWjHmzrIIX
+\unrestrict 4TI0QVnwF51xcl6HfmNVUjcIwdwkClJIcL6Y5ansCJXpvFfCkrp7ViCKkyXrCCG
 
