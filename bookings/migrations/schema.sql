@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict 1xiyhvUszW5du6SkMUEHDUwJQheHrebNpGEMVw0c0iCW3eMzScQsnCFF3AQdzfn
+\restrict fRkAnQx6I06VMkP9uImppQNR1ee0W2aBbWw6pl4a94xqlfslBHVza5kSB1csFLe
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.3
@@ -63,6 +63,42 @@ ALTER SEQUENCE public.reservations_id_seq OWNER TO bookings_ope;
 --
 
 ALTER SEQUENCE public.reservations_id_seq OWNED BY public.reservations.id;
+
+
+--
+-- Name: restrictions; Type: TABLE; Schema: public; Owner: bookings_ope
+--
+
+CREATE TABLE public.restrictions (
+    id integer NOT NULL,
+    restriction_name character varying(255) DEFAULT ''::character varying NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE public.restrictions OWNER TO bookings_ope;
+
+--
+-- Name: restrictions_id_seq; Type: SEQUENCE; Schema: public; Owner: bookings_ope
+--
+
+CREATE SEQUENCE public.restrictions_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER SEQUENCE public.restrictions_id_seq OWNER TO bookings_ope;
+
+--
+-- Name: restrictions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: bookings_ope
+--
+
+ALTER SEQUENCE public.restrictions_id_seq OWNED BY public.restrictions.id;
 
 
 --
@@ -160,6 +196,13 @@ ALTER TABLE ONLY public.reservations ALTER COLUMN id SET DEFAULT nextval('public
 
 
 --
+-- Name: restrictions id; Type: DEFAULT; Schema: public; Owner: bookings_ope
+--
+
+ALTER TABLE ONLY public.restrictions ALTER COLUMN id SET DEFAULT nextval('public.restrictions_id_seq'::regclass);
+
+
+--
 -- Name: rooms id; Type: DEFAULT; Schema: public; Owner: bookings_ope
 --
 
@@ -179,6 +222,14 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 ALTER TABLE ONLY public.reservations
     ADD CONSTRAINT reservations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: restrictions restrictions_pkey; Type: CONSTRAINT; Schema: public; Owner: bookings_ope
+--
+
+ALTER TABLE ONLY public.restrictions
+    ADD CONSTRAINT restrictions_pkey PRIMARY KEY (id);
 
 
 --
@@ -216,5 +267,5 @@ CREATE UNIQUE INDEX schema_migration_version_idx ON public.schema_migration USIN
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 1xiyhvUszW5du6SkMUEHDUwJQheHrebNpGEMVw0c0iCW3eMzScQsnCFF3AQdzfn
+\unrestrict fRkAnQx6I06VMkP9uImppQNR1ee0W2aBbWw6pl4a94xqlfslBHVza5kSB1csFLe
 
