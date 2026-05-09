@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict qAhBLG5nzofTLnyWjHAJVhWWAuxpSfSS8mGHBvHYOeh9XpkDVgUg8xbAS3DARlh
+\restrict 5wNXCHyRkNlPsTaqZWLNAPgJ1UaAWwlQVKA4VDuvUgBji4A6Ct6RIXc4SBmBWW2
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.3
@@ -327,8 +327,24 @@ ALTER TABLE ONLY public.reservations
 
 
 --
+-- Name: room_restrictions room_restrictions_restrictions_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: bookings_ope
+--
+
+ALTER TABLE ONLY public.room_restrictions
+    ADD CONSTRAINT room_restrictions_restrictions_id_fk FOREIGN KEY (restriction_id) REFERENCES public.restrictions(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: room_restrictions room_restrictions_rooms_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: bookings_ope
+--
+
+ALTER TABLE ONLY public.room_restrictions
+    ADD CONSTRAINT room_restrictions_rooms_id_fk FOREIGN KEY (room_id) REFERENCES public.rooms(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
 -- PostgreSQL database dump complete
 --
 
-\unrestrict qAhBLG5nzofTLnyWjHAJVhWWAuxpSfSS8mGHBvHYOeh9XpkDVgUg8xbAS3DARlh
+\unrestrict 5wNXCHyRkNlPsTaqZWLNAPgJ1UaAWwlQVKA4VDuvUgBji4A6Ct6RIXc4SBmBWW2
 
