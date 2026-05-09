@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict jRjgutuB4Ixg2ROo8t0NvFpfc9C0ldaqhyuwlfD3bSBSZr8mmssaWZnVmseideO
+\restrict HohwyJpVsHVipW9pnwwXcAxSGMTVIb3lCRT6rZ3H0bEmslKcfxknKgDbvmdXEX1
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.3
@@ -319,6 +319,13 @@ CREATE UNIQUE INDEX schema_migration_version_idx ON public.schema_migration USIN
 
 
 --
+-- Name: users_email_idx; Type: INDEX; Schema: public; Owner: bookings_ope
+--
+
+CREATE UNIQUE INDEX users_email_idx ON public.users USING btree (email);
+
+
+--
 -- Name: reservations reservations_rooms_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: bookings_ope
 --
 
@@ -346,5 +353,5 @@ ALTER TABLE ONLY public.room_restrictions
 -- PostgreSQL database dump complete
 --
 
-\unrestrict jRjgutuB4Ixg2ROo8t0NvFpfc9C0ldaqhyuwlfD3bSBSZr8mmssaWZnVmseideO
+\unrestrict HohwyJpVsHVipW9pnwwXcAxSGMTVIb3lCRT6rZ3H0bEmslKcfxknKgDbvmdXEX1
 
