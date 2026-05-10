@@ -39,9 +39,10 @@ func getAllRows(conn *sql.DB) error {
 	}
 	defer rows.Close()
 
+	var id int
+	var firstName, lastName string
+
 	for rows.Next() {
-		var id int
-		var firstName, lastName string
 		err := rows.Scan(&id, &firstName, &lastName)
 		if err != nil {
 			return err
