@@ -44,17 +44,17 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// stmt := `update users set first_name = $1 where first_name = $2`
-	// _, err = conn.Exec(stmt, "johnie", "john")
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// log.Println("update one or more rows")
+	stmt := `update users set first_name = $1 where first_name = $2`
+	_, err = conn.Exec(stmt, "johnie", "john")
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println("update one or more rows")
 
-	// err = getAllRows(conn)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
+	err = getAllRows(conn)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func getAllRows(conn *sql.DB) error {
