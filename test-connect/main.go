@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 
 	_ "github.com/jackc/pgx/v5/stdlib"
@@ -25,7 +26,7 @@ func main() {
 
 	log.Println("Pinged database.")
 
-	err = getAllRows()
+	err = getAllRows(conn)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -54,6 +55,7 @@ func getAllRows(conn *sql.DB) error {
 	if err = rows.Err(); err != nil {
 		log.Fatal("Error scanning rows", err)
 	}
+	fmt.Println("----------")
 
 	return nil
 }
