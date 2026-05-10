@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	dsn := "host=localhost port=5432 user=booking_ope password=pass1234 dbname=test_connect sslmode=disable"
+	dsn := "host=localhost port=5432 user=bookings_ope password=pass1234 dbname=test_connect sslmode=disable"
 	conn, err := sql.Open("pgx", dsn)
 	if err != nil {
 
