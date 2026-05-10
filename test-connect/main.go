@@ -30,6 +30,13 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	stmt := `update users set first_name = $1 where first_name = $2`
+	_, err = conn.Exec(stmt, "johnie", "john")
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println("update one or more rows")
 }
 
 func getAllRows(conn *sql.DB) error {
