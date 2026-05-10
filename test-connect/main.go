@@ -51,5 +51,9 @@ func getAllRows(conn *sql.DB) error {
 		log.Printf("User: %d %s %s\n", id, firstName, lastName)
 	}
 
+	if err = rows.Err(); err != nil {
+		log.Fatal("Error scanning rows", err)
+	}
+
 	return nil
 }
