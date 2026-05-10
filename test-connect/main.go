@@ -24,4 +24,15 @@ func main() {
 	}
 
 	log.Println("Pinged database.")
+
+	err = getAllRows()
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func getAllRows(conn *sql.DB) error {
+	rows, err := conn.Query("select id, first_name, last_name")
+
+	return nil
 }
