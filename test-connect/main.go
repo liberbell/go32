@@ -10,6 +10,7 @@ import (
 func main() {
 	conn, err := sql.Open("pgx", "host=localhost port=5432 dbname=test_connect user=booking_ope password=pass1234")
 	if err != nil {
+
 		log.Fatalf("Anable to connect: %v", err)
 	}
 	defer conn.Close()
@@ -20,4 +21,6 @@ func main() {
 	if err != nil {
 		log.Fatal("cannot ping database:", err)
 	}
+
+	log.Println("Pinged database.")
 }
