@@ -19,7 +19,7 @@ func ConnectSQL(dsn string) (*DB, error) {
 
 }
 
-func NewDatabase(dsn string) (*DB, error) {
+func NewDatabase(dsn string) (*sql.DB, error) {
 	db, err := sql.Open("pgx", dsn)
 	if err != nil {
 		return nil, err
@@ -28,4 +28,5 @@ func NewDatabase(dsn string) (*DB, error) {
 	if err = db.Ping(); err != nil {
 		return nil, err
 	}
+	return db, nil
 }
