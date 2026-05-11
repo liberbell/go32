@@ -53,6 +53,7 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+		log.Println("queryrow retruns", id, firstName, lastName)
 	}
 
 	stmt := `update users set first_name = $1 where first_name = $2`
