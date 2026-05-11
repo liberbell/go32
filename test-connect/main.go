@@ -42,19 +42,19 @@ func main() {
 	err = getAllRows(conn)
 	if err != nil {
 		log.Fatal(err)
-
-		query = `select id, first_name, last_name from users where id = $1`
-
-		var firstName, lastName string
-		var id int
-
-		rows := conn.QueryRow(query, 1)
-		err = rows.Scan(&id, &firstName, &lastName)
-		if err != nil {
-			log.Fatal(err)
-		}
-		log.Println("queryrow retruns", id, firstName, lastName)
 	}
+
+	query = `select id, first_name, last_name from users where id = $1`
+
+	var firstName, lastName string
+	var id int
+
+	row := conn.QueryRow(query, 1)
+	err = row.Scan(&id, &firstName, &lastName)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println("queryrow retruns", id, firstName, lastName)
 
 	stmt := `update users set first_name = $1 where first_name = $2`
 	_, err = conn.Exec(stmt, "johnie", "john")
