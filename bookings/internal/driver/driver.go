@@ -21,4 +21,11 @@ func ConnectSQL(dsn string) (*DB, error) {
 
 func NewDatabase(dsn string) (*DB, error) {
 	db, err := sql.Open("pgx", dsn)
+	if err != nil {
+		return nil, err
+	}
+
+	if err = db.Ping(); err != nil {
+		return nil, err
+	}
 }
