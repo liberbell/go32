@@ -28,6 +28,14 @@ func ConnectSQL(dsn string) (*sql.DB, error) {
 	return d, nil
 }
 
+func testDB(d *sql.DB) error {
+	err := d.Ping()
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 func NewDatabase(dsn string) (*sql.DB, error) {
 	db, err := sql.Open("pgx", dsn)
 	if err != nil {
