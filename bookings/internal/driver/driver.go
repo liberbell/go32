@@ -18,8 +18,13 @@ const maxDbLifetime = 5 * time.Minute
 func ConnectSQL(dsn string) (*sql.DB, error) {
 	d, err := NewDatabase(dsn)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
+	d.SetMaxOpenConns(maxOpenDbConn)
+	d.SetMaxIdleConns(maxIdleDbConn)
+	d.SetConnMaxLifetime(maxDbLifetime)
+
+	dbConn.SQL = d
 	return d, nil
 }
 
