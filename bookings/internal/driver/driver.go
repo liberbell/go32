@@ -3,6 +3,9 @@ package driver
 import (
 	"database/sql"
 	"time"
+
+	_ "github.com/jackc/pgconn/v5/stdlib"
+	_ "github.com/jackc/pgx/v5"
 )
 
 type DB struct {
