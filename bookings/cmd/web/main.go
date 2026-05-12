@@ -67,6 +67,7 @@ func run() (*driver.DB, error) {
 	if err != nil {
 		log.Fatal("cannot connect to database! Dying...")
 	}
+	log.Println("connected to database...")
 
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
