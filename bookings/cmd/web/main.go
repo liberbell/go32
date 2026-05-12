@@ -10,6 +10,7 @@ import (
 
 	"github.com/alexedwards/scs/v2"
 	"github.com/liber/bookings/internal/config"
+	"github.com/liber/bookings/internal/driver"
 	"github.com/liber/bookings/internal/handlers"
 	"github.com/liber/bookings/internal/helpers"
 	"github.com/liber/bookings/internal/models"
@@ -24,10 +25,11 @@ var infoLog *log.Logger
 var errorLog *log.Logger
 
 func main() {
-	err := run()
+	db, err := run()
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer db.SQL.Close()
 
 	fmt.Printf("Starting Web server on port %s", portNumber)
 
@@ -41,7 +43,7 @@ func main() {
 	log.Fatal(err)
 }
 
-func run() error {
+func run() (*driver.DB, error) {
 	gob.Register(models.Reservation{})
 
 	app.InProduction = false
@@ -59,11 +61,17 @@ func run() error {
 	session.Cookie.Secure = app.InProduction
 
 	app.Session = session
+	log.Println("connecting to database...")
+	dsn := "host=localhost port=5432 user=bookings_ope password=pass1234 dbname=bookings sslmode=disable"
+	db, err := driver.ConnectSQL(dsn)
+	if err != nil {
+		log.Fatal("cannot connect to database! Dying...")
+	}
 
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("Cannot create template cache")
-		return err
+		return nil, err
 	}
 
 	app.TemplateCache = tc
@@ -74,5 +82,5 @@ func run() error {
 	render.NewTemplates(&app)
 	helpers.NewHelpers(&app)
 
-	return nil
+	return db, nil
 }
