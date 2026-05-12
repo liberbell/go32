@@ -6,21 +6,26 @@ import (
 	"net/http"
 
 	"github.com/liber/bookings/internal/config"
+	"github.com/liber/bookings/internal/driver"
 	"github.com/liber/bookings/internal/forms"
 	"github.com/liber/bookings/internal/helpers"
 	"github.com/liber/bookings/internal/models"
 	"github.com/liber/bookings/internal/render"
+	"github.com/liber/bookings/internal/repository"
+	"github.com/liber/bookings/internal/repository/dbrepo"
 )
 
 var Repo *Repository
 
 type Repository struct {
 	App *config.AppConfig
+	DB  repository.DatabaseRepo
 }
 
-func NewRepo(a *config.AppConfig) *Repository {
+func NewRepo(a *config.AppConfig, db *driver.DB) *Repository {
 	return &Repository{
 		App: a,
+		DB:  dbrepo.NewPostgresRepo(db.SQL, a),
 	}
 }
 
