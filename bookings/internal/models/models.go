@@ -45,4 +45,19 @@ type Reservations struct {
 	RoomID    int
 	CreatedAt time.Time
 	UpdatedAt time.Time
+	Room      Rooms
+}
+
+type RoomRestrictions struct {
+	ID            int
+	StartDate     time.Time
+	EndDate       time.Time
+	RoomID        int
+	ReservationID int
+	RestrictionID int
+	CreatedAt     time.Time
+	UpdatedAt     time.Time
+	Room          Rooms
+	Reservation   Reservations
+	Restriction   Restrictions
 }
