@@ -1,6 +1,10 @@
 package dbrepo
 
-import "github.com/liber/bookings/internal/models"
+import (
+	"time"
+
+	"github.com/liber/bookings/internal/models"
+)
 
 func (m *PostgresDBRepo) AllUsers() bool {
 	return true
@@ -21,8 +25,9 @@ func (m *PostgresDBRepo) InsertReservation(res models.Reservation) error {
 		res.StartDate,
 		res.EndDate,
 		res.RoomID,
-		res.CreatedAt,
-		res.UpdatedAt)
+		time.Now(),
+		time.Now(),
+	)
 	if err != nil {
 		return err
 	}
