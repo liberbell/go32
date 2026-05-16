@@ -41,6 +41,6 @@ func (m *PostgresDBRepo) InsertReservation(res models.Reservation) (int, error) 
 	return newID, nil
 }
 
-func (m *post) InsertRoomRestriction(r models.RoomRestriction) error {
+func (m *PostgresDBRepo) InsertRoomRestriction(r models.RoomRestriction) error {
 	return nil
 }
