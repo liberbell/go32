@@ -122,6 +122,12 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		RestrictionID: 1,
 	}
 
+	err = m.DB.InsertRoomRestriction(restriction)
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
+
 	m.App.Session.Put(r.Context(), "reservation", reservation)
 	http.Redirect(w, r, "/reservation-summary", http.StatusSeeOther)
 }
