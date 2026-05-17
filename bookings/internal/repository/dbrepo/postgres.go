@@ -66,6 +66,13 @@ func (m *PostgresDBRepo) InsertRoomRestriction(r models.RoomRestriction) error {
 	return nil
 }
 
-func (m *PostgresDBRepo) SearchAvailability {
-	
+func (m *PostgresDBRepo) SearchAvailabilityByDates(start, end time.Time) (int, error) {
+
+	query := `
+			select
+				count(id)
+			from
+				room_restrictions
+			where
+				$1 < end_date and $2 > start_date;`
 }
