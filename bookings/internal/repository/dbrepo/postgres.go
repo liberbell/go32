@@ -66,7 +66,7 @@ func (m *PostgresDBRepo) InsertRoomRestriction(r models.RoomRestriction) error {
 	return nil
 }
 
-func (m *PostgresDBRepo) SearchAvailabilityByDates(start, end time.Time) (int, error) {
+func (m *PostgresDBRepo) SearchAvailabilityByDates(start, end time.Time) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
@@ -83,8 +83,12 @@ func (m *PostgresDBRepo) SearchAvailabilityByDates(start, end time.Time) (int, e
 	row := m.DB.QueryRowContext(ctx, query, start, end)
 	err := row.Scan(&numRows)
 	if err != nil {
-		return 0, nil
+		return false, nil
 	}
 
-	return numRows, nil
+	if numRows == 0 {
+		return true, nil
+	}
+
+	return false, nil
 }
