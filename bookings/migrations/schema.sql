@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict nfxfmh0c5EAEwQQNbj4fLw14vj03fsOz808tUBgFLYSuyRhFAFlQ2I3I9TIkGHF
+\restrict E2ZZmaFSIzdKfes6kzRWm2vpFYHV92FdCN8fDZ0mO7wEyj3wwNOgdsYP18oeZf1
 
 -- Dumped from database version 18.3
 -- Dumped by pg_dump version 18.3
@@ -110,7 +110,7 @@ CREATE TABLE public.room_restrictions (
     start_date date NOT NULL,
     end_date date NOT NULL,
     room_id integer NOT NULL,
-    reservation_id integer NOT NULL,
+    reservation_id integer,
     restriction_id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
@@ -396,5 +396,5 @@ ALTER TABLE ONLY public.room_restrictions
 -- PostgreSQL database dump complete
 --
 
-\unrestrict nfxfmh0c5EAEwQQNbj4fLw14vj03fsOz808tUBgFLYSuyRhFAFlQ2I3I9TIkGHF
+\unrestrict E2ZZmaFSIzdKfes6kzRWm2vpFYHV92FdCN8fDZ0mO7wEyj3wwNOgdsYP18oeZf1
 
