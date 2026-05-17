@@ -66,7 +66,7 @@ func (m *PostgresDBRepo) InsertRoomRestriction(r models.RoomRestriction) error {
 	return nil
 }
 
-func (m *PostgresDBRepo) SearchAvailabilityByDates(start, end time.Time, roomID int) (bool, error) {
+func (m *PostgresDBRepo) SearchAvailabilityByDatesByRoomID(start, end time.Time, roomID int) (bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
