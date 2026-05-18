@@ -98,6 +98,8 @@ func (m *PostgresDBRepo) SearchAvailabilityForAllRooms(start, end time.Time) ([]
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
+	var rooms []models.Room
+
 	query := `
 			select
 				r.id, r.room_name
@@ -105,5 +107,8 @@ func (m *PostgresDBRepo) SearchAvailabilityForAllRooms(start, end time.Time) ([]
 				rooms r
 			where
 				r.id not in 
-					(select room_id from room_restrictions rr where '2026-05-17' < rr.end_date and '2026-05-20' > rr.start_date);`
+					(select room_id from room_restrictions rr where $1 < rr.end_date and $2 > rr.start_date);`
+
+	_, err := m.DB.QueryContext(ctx, query, start, end)
+
 }
