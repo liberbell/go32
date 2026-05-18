@@ -109,6 +109,17 @@ func (m *PostgresDBRepo) SearchAvailabilityForAllRooms(start, end time.Time) ([]
 				r.id not in 
 					(select room_id from room_restrictions rr where $1 < rr.end_date and $2 > rr.start_date);`
 
-	_, err := m.DB.QueryContext(ctx, query, start, end)
+	rows, err := m.DB.QueryContext(ctx, query, start, end)
+	if err != nil {
+		return rooms, err
+	}
+
+	for rows.Next() {
+		var room models.Room
+		rows.Scan(
+			&room.ID,
+			&room.RoomName,
+		)
+	}
 
 }
