@@ -123,10 +123,13 @@ func (m *PostgresDBRepo) SearchAvailabilityForAllRooms(start, end time.Time) ([]
 		if err != nil {
 			return rooms, err
 		}
+		defer rows.Close()
 
 		rooms = append(rooms, room)
 	}
-	if err = rows.Err(); err != nil : rooms, err
+	if err = rows.Err(); err != nil {
+		return rooms, err
+	}
 
 	return rooms, nil
 
