@@ -31,7 +31,7 @@ func main() {
 	}
 	defer db.SQL.Close()
 
-	fmt.Printf("Starting Web server on port %s", portNumber)
+	fmt.Printf("Starting Web server on port %s\n", portNumber)
 
 	// _ = http.ListenAndServe(portNumber, nil)
 	srv := &http.Server{
