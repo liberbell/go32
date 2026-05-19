@@ -161,6 +161,11 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 	rooms, err := m.DB.SearchAvailabilityForAllRooms(startDate, endDate)
 	if err != nil {
 		helpers.ServerError(w, err)
+		return
+	}
+
+	for _, i := range rooms {
+		m.App.InfoLog.Println("room:", i.ID, i.RoomName)
 	}
 
 	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", start, end)))
