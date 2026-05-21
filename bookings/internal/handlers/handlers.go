@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/go-chi/chi/v5"
 	"github.com/liber/bookings/internal/config"
 	"github.com/liber/bookings/internal/driver"
 	"github.com/liber/bookings/internal/forms"
@@ -226,4 +227,15 @@ func (m *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) 
 	render.Template(w, r, "reservation-summary.page.tmpl", &models.TemplateData{
 		Data: data,
 	})
+}
+
+func (m *Repository) ChooseRoom(w http.ResponseWriter, r *http.Request) {
+	roomID, err := strconv.Atoi(chi.URLParam(r, "id"))
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
+	m.App.Session.Get(r.Context(), "reservation")
+
+	res, ok := m.App.Session.Get(r.Context(), "reservation").(models.Reservation)
 }
