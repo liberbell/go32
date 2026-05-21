@@ -242,4 +242,6 @@ func (m *Repository) ChooseRoom(w http.ResponseWriter, r *http.Request) {
 		helpers.ServerError(w, err)
 		return
 	}
+	res.RoomID = roomID
+	m.App.Session.Put(r.Context(), "reservation", res)
 }
