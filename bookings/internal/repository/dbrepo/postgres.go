@@ -157,4 +157,9 @@ func (m *PostgresDBRepo) GetRoomByID(id int) (models.Room, error) {
 		&room.CreatedAt,
 		&room.UpdatedAt,
 	)
+
+	if err != nil {
+		return room, err
+	}
+	return room, nil
 }
