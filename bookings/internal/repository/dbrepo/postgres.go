@@ -149,4 +149,12 @@ func (m *PostgresDBRepo) GetRoomByID(id int) (models.Room, error) {
 		where
 			id = $1
 	`
+
+	row := m.DB.QueryRowContext(ctx, query, id)
+	err := row.Scan(
+		&room.ID,
+		&room.RoomName,
+		&room.CreatedAt,
+		&room.UpdatedAt,
+	)
 }
