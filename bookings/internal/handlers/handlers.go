@@ -82,7 +82,7 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
-	res, ok := m.App.Session.Get(r.Context(), "reservation").(models.Reservation)
+	reservation, ok := m.App.Session.Get(r.Context(), "reservation").(models.Reservation)
 	if !ok {
 		helpers.ServerError(w, errors.New("can't get from session"))
 		return
@@ -94,40 +94,41 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	sd := r.Form.Get("start_date")
-	ed := r.Form.Get("end_date")
+	// sd := r.Form.Get("start_date")
+	// ed := r.Form.Get("end_date")
 
-	layout := "2006-01-02"
-	startDate, err := time.Parse(layout, sd)
-	if err != nil {
-		helpers.ServerError(w, err)
-		return
-	}
-	endDate, err := time.Parse(layout, ed)
-	if err != nil {
-		helpers.ServerError(w, err)
-		return
-	}
+	// layout := "2006-01-02"
+	// startDate, err := time.Parse(layout, sd)
+	// if err != nil {
+	// 	helpers.ServerError(w, err)
+	// 	return
+	// }
+	// endDate, err := time.Parse(layout, ed)
+	// if err != nil {
+	// 	helpers.ServerError(w, err)
+	// 	return
+	// }
 
-	roomID, err := strconv.Atoi(r.Form.Get("room_id"))
-	if err != nil {
-		helpers.ServerError(w, err)
-		return
-	}
+	// roomID, err := strconv.Atoi(r.Form.Get("room_id"))
+	// if err != nil {
+	// 	helpers.ServerError(w, err)
+	// 	return
+	// }
 
-	res.FirstName = r.Form.Get("first_name")
-	res.LastName = r.Form.Get("last_name")
-	res.Phone = r.Form.Get("phone")
+	reservation.FirstName = r.Form.Get("first_name")
+	reservation.LastName = r.Form.Get("last_name")
+	reservation.Phone = r.Form.Get("phone")
+	reservation.Email = r.Form.Get("email")
 
-	reservation := models.Reservation{
-		FirstName: r.Form.Get("first_name"),
-		LastName:  r.Form.Get("last_name"),
-		Email:     r.Form.Get("email"),
-		Phone:     r.Form.Get("phone"),
-		StartDate: startDate,
-		EndDate:   endDate,
-		RoomID:    roomID,
-	}
+	// reservation := models.Reservation{
+	// 	FirstName: r.Form.Get("first_name"),
+	// 	LastName:  r.Form.Get("last_name"),
+	// 	Email:     r.Form.Get("email"),
+	// 	Phone:     r.Form.Get("phone"),
+	// 	StartDate: startDate,
+	// 	EndDate:   endDate,
+	// 	RoomID:    roomID,
+	// }
 
 	form := forms.New(r.PostForm)
 	form.Required("first_name", "last_name", "email")
@@ -148,12 +149,15 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	newReservationID, err := m.DB.InsertReservation(reservation)
 	if err != nil {
 		helpers.ServerError(w, err)
+		return
 	}
 
+	m.App.Session.Put(r.Context(), "reservation", reservation)
+
 	restriction := models.RoomRestriction{
-		StartDate:     startDate,
-		EndDate:       endDate,
-		RoomID:        roomID,
+		StartDate:     reservation.StartDate,
+		EndDate:       reservation.EndDate,
+		RoomID:        reservation.RoomID,
 		ReservationID: newReservationID,
 		RestrictionID: 1,
 	}
