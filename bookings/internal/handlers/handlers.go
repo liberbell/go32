@@ -310,4 +310,7 @@ func (m *Repository) BookRoom(w http.ResponseWriter, r *http.Request) {
 	res.StartDate = startDate
 	res.EndDate = endDate
 
+	m.App.Session.Put(r.Context(), "reservation", res)
+	http.Redirect(w, r, "/make-reservation", http.StatusTemporaryRedirect)
+
 }
