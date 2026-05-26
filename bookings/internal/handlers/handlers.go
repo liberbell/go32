@@ -298,6 +298,12 @@ func (m *Repository) BookRoom(w http.ResponseWriter, r *http.Request) {
 
 	var res models.Reservation
 
+	room, err := m.DB.GetRoomByID(roomID)
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
+
 	res.RoomID = roomID
 	res.StartDate = startDate
 	res.EndDate = endDate
