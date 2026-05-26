@@ -3,6 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"errors"
+	"log"
 	"net/http"
 	"strconv"
 	"time"
@@ -288,4 +289,6 @@ func (m *Repository) BookRoom(w http.ResponseWriter, r *http.Request) {
 	ID, _ := strconv.Atoi(r.URL.Query().Get("id"))
 	startDate := r.URL.Query().Get("s")
 	endDate := r.URL.Query().Get("e")
+
+	log.Println("From URL:", ID, startDate, endDate)
 }
