@@ -304,6 +304,8 @@ func (m *Repository) BookRoom(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	res.Room.RoomName = room.RoomName
+
 	res.RoomID = roomID
 	res.StartDate = startDate
 	res.EndDate = endDate
