@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"net/http"
 	"net/http/httptest"
 	"net/url"
 	"testing"
@@ -84,4 +85,7 @@ func TestRepository_Reservation(t *testing.T) {
 			RoomName: "General's Quarters",
 		},
 	}
+
+	req, _ := http.NewRequest("GET", "/make-reservation", nil)
+
 }
