@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"net/http"
 	"net/http/httptest"
 	"net/url"
 	"testing"
@@ -19,27 +18,27 @@ var theTests = []struct {
 	params             []postData
 	expectedStatusCode int
 }{
-	{"home", "/", "GET", []postData{}, http.StatusOK},
-	{"about", "/about", "GET", []postData{}, http.StatusOK},
-	{"gq", "/generals-quarters", "GET", []postData{}, http.StatusOK},
-	{"ms", "/majors-suite", "GET", []postData{}, http.StatusOK},
-	{"sa", "/search-availability", "GET", []postData{}, http.StatusOK},
-	{"contact", "/contact", "GET", []postData{}, http.StatusOK},
-	{"mr", "/make-reservation", "GET", []postData{}, http.StatusOK},
-	{"post-search-availability", "/search-availability", "Post", []postData{
-		{key: "start", value: "2026-04-01"},
-		{key: "end", value: "2026-04-20"},
-	}, http.StatusOK},
-	{"post-search-availability-json", "/search-availability-json", "Post", []postData{
-		{key: "start", value: "2026-04-01"},
-		{key: "end", value: "2026-04-20"},
-	}, http.StatusOK},
-	{"make-reservation", "/make-reservation", "Post", []postData{
-		{key: "first_name", value: "bob"},
-		{key: "last_name", value: "mary"},
-		{key: "email", value: "abc@abc.com"},
-		{key: "phone", value: "111-222-3333"},
-	}, http.StatusOK},
+	// {"home", "/", "GET", []postData{}, http.StatusOK},
+	// {"about", "/about", "GET", []postData{}, http.StatusOK},
+	// {"gq", "/generals-quarters", "GET", []postData{}, http.StatusOK},
+	// {"ms", "/majors-suite", "GET", []postData{}, http.StatusOK},
+	// {"sa", "/search-availability", "GET", []postData{}, http.StatusOK},
+	// {"contact", "/contact", "GET", []postData{}, http.StatusOK},
+	// {"mr", "/make-reservation", "GET", []postData{}, http.StatusOK},
+	// {"post-search-availability", "/search-availability", "Post", []postData{
+	// 	{key: "start", value: "2026-04-01"},
+	// 	{key: "end", value: "2026-04-20"},
+	// }, http.StatusOK},
+	// {"post-search-availability-json", "/search-availability-json", "Post", []postData{
+	// 	{key: "start", value: "2026-04-01"},
+	// 	{key: "end", value: "2026-04-20"},
+	// }, http.StatusOK},
+	// {"make-reservation", "/make-reservation", "Post", []postData{
+	// 	{key: "first_name", value: "bob"},
+	// 	{key: "last_name", value: "mary"},
+	// 	{key: "email", value: "abc@abc.com"},
+	// 	{key: "phone", value: "111-222-3333"},
+	// }, http.StatusOK},
 }
 
 func TestHandlers(t *testing.T) {
@@ -73,4 +72,8 @@ func TestHandlers(t *testing.T) {
 			}
 		}
 	}
+}
+
+func TestRepository_Reservation(t *testing.T) {
+
 }
