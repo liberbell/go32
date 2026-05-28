@@ -4,6 +4,8 @@ import (
 	"net/http/httptest"
 	"net/url"
 	"testing"
+
+	"github.com/liber/bookings/internal/models"
 )
 
 type postData struct {
@@ -75,5 +77,11 @@ func TestHandlers(t *testing.T) {
 }
 
 func TestRepository_Reservation(t *testing.T) {
-
+	reservation := models.Reservation{
+		RoomID: 1,
+		Room: models.Room{
+			ID:       1,
+			RoomName: "General's Quarters",
+		},
+	}
 }
