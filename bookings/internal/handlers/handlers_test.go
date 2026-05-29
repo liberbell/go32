@@ -96,6 +96,7 @@ func TestRepository_Reservation(t *testing.T) {
 	session.Put(ctx, "reservation", reservation)
 
 	handlers := http.HandlerFunc(Repo.Reservation)
+	handlers.ServeHTTP(rr, req)
 }
 
 func getCtx(req http.Request) context.Context {
