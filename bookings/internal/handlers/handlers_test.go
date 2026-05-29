@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"context"
+	"log"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
@@ -92,5 +93,9 @@ func TestRepository_Reservation(t *testing.T) {
 }
 
 func GetCtx(req http.Request) context.Context {
-
+	ctx, err := session.Load(req.Context(), req.Header.Get("X-Session"))
+	if err != nil {
+		log.Println(err)
+	}
+	return ctx
 }
