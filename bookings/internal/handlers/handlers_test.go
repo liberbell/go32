@@ -89,10 +89,11 @@ func TestRepository_Reservation(t *testing.T) {
 	}
 
 	req, _ := http.NewRequest("GET", "/make-reservation", nil)
-
+	ctx := getCtx(*req)
+	req = req.WithContext(ctx)
 }
 
-func GetCtx(req http.Request) context.Context {
+func getCtx(req http.Request) context.Context {
 	ctx, err := session.Load(req.Context(), req.Header.Get("X-Session"))
 	if err != nil {
 		log.Println(err)
