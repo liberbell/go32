@@ -91,6 +91,11 @@ func TestRepository_Reservation(t *testing.T) {
 	req, _ := http.NewRequest("GET", "/make-reservation", nil)
 	ctx := getCtx(*req)
 	req = req.WithContext(ctx)
+
+	rr := httptest.NewRecorder()
+	session.Put(ctx, "reservation", reservation)
+
+	handlers := http.HandlerFunc(Repo.Reservation)
 }
 
 func getCtx(req http.Request) context.Context {
