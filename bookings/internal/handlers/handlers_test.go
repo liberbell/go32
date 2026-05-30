@@ -98,8 +98,8 @@ func TestRepository_Reservation(t *testing.T) {
 	handlers := http.HandlerFunc(Repo.Reservation)
 	handlers.ServeHTTP(rr, req)
 
-	if rr.Code == http.StatusOK {
-		t.Error("Reservation hundler returned wrong response code: got %d, wanted %d", rr.Code, http.StatusOK)
+	if rr.Code != http.StatusOK {
+		t.Errorf("Reservation hundler returned wrong response code: got %d, wanted %d", rr.Code, http.StatusOK)
 	}
 }
 
