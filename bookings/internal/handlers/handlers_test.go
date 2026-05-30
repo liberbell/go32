@@ -107,7 +107,10 @@ func TestRepository_Reservation(t *testing.T) {
 	req = req.WithContext(ctx)
 	rr = httptest.NewRecorder()
 
-	handlers.ServeHTTP()
+	handlers.ServeHTTP(rr, req)
+	if rr.Code != http.StatusTemporaryRedirect {
+		t.Errorf("Reservation hundler returned wrong response code: got %d, wanted %d", rr.Code, http.StatusTemporaryRedirect)
+	}
 }
 
 func getCtx(req http.Request) context.Context {
