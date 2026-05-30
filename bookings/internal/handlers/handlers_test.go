@@ -20,16 +20,15 @@ var theTests = []struct {
 	name               string
 	url                string
 	method             string
-	params             []postData
 	expectedStatusCode int
 }{
-	{"home", "/", "GET", []postData{}, http.StatusOK},
-	{"about", "/about", "GET", []postData{}, http.StatusOK},
-	{"gq", "/generals-quarters", "GET", []postData{}, http.StatusOK},
-	{"ms", "/majors-suite", "GET", []postData{}, http.StatusOK},
+	{"home", "/", "GET", http.StatusOK},
+	{"about", "/about", "GET", http.StatusOK},
+	{"gq", "/generals-quarters", "GET", http.StatusOK},
+	{"ms", "/majors-suite", "GET", http.StatusOK},
 	// {"sa", "/search-availability", "GET", []postData{}, http.StatusOK},
-	{"contact", "/contact", "GET", []postData{}, http.StatusOK},
-	{"mr", "/make-reservation", "GET", []postData{}, http.StatusOK},
+	{"contact", "/contact", "GET", http.StatusOK},
+	{"mr", "/make-reservation", "GET", http.StatusOK},
 	// {"post-search-availability", "/search-availability", "Post", []postData{
 	// 	{key: "start", value: "2026-04-01"},
 	// 	{key: "end", value: "2026-04-20"},
