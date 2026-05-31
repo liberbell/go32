@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"net/http"
 	"net/http/httptest"
@@ -108,7 +109,15 @@ func TestRepository_Reservation(t *testing.T) {
 }
 
 func TestRepository_PostReservation(t *testing.T) {
+	reqBody := "start_date=2050-01-01"
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-02")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "first_name=2050-01-02")
 
+	req, _ := http.NewRequest("POST", "/make-reservation", nil)
+	ctx := getCtx(*req)
+	req = req.WithContext(ctx)
+
+	rr := httptest.NewRecorder()
 }
 
 func getCtx(req http.Request) context.Context {
