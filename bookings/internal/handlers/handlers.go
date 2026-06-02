@@ -251,6 +251,19 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 	// 	OK:      true,
 	// 	Message: "Available",
 	// }
+
+	err := r.ParseForm()
+	if err != nil {
+		resp := jsonResponse{
+			OK:      true,
+			Message: "Available",
+		}
+
+		out, _ := json.MarshalIndent(resp, "", "   ")
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(out)
+		return
+	}
 	sd := r.Form.Get("start")
 	ed := r.Form.Get("end")
 
