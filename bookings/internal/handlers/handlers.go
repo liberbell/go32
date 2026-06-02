@@ -294,7 +294,7 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 		RoomID:    strconv.Itoa(roomID),
 	}
 
-	out, _ := json.MarshalIndent(resp, "", "     ")
+	out, _ := json.MarshalIndent(resp, "", "   ")
 	// if err != nil {
 	// 	helpers.ServerError(w, err)
 	// 	return
