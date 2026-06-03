@@ -274,6 +274,9 @@ func TestRepository_PostReservation(t *testing.T) {
 func TestRepository_AvailabilityJSON(t *testing.T) {
 	reqBody := "start=2050-01-01"
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "end=2050-01-01")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "room_id=1")
+
+	req, _ := http.NewRequest("POST", "/Search-availability-json", strings.NewReader(reqBody))
 }
 
 func getCtx(req http.Request) context.Context {
