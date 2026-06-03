@@ -122,6 +122,9 @@ func TestRepository_PostReservation(t *testing.T) {
 
 	postedData := url.Values{}
 	postedData.Add("start_date", "2050-01-01")
+	postedData.Add("end_date", "2050-01-02")
+	postedData.Add("first_name", "James")
+	postedData.Add("last_name", "Bond")
 
 	req, _ := http.NewRequest("POST", "/make-reservation", strings.NewReader(reqBody))
 	ctx := getCtx(*req)
