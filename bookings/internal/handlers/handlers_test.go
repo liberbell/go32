@@ -271,8 +271,9 @@ func TestRepository_PostReservation(t *testing.T) {
 	}
 }
 
-func TestRepository_AvailabilityJSON() {
-
+func TestRepository_AvailabilityJSON(t *testing.T) {
+	reqBody := "start=2050-01-01"
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "end=2050-01-01")
 }
 
 func getCtx(req http.Request) context.Context {
