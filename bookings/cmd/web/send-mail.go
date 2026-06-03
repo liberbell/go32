@@ -29,4 +29,5 @@ func sendMsg(m models.MailData) {
 	}
 	email := mail.NewMSG()
 	email.SetFrom(m.From).AddTo(m.To).SetSubject(m.Subject)
+	email.SetBody(mail.TextHTML, "Hello, <strong>world</strong>")
 }
