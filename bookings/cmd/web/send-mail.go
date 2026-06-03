@@ -1,5 +1,10 @@
 package main
 
+import (
+	"github.com/liber/bookings/internal/models"
+	mail "github.com/xhit/go-simple-mail/v2"
+)
+
 func listenForMail() {
 	go func() {
 		for {
@@ -7,4 +12,8 @@ func listenForMail() {
 		}
 	}()
 
+}
+
+func sendMsg(m models.MailData) {
+	server := mail.NewSMTPClient()
 }
