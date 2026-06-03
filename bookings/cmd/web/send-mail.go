@@ -27,4 +27,6 @@ func sendMsg(m models.MailData) {
 	if err != nil {
 		errorLog.Println(err)
 	}
+	email := mail.NewMSG()
+	email.SetFrom(m.From).AddTo(m.To).SetSubject(m.Subject)
 }
