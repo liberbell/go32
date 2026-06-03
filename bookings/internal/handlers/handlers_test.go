@@ -112,21 +112,24 @@ func TestRepository_Reservation(t *testing.T) {
 }
 
 func TestRepository_PostReservation(t *testing.T) {
-	reqBody := "start_date=2050-01-01"
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-02")
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "first_name=Bob")
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "last_name=Mary")
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "email=bob@mary.com")
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "phone=1234567890")
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "room_id=1")
+	// reqBody := "start_date=2050-01-01"
+	// reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-02")
+	// reqBody = fmt.Sprintf("%s&%s", reqBody, "first_name=Bob")
+	// reqBody = fmt.Sprintf("%s&%s", reqBody, "last_name=Mary")
+	// reqBody = fmt.Sprintf("%s&%s", reqBody, "email=bob@mary.com")
+	// reqBody = fmt.Sprintf("%s&%s", reqBody, "phone=1234567890")
+	// reqBody = fmt.Sprintf("%s&%s", reqBody, "room_id=1")
 
 	postedData := url.Values{}
 	postedData.Add("start_date", "2050-01-01")
 	postedData.Add("end_date", "2050-01-02")
 	postedData.Add("first_name", "James")
 	postedData.Add("last_name", "Bond")
+	postedData.Add("email", "james@bond.com")
+	postedData.Add("phone", "111-222-3333")
+	postedData.Add("room_id", "1")
 
-	req, _ := http.NewRequest("POST", "/make-reservation", strings.NewReader(reqBody))
+	req, _ := http.NewRequest("POST", "/make-reservation", strings.NewReader(postedData.Encode()))
 	ctx := getCtx(*req)
 	req = req.WithContext(ctx)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
