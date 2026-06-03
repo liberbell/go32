@@ -1,6 +1,8 @@
 package main
 
 import (
+	"time"
+
 	"github.com/liber/bookings/internal/models"
 	mail "github.com/xhit/go-simple-mail/v2"
 )
@@ -16,4 +18,13 @@ func listenForMail() {
 
 func sendMsg(m models.MailData) {
 	server := mail.NewSMTPClient()
+	server.Host = "localhost"
+	server.Port = 1025
+	server.KeepAlive = false
+	server.ConnectTimeout = 100 * time.Millisecond
+
+	client, err := server.Connect()
+	if err != nil {
+		errorLog.Println(err)
+	}
 }
