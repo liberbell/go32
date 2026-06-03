@@ -31,6 +31,8 @@ func main() {
 	}
 	defer db.SQL.Close()
 
+	defer close(app.MailChan)
+
 	fmt.Printf("Starting Web server on port %s\n", portNumber)
 
 	// _ = http.ListenAndServe(portNumber, nil)
