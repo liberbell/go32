@@ -32,6 +32,7 @@ func main() {
 	defer db.SQL.Close()
 
 	defer close(app.MailChan)
+	listenForMail()
 
 	fmt.Printf("Starting Web server on port %s\n", portNumber)
 
