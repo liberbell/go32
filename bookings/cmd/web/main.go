@@ -34,6 +34,14 @@ func main() {
 	defer close(app.MailChan)
 	listenForMail()
 
+	msg := models.MailData{
+		To:      "money@bond.com",
+		From:    "james@bond.com",
+		Subject: "Kill list",
+		Content: "weapon",
+	}
+	app.MailChan <- msg
+
 	fmt.Printf("Starting Web server on port %s\n", portNumber)
 
 	// _ = http.ListenAndServe(portNumber, nil)
