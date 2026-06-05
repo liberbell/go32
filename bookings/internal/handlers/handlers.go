@@ -176,6 +176,14 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	msg := models.MailData{
+		To:      "money@bond.com",
+		From:    "james@bond.com",
+		Subject: "Kill list",
+		Content: "weapon",
+	}
+	app.MailChan <- msg
+
 	m.App.Session.Put(r.Context(), "reservation", reservation)
 	http.Redirect(w, r, "/reservation-summary", http.StatusSeeOther)
 }
