@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"strconv"
@@ -175,6 +176,13 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
 	}
+
+	htmlMessage := fmt.Sprintf(`
+		<strong>Reservation confirmation</strong><br>
+		Dear %s,<br>
+		This is confirm your reservation from %s to %s
+
+	`)
 
 	msg := models.MailData{
 		To:      reservation.Email,
