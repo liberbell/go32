@@ -24,6 +24,7 @@ func sendMsg(m models.MailData) {
 	server.Port = 1025
 	server.KeepAlive = false
 	server.ConnectTimeout = 100 * time.Millisecond
+	server.SendTimeout = 10 * time.Second
 
 	client, err := server.Connect()
 	if err != nil {
@@ -31,7 +32,7 @@ func sendMsg(m models.MailData) {
 	}
 	email := mail.NewMSG()
 	email.SetFrom(m.From).AddTo(m.To).SetSubject(m.Subject)
-	email.SetBody(mail.TextHTML, "Hello, <strong>world</strong>")
+	email.SetBody(mail.TextHTML, m.Content)
 
 	err = email.Send(client)
 	if err != nil {
