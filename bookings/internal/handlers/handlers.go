@@ -180,9 +180,8 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	htmlMessage := fmt.Sprintf(`
 		<strong>Reservation confirmation</strong><br>
 		Dear %s,<br>
-		This is confirm your reservation from %s to %s
-
-	`)
+		This is confirm your reservation from %s to %s.
+	`, reservation.FirstName, reservation.StartDate.Format("2006-01-02"), reservation.EndDate.Format("2006-01-02"))
 
 	msg := models.MailData{
 		To:      reservation.Email,
