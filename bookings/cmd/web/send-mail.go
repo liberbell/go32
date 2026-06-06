@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"strings"
 	"time"
 
 	"github.com/liber/bookings/internal/models"
@@ -43,6 +44,7 @@ func sendMsg(m models.MailData) {
 		}
 
 		mailTemplate := string(data)
+		msgToSend := strings.Replace(mailTemplate, "[%body%]", m.Content, 1)
 	}
 	email.SetBody(mail.TextHTML, m.Content)
 
