@@ -168,9 +168,12 @@ func (m *PostgresDBRepo) GetUserByID(id int) (models.User, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
-	query = '
+	query := `
 		select
 			id, first_name, last_name, email, password, access_level, created_at, updated_at
-		
-		'
+		from
+			users,
+		where
+			id = $1`
+
 }
