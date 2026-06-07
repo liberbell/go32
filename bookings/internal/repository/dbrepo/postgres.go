@@ -181,6 +181,16 @@ func (m *PostgresDBRepo) GetUserByID(id int) (models.User, error) {
 	var u models.User
 	err := row.Scan(
 		&u.ID,
+		&u.FirstName,
+		&u.LastName,
+		&u.Email,
+		&u.Password,
+		&u.AccessLevel,
+		&u.CreatedAt,
+		&u.UpdatedAt,
 	)
+	if err != nil {
+		return u, err
+	}
 
 }
