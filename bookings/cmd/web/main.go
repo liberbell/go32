@@ -74,9 +74,6 @@ func run() (*driver.DB, error) {
 
 	app.Session = session
 
-	mailChan := make(chan models.MailData)
-	app.MailChan = mailChan
-
 	log.Println("connecting to database...")
 	dsn := "host=localhost port=5432 user=bookings_ope password=pass1234 dbname=bookings sslmode=disable"
 	db, err := driver.ConnectSQL(dsn)
