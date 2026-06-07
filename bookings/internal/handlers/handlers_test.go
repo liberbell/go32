@@ -155,7 +155,7 @@ func TestRepository_PostReservation(t *testing.T) {
 		t.Errorf("PostReservation handler returned wrong response code for missing post body: got %d, wanted %d", rr.Code, http.StatusTemporaryRedirect)
 	}
 
-	reqBody = "start_date=invalid"
+	reqBody := "start_date=invalid"
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-02")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "first_name=Bob")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "last_name=Mary")
