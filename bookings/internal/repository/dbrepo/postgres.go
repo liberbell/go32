@@ -195,3 +195,7 @@ func (m *PostgresDBRepo) GetUserByID(id int) (models.User, error) {
 
 	return u, nil
 }
+
+func (m *PostgresDBRepo) UpdateUser(u models.User) error {
+
+}
