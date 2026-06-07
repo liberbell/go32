@@ -176,4 +176,11 @@ func (m *PostgresDBRepo) GetUserByID(id int) (models.User, error) {
 		where
 			id = $1`
 
+	row := m.DB.QueryRowContext(ctx, query, id)
+
+	var u models.User
+	err := row.Scan(
+		&u.ID,
+	)
+
 }
