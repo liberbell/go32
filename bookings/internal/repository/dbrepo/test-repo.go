@@ -45,5 +45,11 @@ func (m *testDBRepo) GetRoomByID(id int) (models.Room, error) {
 }
 
 func (m *testDBRepo) GetUserByID(id int) (models.User, error) {
+	var u models.User
+
+	return u, nil
+}
+
+func (m *testDBRepo) UpdateUser(u models.User) error {
 
 }
