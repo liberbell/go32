@@ -220,3 +220,11 @@ func (m *PostgresDBRepo) UpdateUser(u models.User) error {
 
 	return nil
 }
+
+func (m *PostgresDBRepo) Authenticate(email, password string) (int, string, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	var id int
+	var hashedPassword string
+}
