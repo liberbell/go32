@@ -197,5 +197,21 @@ func (m *PostgresDBRepo) GetUserByID(id int) (models.User, error) {
 }
 
 func (m *PostgresDBRepo) UpdateUser(u models.User) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
 
+	query := `
+		update
+			users
+		set
+			first_name = $1, last_name = $2, email = $3, access_level = $4, updated_at = $5
+	`
+
+	_, err := m.DB.ExecContext(ctx, query,
+		u.FirstName,
+		u.LastName,
+		u.Email,
+		u.AccessLevel,
+		time.Now(),
+	)
 }
