@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/liber/bookings/internal/models"
+	"golang.org/x/crypto/bcrypt"
 )
 
 func (m *PostgresDBRepo) AllUsers() bool {
@@ -221,10 +222,17 @@ func (m *PostgresDBRepo) UpdateUser(u models.User) error {
 	return nil
 }
 
-func (m *PostgresDBRepo) Authenticate(email, password string) (int, string, error) {
+func (m *PostgresDBRepo) Authenticate(email, testPassword string) (int, string, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
 	var id int
 	var hashedPassword string
+
+	row := m.DB.QueryRowContext(ctx, "select id, password from users where email = $1", email)
+	err := row.Scan(&id, &hashedPassword)
+	if err != nil {
+		return id, "", err
+	}
+	err = bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(testPassword))
 }
