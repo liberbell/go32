@@ -51,5 +51,9 @@ func (m *testDBRepo) GetUserByID(id int) (models.User, error) {
 }
 
 func (m *testDBRepo) UpdateUser(u models.User) error {
+	return nil
+}
+
+func (m *testDBRepo) Authenticate(email, testPassword string) (int, string, error) {
 
 }
