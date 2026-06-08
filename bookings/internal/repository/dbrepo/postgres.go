@@ -241,4 +241,6 @@ func (m *PostgresDBRepo) Authenticate(email, testPassword string) (int, string, 
 	} else {
 		return 0, "", err
 	}
+
+	return id, hashedPassword, nil
 }
