@@ -214,4 +214,9 @@ func (m *PostgresDBRepo) UpdateUser(u models.User) error {
 		u.AccessLevel,
 		time.Now(),
 	)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
