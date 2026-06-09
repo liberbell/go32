@@ -426,7 +426,10 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 		m.App.Session.Put(r.Context(), "error", "invalid credentials")
 		http.Redirect(w, r, "/user/login", http.StatusSeeOther)
+		return
 	}
 
 	m.App.Session.Put(r.Context(), "user_id", id)
+	m.App.Session.Put(r.Context(), "flash", "Login successfully")
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
