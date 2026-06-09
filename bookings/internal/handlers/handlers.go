@@ -405,4 +405,10 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 	// render.Template(w, r, "login.page.tmpl", &models.TemplateData{
 	// 	Form: forms.New(nil),
 	// })
+	_ = m.App.Session.RenewToken(r.Context())
+
+	err := r.ParseForm()
+	if err != nil {
+		log.Println(err)
+	}
 }
