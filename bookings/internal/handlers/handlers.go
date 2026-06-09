@@ -414,6 +414,8 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 
 	var email string
 	var password string
+	email = r.Form.Get("email")
+	password = r.Form.Get("password")
 
 	form := forms.New(r.PostForm)
 	form.Required("email", "password")
