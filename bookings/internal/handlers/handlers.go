@@ -411,4 +411,15 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
+
+	var email string
+	var password string
+
+	form := forms.New(r.PostForm)
+	form.Required("email", "password")
+	if !form.Valid() {
+		pass
+	}
+
+	id, _ := m.DB.Authenticate()
 }
