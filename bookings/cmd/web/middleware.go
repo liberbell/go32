@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/justinas/nosurf"
+	"github.com/liber/bookings/internal/helpers"
 )
 
 func NoSurf(next http.Handler) http.Handler {
@@ -23,5 +24,11 @@ func SessionLoad(next http.Handler) http.Handler {
 }
 
 func Auth(next http.Handler) http.Handler {
-
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if !helpers.IsAuthenticate(r) {
+			session.Put(r.Context(), "error", "Log in first")
+			http.Redirect(w, r, "/user/login", http.StatusSeeOther)
+			return
+		}
+	})
 }
