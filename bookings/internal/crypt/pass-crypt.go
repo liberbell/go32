@@ -10,5 +10,5 @@ func main() {
 	password := "jamespass"
 
 	hashedPassword, _ := bcrypt.GenerateFromPassword([]byte(password), 12)
-	fmt.Println(hashedPassword)
+	fmt.Println(string(hashedPassword))
 }
