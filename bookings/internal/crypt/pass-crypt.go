@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	password := "jamespass"
+	password := "liberpass"
 
 	hashedPassword, _ := bcrypt.GenerateFromPassword([]byte(password), 12)
 	fmt.Println(string(hashedPassword))
