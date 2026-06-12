@@ -46,6 +46,15 @@
                             </li>
                             <li class="nav-item">
                                 {{if eq .IsAuthenticate 1}}
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Admin
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="/admin/dashboard">General's quarters</a></li>
+                                            <li><a class="dropdown-item" href="/majors-suite">Major's Suite</a></li>
+                                        </ul>
+                                    </li>
                                     <a class="nav-link active" href="/user/logout" aria-disabled="true">Logout</a>
                                 {{else}}
                                     <a class="nav-link active" href="/user/login" aria-disabled="true">Login</a>
@@ -80,7 +89,7 @@
             <script src="../static/js/app.js"></script>
 
             {{ block "js" .}}
-              
+
             {{end}}
 
             <script>
