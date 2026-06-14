@@ -448,11 +448,11 @@ func (m *Repository) AdminDashboard(w http.ResponseWriter, r *http.Request) {
 	render.Template(w, r, "admin-dashboard.page.tmpl", &models.TemplateData{})
 }
 
-func (m *Repository) AdminNewDashboard(w http.ResponseWriter, r *http.Request) {
+func (m *Repository) AdminNewReservations(w http.ResponseWriter, r *http.Request) {
 	render.Template(w, r, "admin-new-dashboard.page.tmpl", &models.TemplateData{})
 }
 
-func (m *Repository) AdminAllDashboard(w http.ResponseWriter, r *http.Request) {
+func (m *Repository) AdminAllReservations(w http.ResponseWriter, r *http.Request) {
 	render.Template(w, r, "admin-all-dashboard.page.tmpl", &models.TemplateData{})
 }
 
