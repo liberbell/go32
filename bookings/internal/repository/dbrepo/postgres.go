@@ -265,4 +265,11 @@ func (m *PostgresDBRepo) AllReservations() ([]models.Reservation, error) {
 	`
 
 	rows, err := m.DB.QueryContext(ctx, query)
+	if err != nil {
+		return reservations, err
+	}
+
+	for rows.Next() {
+		var i models.Reservation
+	}
 }
