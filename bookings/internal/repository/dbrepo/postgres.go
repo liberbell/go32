@@ -260,5 +260,9 @@ func (m *PostgresDBRepo) AllReservations() ([]models.Reservation, error) {
 		rooms rm 
 	on
 		(r.room_id = rm.id)
+	order by
+		r.start_date asc
 	`
+
+	rows, err := m.DB.QueryContext(ctx, query)
 }
