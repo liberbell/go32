@@ -459,7 +459,11 @@ func (m *Repository) AdminAllReservations(w http.ResponseWriter, r *http.Request
 		return
 	}
 	data := make(map[string]interface{})
-	render.Template(w, r, "admin-all-reservations.page.tmpl", &models.TemplateData{})
+	data["reservations"] = reservations
+
+	render.Template(w, r, "admin-all-reservations.page.tmpl", &models.TemplateData{
+		Data: data,
+	})
 }
 
 func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Request) {
