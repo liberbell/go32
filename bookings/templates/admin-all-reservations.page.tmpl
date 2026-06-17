@@ -15,11 +15,21 @@
                     <th>Last Name</th>
                     <th>Room</th>
                     <th>Arrival</th>
+                    <th>Departure</th>
                 </tr>
             </thead>
+            <tbody>
+                {{range $res}}
+                    <tr>
+                        <td>{{.ID}}</td>
+                        <td>{{.LastName}}</td>
+                        <td>{{.Room}}</td>
+                        <td>{{.ID}}</td>
+                        <td>{{.ID}}</td>
+                    </tr>
+                    {{.ID}} <br>
+                {{end}}
+            </tbody>
         </table>
-        {{range $res}}
-            {{.ID}} <br>
-        {{end}}
     </div>
 {{end}}
