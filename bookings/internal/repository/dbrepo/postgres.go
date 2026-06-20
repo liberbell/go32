@@ -283,6 +283,7 @@ func (m *PostgresDBRepo) AllReservations() ([]models.Reservation, error) {
 			&i.RoomID,
 			&i.CreatedAt,
 			&i.UpdatedAt,
+			&i.Processed,
 			&i.Room.ID,
 			&i.Room.RoomName,
 		)
