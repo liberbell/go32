@@ -300,7 +300,7 @@ func (m *PostgresDBRepo) AllReservations() ([]models.Reservation, error) {
 	return reservations, nil
 }
 
-func (m *PostgresDBRepo) NewReservations() ([]models.Reservation, error) {
+func (m *PostgresDBRepo) AllNewReservations() ([]models.Reservation, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
