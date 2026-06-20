@@ -308,7 +308,7 @@ func (m *PostgresDBRepo) AllNewReservations() ([]models.Reservation, error) {
 
 	query := `
 	select
-		r.id, r.first_name, r.last_name, r.email, r.phone, r.start_date, r.end_date, r.room_id, r.created_at, r.updated_at, rm.id, rm.room_name,
+		r.id, r.first_name, r.last_name, r.email, r.phone, r.start_date, r.end_date, r.room_id, r.created_at, r.updated_at, rm.id, rm.room_name
 	from
 		reservations r
 	left join
