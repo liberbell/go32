@@ -9,3 +9,14 @@
         New reservation content
     </div>
 {{end}}
+
+{{define "js"}}
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dataTable = new simpleDatatables.DataTable("#new-res", {
+                select: 3, sort: "desc",
+            })
+        })
+    </script>
+{{end}}
