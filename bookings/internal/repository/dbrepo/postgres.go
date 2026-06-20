@@ -363,4 +363,11 @@ func (m *PostgresDBRepo) GetReservationByID(id int) (models.Reservation, error) 
 	defer cancel()
 
 	var res models.Reservation
+
+	query = `
+		select
+			r.ID, r.first_name, r.last_name, r.email, r.phone, r.start_date, r.end_date, r.roome_id, r.created_at, r.updated_at, r.processed, rm.id, rm.room_name
+		from
+			reservations r
+	`
 }
