@@ -484,8 +484,14 @@ func (m *Repository) AdminShowReservation(w http.ResponseWriter, r *http.Request
 		helpers.ServerError(w, err)
 		return
 	}
-	log.Println(id)
-	render.Template(w, r, "admin-reservations-show.page.tmpl", &models.TemplateData{})
+	// log.Println(id)
+	src := exploded[3]
+	stringMap := make(map[string]string)
+	stringMap["src"] = src
+
+	render.Template(w, r, "admin-reservations-show.page.tmpl", &models.TemplateData{
+		StringMap: stringMap,
+	})
 }
 
 func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Request) {
