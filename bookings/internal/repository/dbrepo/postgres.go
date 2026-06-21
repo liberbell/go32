@@ -366,7 +366,7 @@ func (m *PostgresDBRepo) GetReservationByID(id int) (models.Reservation, error) 
 
 	query := `
 		select
-			r.ID, r.first_name, r.last_name, r.email, r.phone, r.start_date, r.end_date, r.roome_id, r.created_at, r.updated_at, r.processed, rm.id, rm.room_name
+			r.ID, r.first_name, r.last_name, r.email, r.phone, r.start_date, r.end_date, r.room_id, r.created_at, r.updated_at, r.processed, rm.id, rm.room_name
 		from
 			reservations r
 		left join
