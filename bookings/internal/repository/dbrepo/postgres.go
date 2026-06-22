@@ -398,7 +398,7 @@ func (m *PostgresDBRepo) GetReservationByID(id int) (models.Reservation, error) 
 	return res, nil
 }
 
-func (m *PostgresDBRepo) UpdateReservation(u models.User) error {
+func (m *PostgresDBRepo) UpdateReservation(u models.Reservation) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
