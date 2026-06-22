@@ -8,7 +8,11 @@
     {{$res := index .Data "reservation"}}
     {{$src := index .StringMap "src"}}
     <div class="col-md-12">
-        Show reservation {{$res.FirstName}} {{$res.LastName}}
+        <p>
+            <strong>Arrival</strong>:{{humanDate $res.StartDate}}<br>
+            <strong>Departure</strong>:{{humanDate $res.EndDate}}<br>
+            <strong>Room</strong>:{{humanDate $res.Room.RoomName}}<br>
+        </p>
 
         <form action="/admin/reservations/{{$src}}/{{$res.id}}" method="post" class="" novalidate>
             <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
