@@ -433,4 +433,11 @@ func (m *PostgresDBRepo) DeleteReservation(id int) error {
 	where
 		id = $1
 	`
+
+	_, err := m.DB.ExecContext(ctx, query, id)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
