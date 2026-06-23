@@ -455,7 +455,7 @@ func (m *PostgresDBRepo) UpdateProcessedReservation(id, processed int) error {
 		id = $2
 	`
 
-	_, err := m.DB.ExecContext(ctx, query, id)
+	_, err := m.DB.ExecContext(ctx, query, processed, id)
 	if err != nil {
 		return err
 	}
