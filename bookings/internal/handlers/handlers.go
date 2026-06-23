@@ -517,6 +517,10 @@ func (m *Repository) AdminPostShowReservation(w http.ResponseWriter, r *http.Req
 	stringMap["src"] = src
 
 	res, err := m.DB.GetReservationByID(id)
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
 }
 
 func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Request) {
