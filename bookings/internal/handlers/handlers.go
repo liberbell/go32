@@ -521,6 +521,10 @@ func (m *Repository) AdminPostShowReservation(w http.ResponseWriter, r *http.Req
 		helpers.ServerError(w, err)
 		return
 	}
+
+	res.FirstName = r.Form.Get("first_name")
+	res.LastName = r.Form.Get("last_name")
+	res.Email = r.Form.Get("email")
 }
 
 func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Request) {
