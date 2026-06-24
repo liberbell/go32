@@ -130,6 +130,38 @@
     <script src="/static/admin/js/dashboard.js"></script>
     <!-- End custom js for this page-->
 
+    <script>
+        let attention = Prompt();
+
+        function notify(msg, msgType) {
+            notie.alert({
+                type: msgType,
+                text: msg,
+            });
+        };
+
+        function notifyModal(title, text, icon, confirmButtonText) {
+            Swal.fire({
+                title: title,
+                text: text,
+                icon: icon,
+                confirmButtonText: confirmButtonText
+            });
+        };
+
+        {{with .Error}}
+            notify("{{.}}", "error")
+        {{end}}
+
+        {{with .Flash}}
+            notify("{{.}}", "success")
+        {{end}}
+
+        {{with .Warning}}
+            notify("{{.}}", "warning")
+        {{end}}
+    </script>
+
     {{block "js" . }}
 
     {{end}}
