@@ -538,6 +538,8 @@ func (m *Repository) AdminPostShowReservation(w http.ResponseWriter, r *http.Req
 		helpers.ServerError(w, err)
 		return
 	}
+	m.App.Session.Put(r.Context(), "flash", "Channges saved")
+	http.Redirect(w, r, fmt.Sprintf("/admin/reservations-%s/", src), http.StatusSeeOther)
 }
 
 func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Request) {
