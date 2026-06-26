@@ -6,7 +6,7 @@ function Prompt() {
             position = "top-end",
         } = c;
 
-        Swal.mixin({
+        const Toast = Swal.mixin({
             toast: true,
             title: msg,
             position: position,
@@ -25,7 +25,6 @@ function Prompt() {
         const {
             msg = "",
             title = "",
-            text = "",
             footer = "",
         } = c;
 
@@ -41,7 +40,6 @@ function Prompt() {
         const {
             msg = "",
             title = "",
-            text = "",
             footer = "",
         } = c;
 
