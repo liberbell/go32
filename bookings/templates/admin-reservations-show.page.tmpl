@@ -70,7 +70,7 @@
                 icon: 'warning',
                 msg: 'Are you sure?',
                 callback: function (result) {
-                    if (result != false) {
+                    if (result !== false) {
                         window.location.href = "/admin/process-reservation/{{$src}}/" + id;
                     }
                 }
