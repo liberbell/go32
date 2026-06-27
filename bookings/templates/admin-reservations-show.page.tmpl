@@ -55,16 +55,14 @@
                 value="{{$res.Phone}}" required>
             </div>
             <hr>
-            <div>
-
-            </div class="float-left">
+            <div class="float-left">
                 <input type="submit" class="btn btn-primary" value="Save">
                 <a href="/admin/reservations-{{$src}}" class="btn btn-warning">Cancel</a>
                 <a href="#!" class="btn btn-info" onclick="processRes({{$res.ID}})">Mark as proceeded</a>
             </div>
 
             <div class="float-rigth">
-                <a href="#!" class="btn btn-dnager" onclick="deleteRes({{$res.ID}})">Delete</a>
+                <a href="#!" class="btn btn-danger" onclick="deleteRes({{$res.ID}})">Delete</a>
             </div>
         </form>
     </div>
