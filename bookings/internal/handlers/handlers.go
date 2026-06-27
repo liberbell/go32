@@ -549,4 +549,7 @@ func (m *Repository) AdminReservationsCalendar(w http.ResponseWriter, r *http.Re
 func (m *Repository) AdminProcessReservation(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(chi.URLParam(r, "id"))
 	src := chi.URLParam(r, "src")
+
+	_ = m.DB.UpdateProcessedReservation(id, 1)
+	m.App.Session.Put(r.Context(), "flash", "Reservation marked ad processed")
 }
