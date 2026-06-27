@@ -551,6 +551,6 @@ func (m *Repository) AdminProcessReservation(w http.ResponseWriter, r *http.Requ
 	src := chi.URLParam(r, "src")
 
 	_ = m.DB.UpdateProcessedReservation(id, 1)
-	m.App.Session.Put(r.Context(), "flash", "Reservation marked ad processed")
+	m.App.Session.Put(r.Context(), "flash", "Reservation marked as processed")
 	http.Redirect(w, r, fmt.Sprintf("/admin/reservations-%s", src), http.StatusSeeOther)
 }
