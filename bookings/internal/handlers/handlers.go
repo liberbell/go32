@@ -552,6 +552,11 @@ func (m *Repository) AdminReservationsCalendar(w http.ResponseWriter, r *http.Re
 	}
 	next := now.AddDate(0, 1, 0)
 	last := now.AddDate(0, -1, 0)
+	nextMonth := next.Format("01")
+	nextMonthYear := next.Format("2006")
+
+	lastMonth := last.Format("01")
+	lastMonthYear := last.Format("2006")
 
 	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{})
 }
