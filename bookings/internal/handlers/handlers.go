@@ -550,6 +550,10 @@ func (m *Repository) AdminReservationsCalendar(w http.ResponseWriter, r *http.Re
 		month, _ := strconv.Atoi(r.URL.Query().Get("m"))
 		now = time.Date(year, time.Month(month), 1, 0, 0, 0, 0, time.UTC)
 	}
+
+	data := make(map[string]interface{})
+	data["now"] = now
+
 	next := now.AddDate(0, 1, 0)
 	last := now.AddDate(0, -1, 0)
 	nextMonth := next.Format("01")
@@ -569,6 +573,7 @@ func (m *Repository) AdminReservationsCalendar(w http.ResponseWriter, r *http.Re
 
 	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{
 		StringMap: stringMap,
+		Data:      data,
 	})
 }
 
