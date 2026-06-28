@@ -564,7 +564,9 @@ func (m *Repository) AdminReservationsCalendar(w http.ResponseWriter, r *http.Re
 	stringMap["last_month"] = lastMonth
 	stringMap["last_month_year"] = lastMonthYear
 
-	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{})
+	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{
+		StringMap: stringMap,
+	})
 }
 
 func (m *Repository) AdminProcessReservation(w http.ResponseWriter, r *http.Request) {
