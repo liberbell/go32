@@ -558,6 +558,10 @@ func (m *Repository) AdminReservationsCalendar(w http.ResponseWriter, r *http.Re
 	lastMonth := last.Format("01")
 	lastMonthYear := last.Format("2006")
 
+	stringMap := make(map[string]string)
+	stringMap["next_month"] = nextMonth
+	stringMap["next_month_year"] = nextMonthYear
+
 	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{})
 }
 
