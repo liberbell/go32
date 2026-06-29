@@ -480,4 +480,10 @@ func (m *PostgresDBRepo) AllRooms() ([]models.Room, error) {
 		order by
 			room_name
 	`
+
+	rows, err := m.DB.QueryContext(ctx, query)
+	if err != nil {
+		return rooms, err
+	}
+	defer rows.Close()
 }
