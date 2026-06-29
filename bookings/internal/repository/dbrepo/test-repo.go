@@ -88,3 +88,9 @@ func (m *testDBRepo) UpdateProcessedReservation(id, processed int) error {
 
 	return nil
 }
+
+func (m *testDBRepo) AllRooms() ([]models.Room, error) {
+	var rooms []models.Room
+
+	return rooms, nil
+}
