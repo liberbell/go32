@@ -486,4 +486,23 @@ func (m *PostgresDBRepo) AllRooms() ([]models.Room, error) {
 		return rooms, err
 	}
 	defer rows.Close()
+
+	for rows.Next() {
+		var rm models.Room
+		err := rows.Scan(
+			&rm.ID,
+			&rm.RoomName,
+			&rm.CreatedAt,
+			&rm.UpdatedAt,
+		)
+		if err != nil {
+			return rooms, err
+		}
+		rooms = append(rooms, rm)
+	}
+	if err = rows.Err(); err != nil {
+		return rooms, nil
+	}
+
+	return rooms, nil
 }
