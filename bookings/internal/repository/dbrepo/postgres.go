@@ -467,5 +467,17 @@ func (m *PostgresDBRepo) UpdateProcessedReservation(id, processed int) error {
 }
 
 func (m *PostgresDBRepo) AllRooms() ([]models.Room, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
 
+	var rooms []models.Room
+
+	query := `
+		select
+			id, room_name, created_at, updated_at
+		from
+			rooms
+		order by
+			room_name
+	`
 }
