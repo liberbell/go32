@@ -465,3 +465,7 @@ func (m *PostgresDBRepo) UpdateProcessedReservation(id, processed int) error {
 
 	return nil
 }
+
+func (m *PostgresDBRepo) AllRooms() ([]models.Room, error) {
+
+}
