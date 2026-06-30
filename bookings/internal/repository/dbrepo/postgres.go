@@ -86,7 +86,7 @@ func (m *PostgresDBRepo) SearchAvailabilityByDatesByRoomID(start, end time.Time,
 	row := m.DB.QueryRowContext(ctx, query, roomID, start, end)
 	err := row.Scan(&numRows)
 	if err != nil {
-		return false, nil
+		return false, err
 	}
 
 	if numRows == 0 {
@@ -366,7 +366,7 @@ func (m *PostgresDBRepo) GetReservationByID(id int) (models.Reservation, error) 
 
 	query := `
 		select
-			r.ID, r.first_name, r.last_name, r.email, r.phone, r.start_date, r.end_date, r.room_id, r.created_at, r.updated_at, r.processed, rm.id, rm.room_name
+			r.id, r.first_name, r.last_name, r.email, r.phone, r.start_date, r.end_date, r.room_id, r.created_at, r.updated_at, r.processed, rm.id, rm.room_name
 		from
 			reservations r
 		left join
