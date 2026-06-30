@@ -501,7 +501,7 @@ func (m *PostgresDBRepo) AllRooms() ([]models.Room, error) {
 		rooms = append(rooms, rm)
 	}
 	if err = rows.Err(); err != nil {
-		return rooms, nil
+		return rooms, err
 	}
 
 	return rooms, nil
