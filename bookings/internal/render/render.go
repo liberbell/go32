@@ -17,6 +17,7 @@ import (
 var functions = template.FuncMap{
 	"humanDate":  HumanDate,
 	"formatDate": FormatDate,
+	"iterate":    Iterate,
 }
 
 var app *config.AppConfig
