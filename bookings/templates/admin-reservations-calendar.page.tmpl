@@ -7,6 +7,7 @@
 {{define "content"}}
     {{$now := index .Data "now"}}
     {{$rooms := index .Data "rooms"}}
+    {{$dim := index .IntMap "days_in_month"}}
     <div class="col-md-12">
         <div class="text-center">
             <h3>{{formatDate $now "January"}} {{index .StringMap "this_month_year"}}</h3>
@@ -26,7 +27,9 @@
             <h4>{{.RoomName}}</h4>
             <div class="table-response">
                 <table class="table table-borderd table-sm">
-                    <tr class="table-dark"></tr>
+                    <tr class="table-dark">
+                        {{range $dim}}
+                    </tr>
                 </table>
             </div>
         {{end}}
