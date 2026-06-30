@@ -587,7 +587,7 @@ func (m *Repository) AdminReservationsCalendar(w http.ResponseWriter, r *http.Re
 
 	data["rooms"] = rooms
 
-	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{
+	render.Template(w, r, "admin-reservations-calendar.page.tmpl", &models.TemplateData{
 		StringMap: stringMap,
 		Data:      data,
 		IntMap:    intMap,
