@@ -21,7 +21,14 @@
         <div class="clearfix"></div>
         
         {{range $rooms}}
-            {{.RoomName}}
+            {{$roomID := .ID}}
+
+            <h4>{{.RoomName}}</h4>
+            <div class="table-response">
+                <table class="table table-borderd table-sm">
+                    <tr class="table-dark"></tr>
+                </table>
+            </div>
         {{end}}
     </div>
 {{end}}
