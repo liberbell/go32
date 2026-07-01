@@ -506,3 +506,19 @@ func (m *PostgresDBRepo) AllRooms() ([]models.Room, error) {
 
 	return rooms, nil
 }
+
+func (m *PostgresDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end time.Time) ([]models.RoomRestriction, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	var restrictions []models.RoomRestriction
+
+	query := `
+		select
+			id, reservation_id, restriction_id, room_id, start_date, end_date
+		from
+			room_restrictions
+		where
+			$1 < end_date and $2 >= start_date and room_id $3
+	`
+}
