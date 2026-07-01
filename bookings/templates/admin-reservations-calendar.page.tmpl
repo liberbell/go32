@@ -28,7 +28,7 @@
             <div class="table-response">
                 <table class="table table-borderd table-sm">
                     <tr class="table-dark">
-                        {{range iterate $dim}}
+                        {{range $index := iterate $dim}}
                             <td class="text-center">
                                 {{$index}}
                             </td>
