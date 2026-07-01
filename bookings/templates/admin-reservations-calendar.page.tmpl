@@ -24,7 +24,7 @@
         {{range $rooms}}
             {{$roomID := .ID}}
 
-            <h4>{{.RoomName}}</h4>
+            <h4 class="mt-4">{{.RoomName}}</h4>
             <div class="table-response">
                 <table class="table table-borderd table-sm">
                     <tr class="table-dark">
@@ -33,6 +33,14 @@
                                 {{add $index 1}}
                             </td>
                         {{end}}
+                    </tr>
+
+                    <tr>
+                        <td class="text-center">
+                            {{range $index := iterate $dim}}
+                                <input type="checkbox">
+                            {{end}}
+                        </td>
                     </tr>
                 </table>
             </div>
