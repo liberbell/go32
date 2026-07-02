@@ -515,7 +515,7 @@ func (m *PostgresDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end tim
 
 	query := `
 		select
-			id, reservation_id, restriction_id, room_id, start_date, end_date
+			id, coalesce(reservation_id, 0), restriction_id, room_id, start_date, end_date
 		from
 			room_restrictions
 		where
