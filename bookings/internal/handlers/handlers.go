@@ -609,6 +609,8 @@ func (m *Repository) AdminReservationsCalendar(w http.ResponseWriter, r *http.Re
 				blockMap[y.StartDate.Format("2006-01-02")] = y.ReservationID
 			}
 		}
+		data[fmt.Sprintf("reservation_map_%d", x.ID)] = reservationMap
+		data[fmt.Sprintf("block_map_%d", x.ID)] = blockMap
 	}
 
 	render.Template(w, r, "admin-reservations-calendar.page.tmpl", &models.TemplateData{
