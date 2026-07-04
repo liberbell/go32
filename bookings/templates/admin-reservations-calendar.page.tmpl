@@ -26,6 +26,7 @@
         
         {{range $rooms}}
             {{$roomID := .ID}}
+            {{$blocks := index $.Data (printf "block_map_%d")}}
 
             <h4 class="mt-4">{{.RoomName}}</h4>
             <div class="table-response">
