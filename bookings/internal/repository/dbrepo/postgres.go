@@ -519,7 +519,7 @@ func (m *PostgresDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end tim
 		from
 			room_restrictions
 		where
-			$1 < end_date and $2 >= start_date and room_id $3
+			$1 < end_date and $2 >= start_date and room_id = $3
 	`
 	rows, err := m.DB.QueryContext(ctx, query, start, end, roomID)
 	if err != nil {
