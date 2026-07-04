@@ -445,7 +445,7 @@ func (m *PostgresDBRepo) DeleteReservation(id int) error {
 	return nil
 }
 
-func (m *PostgresDBRepo) UpdateProcessedReservation(id, processed int) error {
+func (m *PostgresDBRepo) UpdateProcessedForReservation(id, processed int) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
