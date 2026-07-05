@@ -44,6 +44,7 @@
 
                         <tr>
                             {{range $index := iterate $dim}}
+                                <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
                                 <td class="text-center">
                                     {{if gt (index $reservations (printf "%s-%s-%d" $curYear $curMonth (add $index 1))) 0}}
                                         <a href="/admin/reservations/cal/{{index $reservations (printf "%s-%s-%d" $curYear $curMonth (add $index 1))}}/show?y={{$curYear}}&m={{$curMonth}}">
@@ -67,6 +68,8 @@
                     </table>
                 </div>
             {{end}}
+            <hr>
+            <input type="submit" class="btn btn-primary" value="Save changes">
         </form>
     </div>
 {{end}}
