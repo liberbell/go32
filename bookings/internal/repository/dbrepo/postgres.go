@@ -174,7 +174,7 @@ func (m *PostgresDBRepo) GetUserByID(id int) (models.User, error) {
 		select
 			id, first_name, last_name, email, password, access_level, created_at, updated_at
 		from
-			users,
+			users
 		where
 			id = $1`
 
@@ -238,7 +238,7 @@ func (m *PostgresDBRepo) Authenticate(email, testPassword string) (int, string, 
 	err = bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(testPassword))
 	if err == bcrypt.ErrMismatchedHashAndPassword {
 		return 0, "", errors.New("incorrect password")
-	} else {
+	} else if err != nil {
 		return 0, "", err
 	}
 
