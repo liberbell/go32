@@ -641,5 +641,9 @@ func (m *Repository) AdminDeleteReservation(w http.ResponseWriter, r *http.Reque
 }
 
 func (m *Repository) AdminPostReservationsCalendar(w http.ResponseWriter, r *http.Request) {
-	log.Println("works2")
+	err := r.ParseForm()
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
 }
