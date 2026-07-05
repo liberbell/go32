@@ -639,3 +639,7 @@ func (m *Repository) AdminDeleteReservation(w http.ResponseWriter, r *http.Reque
 	m.App.Session.Put(r.Context(), "flash", "Reservation deleted")
 	http.Redirect(w, r, fmt.Sprintf("/admin/reservations-%s", src), http.StatusSeeOther)
 }
+
+func (m *Repository) AdminPostReservationsCalendar(w http.ResponseWriter, r *http.Request) {
+	log.Println("works2")
+}
