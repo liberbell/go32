@@ -27,7 +27,6 @@
         <form method="post" action="/admin/reservations-calendar">
             <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
         
-            <form method="post" action="/admin/reservations-calendar/">
                 {{range $rooms}}
                     {{$roomID := .ID}}
                     {{$blocks := index $.Data (printf "block_map_%d" .ID)}}
