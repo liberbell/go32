@@ -672,7 +672,10 @@ func (m *Repository) AdminPostReservationsCalendar(w http.ResponseWriter, r *htt
 	}
 
 	for name, _ := range r.PostForm {
-		log.Println("Form has name", name)
+		// log.Println("Form has name", name)
+		if strings.HasPrefix(name, "add_block") {
+			exploded := strings.Split(name, "_")
+		}
 	}
 
 	m.App.Session.Put(r.Context(), "flash", "Changes saved")
