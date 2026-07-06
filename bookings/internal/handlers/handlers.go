@@ -675,6 +675,7 @@ func (m *Repository) AdminPostReservationsCalendar(w http.ResponseWriter, r *htt
 		// log.Println("Form has name", name)
 		if strings.HasPrefix(name, "add_block") {
 			exploded := strings.Split(name, "_")
+			roomID, _ := strconv.Atoi(exploded[2])
 		}
 	}
 
