@@ -663,7 +663,9 @@ func (m *Repository) AdminPostReservationsCalendar(w http.ResponseWriter, r *htt
 		for name, value := range curMap {
 			if val, ok := curMap[name]; ok {
 				if val > 0 {
-					if !form.Has(fmt.Sprintf("remove_block_%d_%s", x.ID, name))
+					if !form.Has(fmt.Sprintf("remove_block_%d_%s", x.ID, name)) {
+						log.Println("would delete block", value)
+					}
 				}
 			}
 		}
