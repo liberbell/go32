@@ -561,5 +561,5 @@ func (m *PostgresDBRepo) InsertBlockForRoom(id int, startDate time.Time) error {
 			($1, $2, $3, $4, $5, $6)
 	`
 
-	_, err := m.DB.ExecContext(ctx, query, startDate, startDate.AddDate(0, 0, 1))
+	_, err := m.DB.ExecContext(ctx, query, startDate, startDate.AddDate(0, 0, 1), id, 2, time.Now())
 }
