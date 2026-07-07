@@ -557,5 +557,9 @@ func (m *PostgresDBRepo) InsertBlockForRoom(id int, startDate time.Time) error {
 	query := `
 		insert into
 			room_restrictions (start_date, end_date, room_id, restriction_id, created_at, updated_at)
+		values
+			($1, $2, $3, $4, $5, $6)
 	`
+
+	_, err := m.DB.ExecContext(ctx, query, startDate, startDate.AddDate(0, 0, 1))
 }
