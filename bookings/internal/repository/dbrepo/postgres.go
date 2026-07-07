@@ -570,3 +570,23 @@ func (m *PostgresDBRepo) InsertBlockForRoom(id int, startDate time.Time) error {
 
 	return nil
 }
+
+func (m *PostgresDBRepo) DeleteBlockForRoom(id int) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	query := `
+		delete from
+			room_restrictions
+		where
+			id = $1
+	`
+
+	_, err := m.DB.ExecContext(ctx, query, startDate, startDate.AddDate(0, 0, 1), id, 2, time.Now(), time.Now())
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+
+	return nil
+}
