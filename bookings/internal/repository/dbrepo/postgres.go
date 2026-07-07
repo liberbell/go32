@@ -549,3 +549,13 @@ func (m *PostgresDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end tim
 
 	return restrictions, nil
 }
+
+func (m *PostgresDBRepo) InsertBlockForRoom(id int, startDate time.Time) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	query := `
+		insert into
+			room_restrictions (start_date, end_date, room_id, restriction_id, created_at, updated_at)
+	`
+}
