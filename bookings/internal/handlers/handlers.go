@@ -519,8 +519,12 @@ func (m *Repository) AdminPostShowReservation(w http.ResponseWriter, r *http.Req
 	}
 
 	src := exploded[3]
+
 	stringMap := make(map[string]string)
 	stringMap["src"] = src
+
+	year := r.URL.Query().Get("y")
+	month := r.URL.Query().Get("m")
 
 	res, err := m.DB.GetReservationByID(id)
 	if err != nil {
