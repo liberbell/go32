@@ -571,7 +571,7 @@ func (m *PostgresDBRepo) InsertBlockForRoom(id int, startDate time.Time) error {
 	return nil
 }
 
-func (m *PostgresDBRepo) DeleteBlockForRoom(id int) error {
+func (m *PostgresDBRepo) DeleteBlockByID(id int) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
