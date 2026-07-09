@@ -540,6 +540,9 @@ func (m *Repository) AdminPostShowReservation(w http.ResponseWriter, r *http.Req
 	res.Email = r.Form.Get("email")
 	res.Phone = r.Form.Get("phone")
 
+	month := r.Form.Get("m")
+	year := r.Form.Get("y")
+
 	err = m.DB.UpdateReservation(res)
 	if err != nil {
 		helpers.ServerError(w, err)
