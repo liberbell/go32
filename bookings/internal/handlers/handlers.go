@@ -526,6 +526,9 @@ func (m *Repository) AdminPostShowReservation(w http.ResponseWriter, r *http.Req
 	year := r.URL.Query().Get("y")
 	month := r.URL.Query().Get("m")
 
+	stringMap["month"] = month
+	stringMap["year"] = year
+
 	res, err := m.DB.GetReservationByID(id)
 	if err != nil {
 		helpers.ServerError(w, err)
