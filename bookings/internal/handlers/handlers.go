@@ -68,7 +68,7 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 	room, err := m.DB.GetRoomByID(res.RoomID)
 	if err != nil {
 		m.App.Session.Put(r.Context(), "error", "can't find room")
-		http.Redirect(w, r, "/", http.f)
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
 	res.Room.RoomName = room.RoomName
