@@ -546,8 +546,8 @@ func (m *Repository) AdminPostShowReservation(w http.ResponseWriter, r *http.Req
 		return
 	}
 
-	month := r.Form.Get("m")
-	year := r.Form.Get("y")
+	month := r.Form.Get("month")
+	year := r.Form.Get("year")
 
 	m.App.Session.Put(r.Context(), "flash", "Changes saved")
 
