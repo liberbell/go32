@@ -97,7 +97,7 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 	if err != nil {
 		m.App.Session.Put(r.Context(), "error", "can't parse form")
-		http.Redirect(w, r, "/", http.)
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
 
