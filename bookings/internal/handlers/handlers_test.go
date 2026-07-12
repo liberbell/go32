@@ -313,6 +313,13 @@ var loginTests = []struct {
 	expectedStatusCode int
 	expectedHTML string
 	expectedLocation string
+}{
+	{
+		"valid_credentials",
+		"james@bond.com",
+		http.StatusSeeOther,
+		"",
+	}
 }
 func ()  {
 	
