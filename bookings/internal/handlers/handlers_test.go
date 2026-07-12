@@ -32,21 +32,7 @@ var theTests = []struct {
 	{"sa", "/search-availability", "GET", http.StatusOK},
 	{"contact", "/contact", "GET", http.StatusOK},
 	{"mr", "/make-reservation", "GET", http.StatusOK},
-	{"non-existent", "/green/eggs/and/ham", http.StatusNotFound}
-	// {"post-search-availability", "/search-availability", "Post", []postData{
-	// 	{key: "start", value: "2026-04-01"},
-	// 	{key: "end", value: "2026-04-20"},
-	// }, http.StatusOK},
-	// {"post-search-availability-json", "/search-availability-json", "Post", []postData{
-	// 	{key: "start", value: "2026-04-01"},
-	// 	{key: "end", value: "2026-04-20"},
-	// }, http.StatusOK},
-	// {"make-reservation", "/make-reservation", "Post", []postData{
-	// 	{key: "first_name", value: "bob"},
-	// 	{key: "last_name", value: "mary"},
-	// 	{key: "email", value: "abc@abc.com"},
-	// 	{key: "phone", value: "111-222-3333"},
-	// }, http.StatusOK},
+	{"non-existent", "/green/eggs/and/ham", "GET", http.StatusNotFound},
 }
 
 func TestHandlers(t *testing.T) {
