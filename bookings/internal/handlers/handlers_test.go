@@ -29,9 +29,10 @@ var theTests = []struct {
 	{"about", "/about", "GET", http.StatusOK},
 	{"gq", "/generals-quarters", "GET", http.StatusOK},
 	{"ms", "/majors-suite", "GET", http.StatusOK},
-	// {"sa", "/search-availability", "GET", []postData{}, http.StatusOK},
+	{"sa", "/search-availability", "GET", http.StatusOK},
 	{"contact", "/contact", "GET", http.StatusOK},
 	{"mr", "/make-reservation", "GET", http.StatusOK},
+	{"non-existent", "/green/eggs/and/ham", http.StatusNotFound}
 	// {"post-search-availability", "/search-availability", "Post", []postData{
 	// 	{key: "start", value: "2026-04-01"},
 	// 	{key: "end", value: "2026-04-20"},
