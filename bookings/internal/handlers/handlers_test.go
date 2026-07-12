@@ -340,7 +340,7 @@ func TestLogin(t *testing.T) {
 		handler.ServeHTTP(rr, req)
 
 		if rr.Code != e.expectedStatusCode {
-			t.Errorf("failed %s")
+			t.Errorf("failed %s: expected code %d, but got %d", e.name, e.expectedStatusCode, rr.Code)
 		}
 	}
 }
