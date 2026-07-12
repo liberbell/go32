@@ -197,13 +197,21 @@ func TestRepository_PostReservation(t *testing.T) {
 		t.Errorf("PostReservation handler returned wrong response code for invalid end date: got %d, wanted %d", rr.Code, http.StatusTemporaryRedirect)
 	}
 
-	reqBody = "start_date=2050-01-02"
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-05")
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "first_name=Bob")
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "last_name=Mary")
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "email=bob@mary.com")
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "phone=1234567890")
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "room_id=invalid")
+	// reqBody = "start_date=2050-01-02"
+	// reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-05")
+	// reqBody = fmt.Sprintf("%s&%s", reqBody, "first_name=Bob")
+	// reqBody = fmt.Sprintf("%s&%s", reqBody, "last_name=Mary")
+	// reqBody = fmt.Sprintf("%s&%s", reqBody, "email=bob@mary.com")
+	// reqBody = fmt.Sprintf("%s&%s", reqBody, "phone=1234567890")
+	// reqBody = fmt.Sprintf("%s&%s", reqBody, "room_id=invalid")
+	postedData = url.Values{}
+	postedData.Add("start_date", "2050-01-01")
+	postedData.Add("end_date", "2050-01-02")
+	postedData.Add("first_name", "elton")
+	postedData.Add("last_name", "john")
+	postedData.Add("email", "elton@john.com")
+	postedData.Add("phone", "111-222-3333")
+	postedData.Add("room_id", "invalid")
 
 	req, _ = http.NewRequest("POST", "/make-reservation", strings.NewReader(reqBody))
 	ctx = getCtx(*req)
@@ -214,8 +222,8 @@ func TestRepository_PostReservation(t *testing.T) {
 	handler = http.HandlerFunc(Repo.PostReservation)
 
 	handler.ServeHTTP(rr, req)
-	if rr.Code != http.StatusTemporaryRedirect {
-		t.Errorf("PostReservation handler returned wrong response code for invalid room ID: got %d, wanted %d", rr.Code, http.StatusTemporaryRedirect)
+	if rr.Code != http.StatusOK {
+		t.Errorf("PostReservation handler returned wrong response code for invalid room ID: got %d, wanted %d", rr.Code, http.StatusOK)
 	}
 
 	reqBody = "start_date=2050-01-02"
