@@ -319,7 +319,8 @@ var loginTests = []struct {
 		"james@bond.com",
 		http.StatusSeeOther,
 		"",
-	}
+		"/",
+	},
 }
 func ()  {
 	
