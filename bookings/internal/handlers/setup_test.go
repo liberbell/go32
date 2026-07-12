@@ -16,6 +16,7 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/justinas/nosurf"
 	"github.com/liber/bookings/internal/config"
+	"github.com/liber/bookings/internal/handlers"
 	"github.com/liber/bookings/internal/models"
 	"github.com/liber/bookings/internal/render"
 )
@@ -108,6 +109,17 @@ func getRoutes() http.Handler {
 	mux.Get("/user/login", Repo.ShowLogin)
 	mux.Post("/user/login", Repo.PostShowLogin)
 	mux.Get("/user/logout", Repo.Logout)
+
+	mux.Get("/dashboard", Repo.AdminDashboard)
+	mux.Get("/reservations-new", Repo.AdminNewReservations)
+	mux.Get("/reservations-all", handlers.Repo.AdminAllReservations)
+	mux.Get("/reservations-calendar", handlers.Repo.AdminReservationsCalendar)
+	mux.Post("/reservations-calendar", handlers.Repo.AdminPostReservationsCalendar)
+	mux.Get("/process-reservation/{src}/{id}/do", handlers.Repo.AdminProcessReservation)
+	mux.Get("/delete-reservation/{src}/{id}/do", handlers.Repo.AdminDeleteReservation)
+
+	mux.Get("/reservations/{src}/{id}/show", handlers.Repo.AdminShowReservation)
+	mux.Post("/reservations/{src}/{id}", handlers.Repo.AdminPostShowReservation)
 
 	FileServer := http.FileServer(http.Dir("./static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static", FileServer))
