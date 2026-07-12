@@ -39,6 +39,7 @@ var theTests = []struct {
 	{"dashboard", "/admin/dashboard", "GET", http.StatusOK},
 	{"new res", "/admin/reservation-new", "GET", http.StatusOK},
 	{"all res", "/admin/reservation-all", "GET", http.StatusOK},
+	{"show res", "/admin/reservation/new/1", "GET", http.StatusOK},
 }
 
 func TestHandlers(t *testing.T) {
