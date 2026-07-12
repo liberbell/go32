@@ -307,6 +307,17 @@ func TestRepository_AvailabilityJSON(t *testing.T) {
 	}
 }
 
+var loginTests = []struct {
+	name string
+	email string
+	expectedStatusCode int
+	expectedHTML string
+	expectedLocation string
+}
+func ()  {
+	
+}
+
 func getCtx(req http.Request) context.Context {
 	ctx, err := session.Load(req.Context(), req.Header.Get("X-Session"))
 	if err != nil {
