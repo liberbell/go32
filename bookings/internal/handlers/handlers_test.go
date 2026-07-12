@@ -222,8 +222,8 @@ func TestRepository_PostReservation(t *testing.T) {
 	handler = http.HandlerFunc(Repo.PostReservation)
 
 	handler.ServeHTTP(rr, req)
-	if rr.Code != http.StatusOK {
-		t.Errorf("PostReservation handler returned wrong response code for invalid room ID: got %d, wanted %d", rr.Code, http.StatusOK)
+	if rr.Code != http.StatusSeeOther {
+		t.Errorf("PostReservation handler returned wrong response code for invalid room ID: got %d, wanted %d", rr.Code, http.StatusSeeOther)
 	}
 
 	reqBody = "start_date=2050-01-02"
