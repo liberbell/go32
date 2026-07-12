@@ -326,7 +326,8 @@ var loginTests = []struct {
 func TestLogin(t *testing.T) {
 	for _, e := range loginTests {
 		postedData := url.Values{}
-		postedData
+		postedData.Add("email", e.email)
+		postedData.Add("password", "password")
 	}
 }
 
