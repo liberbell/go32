@@ -329,9 +329,19 @@ func TestLogin(t *testing.T) {
 		postedData.Add("email", e.email)
 		postedData.Add("password", "password")
 
-		req, _ := http.NewRequest("POST", "/user/login", string.NewReader(postedData.Encode()))
+		req, _ := http.NewRequest("POST", "/user/login", strings.NewReader(postedData.Encode()))
 		ctx := getCtx(req)
 		req = req.WithContext(ctx)
+
+		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+		rr := httptest.NewRecorder()
+
+		handler := http.HandlerFunc(Repo.PostShowLogin)
+		handler.ServeHTTP(rr, req)
+
+		if rr.Code != e.expectedStatusCode {
+			t.Errorf("failed %s")
+		}
 	}
 }
 
