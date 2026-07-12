@@ -308,11 +308,11 @@ func TestRepository_AvailabilityJSON(t *testing.T) {
 }
 
 var loginTests = []struct {
-	name string
-	email string
+	name               string
+	email              string
 	expectedStatusCode int
-	expectedHTML string
-	expectedLocation string
+	expectedHTML       string
+	expectedLocation   string
 }{
 	{
 		"valid_credentials",
@@ -322,8 +322,12 @@ var loginTests = []struct {
 		"/",
 	},
 }
-func ()  {
-	
+
+func TestLogin(t *testing.T) {
+	for _, e := range loginTests {
+		postedData := url.Values{}
+		postedData
+	}
 }
 
 func getCtx(req http.Request) context.Context {
