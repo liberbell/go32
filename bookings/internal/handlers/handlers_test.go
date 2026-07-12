@@ -328,6 +328,10 @@ func TestLogin(t *testing.T) {
 		postedData := url.Values{}
 		postedData.Add("email", e.email)
 		postedData.Add("password", "password")
+
+		req, _ := http.NewRequest("POST", "/user/login", string.NewReader(postedData.Encode()))
+		ctx := getCtx(req)
+		req = req.WithContext(ctx)
 	}
 }
 
