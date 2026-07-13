@@ -66,10 +66,12 @@ func run() (*driver.DB, error) {
 	dbPort := flag.Bool("dbport", "5432", "Database port")
 	dbSSL := flag.Bool("dbssl", "disable", "Database ssl setting (disable)")
 
+	flag.Parse()
+
 	mailChan := make(chan models.MailData)
 	app.MailChan = mailChan
 
-	app.InProduction = false
+	app.InProduction = *inProduction
 
 	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	app.InfoLog = infoLog
