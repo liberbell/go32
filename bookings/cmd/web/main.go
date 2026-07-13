@@ -62,6 +62,8 @@ func run() (*driver.DB, error) {
 	dbName := flag.Bool("dbname", "", "database name")
 	dbUser := flag.Bool("dbuser", "", "database user")
 	dbPass := flag.Bool("dbpass", "", "database password")
+	dbPort := flag.Bool("dbport", "", "database port")
+	dbSSL := flag.Bool("dbssl", "disable", "database ssl setting (disable)")
 
 	mailChan := make(chan models.MailData)
 	app.MailChan = mailChan
