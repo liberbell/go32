@@ -90,7 +90,7 @@ func run() (*driver.DB, error) {
 
 	log.Println("connecting to database...")
 	// dsn := "host=localhost port=5432 user=bookings_ope password=pass1234 dbname=bookings sslmode=disable"
-	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", *dbHost, *dbPort, *dbUser, *dbPass, *dbSSL)
+	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", *dbHost, *dbPort, *dbUser, *dbPass, *&dbName, *dbSSL)
 	db, err := driver.ConnectSQL(dsn)
 	if err != nil {
 		log.Fatal("cannot connect to database! Dying...")
