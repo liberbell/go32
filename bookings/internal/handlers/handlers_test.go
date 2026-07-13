@@ -37,9 +37,9 @@ var theTests = []struct {
 	{"login", "/user/login", "GET", http.StatusOK},
 	{"logout", "/user/logout", "GET", http.StatusOK},
 	{"dashboard", "/admin/dashboard", "GET", http.StatusOK},
-	{"new res", "/admin/reservation-new", "GET", http.StatusOK},
-	{"all res", "/admin/reservation-all", "GET", http.StatusOK},
-	{"show res", "/admin/reservation/new/1/show", "GET", http.StatusOK},
+	{"new res", "/admin/reservations-new", "GET", http.StatusOK},
+	{"all res", "/admin/reservations-all", "GET", http.StatusOK},
+	{"show res", "/admin/reservations/new/1/show", "GET", http.StatusOK},
 }
 
 func TestHandlers(t *testing.T) {
@@ -336,11 +336,11 @@ func TestLogin(t *testing.T) {
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 		rr := httptest.NewRecorder()
 
-		handler := http.HandlerFunc(Repo.PostShowLogin)
+		handler := http.HandlerFunc(Repo.AdminDeleteReservation)
 		handler.ServeHTTP(rr, req)
 
-		if rr.Code != e.expectedStatusCode {
-			t.Errorf("failed %s: expected code %d, but got %d", e.name, e.expectedStatusCode, rr.Code)
+		if rr.Code != http.StatusSeeOther {
+			t.Errorf("failed %s: expected code %d, but got %d", e.name, e.expectedResponseCode, rr.Code)
 		}
 	}
 }
