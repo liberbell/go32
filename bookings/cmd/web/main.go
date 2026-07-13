@@ -72,6 +72,7 @@ func run() (*driver.DB, error) {
 	app.MailChan = mailChan
 
 	app.InProduction = *inProduction
+	app.UseCache = *userCache
 
 	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	app.InfoLog = infoLog
@@ -88,7 +89,8 @@ func run() (*driver.DB, error) {
 	app.Session = session
 
 	log.Println("connecting to database...")
-	dsn := "host=localhost port=5432 user=bookings_ope password=pass1234 dbname=bookings sslmode=disable"
+	// dsn := "host=localhost port=5432 user=bookings_ope password=pass1234 dbname=bookings sslmode=disable"
+	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", *dbHost, *dbPort, *dbUser, *dbPass)
 	db, err := driver.ConnectSQL(dsn)
 	if err != nil {
 		log.Fatal("cannot connect to database! Dying...")
