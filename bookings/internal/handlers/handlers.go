@@ -93,7 +93,6 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
-	// reservation, ok := m.App.Session.Get(r.Context(), "reservation").(models.Reservation)
 	err := r.ParseForm()
 	if err != nil {
 		m.App.Session.Put(r.Context(), "error", "can't parse form")
@@ -129,7 +128,7 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 
 	room, err := m.DB.GetRoomByID(roomID)
 	if err != nil {
-		m.App.Session.Put(r.Context(), "error", "invalid data")
+		m.App.Session.Put(r.Context(), "error", "can't find a room")
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
@@ -150,14 +149,18 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	form.MinLength("first_name", 3)
 	form.IsEmail("email")
 
-	// form.Has("first_name", r)
 	if !form.Valid() {
 		data := make(map[string]interface{})
 		data["reservation"] = reservation
 
+		stringMap := make(map[string]string)
+		stringMap["start_date"] = sd
+		stringMap["end_date"] = ed
+
 		render.Template(w, r, "make-reservation.page.tmpl", &models.TemplateData{
-			Form: form,
-			Data: data,
+			Form:      form,
+			Data:      data,
+			StringMap: stringMap,
 		})
 		return
 	}
@@ -167,8 +170,6 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
-
-	// m.App.Session.Put(r.Context(), "reservation", reservation)
 
 	restriction := models.RoomRestriction{
 		StartDate:     startDate,
