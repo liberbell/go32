@@ -67,6 +67,10 @@ func run() (*driver.DB, error) {
 	dbSSL := flag.Bool("dbssl", "disable", "Database ssl setting (disable)")
 
 	flag.Parse()
+	if *dbName == "" || *dbUser == "" {
+		fmt.Println("missing required flag")
+		os.Exit(1)
+	}
 
 	mailChan := make(chan models.MailData)
 	app.MailChan = mailChan
