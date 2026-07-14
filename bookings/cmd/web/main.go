@@ -58,7 +58,7 @@ func run() (*driver.DB, error) {
 	gob.Register(map[string]int{})
 
 	inProduction := flag.Bool("production", true, "Application is in Production")
-	userCache := flag.Bool("cache", true, "Use template cache")
+	useCache := flag.Bool("cache", true, "Use template cache")
 	dbHost := flag.String("dbhost", "localhost", "Database host")
 	dbName := flag.String("dbname", "", "Database name")
 	dbUser := flag.String("dbuser", "", "Database user")
@@ -68,7 +68,7 @@ func run() (*driver.DB, error) {
 
 	flag.Parse()
 	if *dbName == "" || *dbUser == "" {
-		fmt.Println("missing required flag")
+		fmt.Println("Missing required flags")
 		os.Exit(1)
 	}
 
@@ -76,7 +76,7 @@ func run() (*driver.DB, error) {
 	app.MailChan = mailChan
 
 	app.InProduction = *inProduction
-	app.UseCache = *userCache
+	app.UseCache = *useCache
 
 	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	app.InfoLog = infoLog
@@ -94,7 +94,8 @@ func run() (*driver.DB, error) {
 
 	log.Println("connecting to database...")
 	// dsn := "host=localhost port=5432 user=bookings_ope password=pass1234 dbname=bookings sslmode=disable"
-	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", *dbHost, *dbPort, *dbUser, *dbPass, *&dbName, *dbSSL)
+	// dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", *dbHost, *dbPort, *dbUser, *dbPass, *&dbName, *dbSSL)
+	dsn := fmt.Sprintf("host=%s port=%s dbname=%s user=%s password=%s sslmode=%s", *dbHost, *dbPort, *dbName, *dbUser, *dbPass, *dbSSL)
 	db, err := driver.ConnectSQL(dsn)
 	if err != nil {
 		log.Fatal("cannot connect to database! Dying...")
