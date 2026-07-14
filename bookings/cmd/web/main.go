@@ -59,12 +59,12 @@ func run() (*driver.DB, error) {
 
 	inProduction := flag.Bool("production", true, "Application is in Production")
 	userCache := flag.Bool("cache", true, "Use template cache")
-	dbHost := flag.Bool("dbhost", "localhost", "Database host")
-	dbName := flag.Bool("dbname", "", "Database name")
-	dbUser := flag.Bool("dbuser", "", "Database user")
-	dbPass := flag.Bool("dbpass", "", "Database password")
-	dbPort := flag.Bool("dbport", "5432", "Database port")
-	dbSSL := flag.Bool("dbssl", "disable", "Database ssl setting (disable)")
+	dbHost := flag.String("dbhost", "localhost", "Database host")
+	dbName := flag.String("dbname", "", "Database name")
+	dbUser := flag.String("dbuser", "", "Database user")
+	dbPass := flag.String("dbpass", "", "Database password")
+	dbPort := flag.String("dbport", "5432", "Database port")
+	dbSSL := flag.String("dbssl", "disable", "Database ssl setting (disable)")
 
 	flag.Parse()
 	if *dbName == "" || *dbUser == "" {
