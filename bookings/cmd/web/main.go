@@ -59,19 +59,19 @@ func run() (*driver.DB, error) {
 
 	inProduction := flag.Bool("production", true, "Application is in Production")
 	useCache := flag.Bool("cache", true, "Use template cache")
-	dbHost := flag.String("dbhost", "localhost", "Database host")
-	dbName := flag.String("dbname", "", "Database name")
-	dbUser := flag.String("dbuser", "", "Database user")
-	dbPass := flag.String("dbpass", "", "Database password")
-	dbPort := flag.String("dbport", "5432", "Database port")
-	dbSSL := flag.String("dbssl", "disable", "Database ssl setting (disable)")
+	// dbHost := flag.String("dbhost", "localhost", "Database host")
+	// dbName := flag.String("dbname", "", "Database name")
+	// dbUser := flag.String("dbuser", "", "Database user")
+	// dbPass := flag.String("dbpass", "", "Database password")
+	// dbPort := flag.String("dbport", "5432", "Database port")
+	// dbSSL := flag.String("dbssl", "disable", "Database ssl setting (disable)")
 
 	flag.Parse()
-	if *dbName == "" || *dbUser == "" {
-		log.Println(*inProduction, *useCache, *dbHost, *dbName, *dbUser, *dbPass, *dbPort, *dbSSL)
-		fmt.Println("Missing required flags")
-		os.Exit(1)
-	}
+	// if *dbName == "" || *dbUser == "" {
+	// 	log.Println(*inProduction, *useCache, *dbHost, *dbName, *dbUser, *dbPass, *dbPort, *dbSSL)
+	// 	fmt.Println("Missing required flags")
+	// 	os.Exit(1)
+	// }
 
 	mailChan := make(chan models.MailData)
 	app.MailChan = mailChan
@@ -94,9 +94,9 @@ func run() (*driver.DB, error) {
 	app.Session = session
 
 	log.Println("connecting to database...")
-	// dsn := "host=localhost port=5432 user=bookings_ope password=pass1234 dbname=bookings sslmode=disable"
+	dsn := "host=localhost port=5432 user=bookings_ope password=pass1234 dbname=bookings sslmode=disable"
 	// dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", *dbHost, *dbPort, *dbUser, *dbPass, *&dbName, *dbSSL)
-	dsn := fmt.Sprintf("host=%s port=%s dbname=%s user=%s password=%s sslmode=%s", *dbHost, *dbPort, *dbName, *dbUser, *dbPass, *dbSSL)
+	// dsn := fmt.Sprintf("host=%s port=%s dbname=%s user=%s password=%s sslmode=%s", *dbHost, *dbPort, *dbName, *dbUser, *dbPass, *dbSSL)
 	log.Println(dsn)
 	db, err := driver.ConnectSQL(dsn)
 	if err != nil {
