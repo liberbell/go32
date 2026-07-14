@@ -68,7 +68,7 @@ func run() (*driver.DB, error) {
 
 	flag.Parse()
 	if *dbName == "" || *dbUser == "" {
-		log.Println(*inProduction, useCache, dbHost, dbName, dbUser, dbPass, dbPort, dbSSL)
+		log.Println(*inProduction, *useCache, *dbHost, *dbName, *dbUser, *dbPass, *dbPort, *dbSSL)
 		fmt.Println("Missing required flags")
 		os.Exit(1)
 	}
